@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# MODIFIED: Geoffrey Grosenbach, February 24, 2009
+#
+# DESCRIPTION: Sets hidden features of Safari 4 to make it work like Safari 3.
+#
+# From http://pastie.textmate.org/398861
+
+
+# Tab bar in previous location
+defaults write com.apple.Safari DebugSafari4TabBarIsOnTop -bool NO
+
+# Show blue loading animation behind address bar
+defaults write com.apple.Safari DebugSafari4IncludeToolbarRedesign -bool NO
+defaults write com.apple.Safari DebugSafari4LoadProgressStyle -bool NO
+
+# To undo:
+#defaults delete com.apple.Safari <key>
+

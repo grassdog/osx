@@ -1,0 +1,57 @@
+#!/bin/env ruby -w
+
+# Pull remote changes for several directories at once 
+# if they are git directories.
+#
+# AUTHOR: Geoffrey Grosenbach
+#         April 28, 2009
+#
+# USAGE:
+#
+#   gitup repos/*
+
+require "optparse"
+
+options = {
+  :recurse => false,
+  :verbose => false,
+}
+
+ARGV.options do |opts|
+  opts.banner = "Usage:  #{File.basename($PROGRAM_NAME)} [OPTIONS] [DIRECTORY]"
+
+  opts.separator ""
+  opts.separator "Common Options:"
+
+  opts.on( "-h", "--help",
+  "Show this message." ) do
+    puts opts
+    exit
+  end
+  opts.on( "-r", "--recurse",
+  "Recurse into subdirectories, looking for .git" ) do
+    options[:recurse] = true
+  end
+  opts.on( "-v", "--verbose",
+  "Output extra info." ) do
+    options[:verbose] = true
+  end
+
+  begin
+    opts.parse!
+  rescue
+    puts opts
+    exit
+  end
+end
+
+dirs = ARGV.first ? ARGV : [options[:recurse] ? './**/*' : './*']
+
+Dir[*dirs].each do |project|
+  if File.exist?(File.join(project, '.git'))
+    puts "== Updating #{project}"
+    system "cd #{project} && git pull && git --no-pager status"
+  else
+    puts "Skipping: #{project}" if options[:verbose]
+  end
+end

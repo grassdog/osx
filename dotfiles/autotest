@@ -1,0 +1,48 @@
+
+Autotest.add_hook(:initialize) { |autotest|
+  system "rake db:migrate" if autotest.class.to_s == "RailsAutotest"
+}
+
+# Autotest.send(:alias_method, :real_make_test_cmd, :make_test_cmd)
+# Autotest.send(:define_method, :make_test_cmd) do |*args|
+#   real_make_test_cmd(*args).sub('test/unit', %[rubygems -e "require 'redgreen'"])
+# end
+
+# -*- ruby -*-
+
+# require 'autotest/growl'
+# require 'autotest/html_report'
+# require 'autotest/kdenotify'
+# require 'autotest/menu'
+#require 'autotest/pretty'
+require 'autotest/redgreen'
+# require 'autotest/snarl'
+require 'autotest/timestamp'
+
+Autotest.add_hook :ran_command do |at|
+  image_root = "~/web/rails/repos/sandbox/icons/autotest"
+  results = [at.results].flatten.join("\n")
+  # RSpec
+  output = results.slice(/(\d+)\s+examples?,\s*(\d+)\s+failures?(,\s*(\d+)\s+not implemented)?/)
+  if !output.nil?
+    # RSpec
+    if $~[2].to_i > 0
+      growl_it "FAIL", "#{output}", "#{image_root}/fail.png", 2
+    else
+      growl_it "Pass", "#{output}", "#{image_root}/pass.png"
+    end
+  else
+    # Test/Unit
+    output = results.slice(/(\d+)\s+tests?, (\d+)\s+assertions?, (\d+)\s+failures?, (\d+)\s+errors?/)
+    if $~[3].to_i > 0
+      growl_it "FAIL", "#{output}", "#{image_root}/fail.png", 2
+    else
+      growl_it "Pass", "#{output}", "#{image_root}/pass.png"
+    end
+  end
+end
+
+def growl_it title, msg, img="", pri=0, sticky=""
+  # system "growlnotify -n autotest --image #{img} -p #{pri} -m #{msg.inspect} #{title} #{sticky}"
+  system "osascript ~/bin/scpt/notify.applescript '#{title}: #{msg}'"
+end

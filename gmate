@@ -1,0 +1,16 @@
+#!/bin/env ruby -w
+
+# Take output of grep and open all filenames in TextMate.
+#
+# AUTHOR: Geoffrey Grosenbach, May 2008
+
+input = ARGV.first || STDIN.read
+
+filenames = []
+input.scan(/^([^:]+):/).each do |match|
+  filenames << match.first
+end
+
+filenames.uniq!
+
+system "mate #{filenames.join(' ')}"

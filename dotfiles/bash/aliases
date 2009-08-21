@@ -11,10 +11,7 @@ function cr() {
  cd ~/repos/$*
 }
 
-# Common -- Some are from Damian Conway
-alias a='ls -A' # -A all except literal . ..
-alias la="ls -A -l -G"
-alias c='clear'
+# Common
 alias cdd='cd -'  # goto last dir cd'ed from
 alias cl='clear; l'
 function cdc() { 
@@ -23,15 +20,13 @@ function cdc() {
 alias cls='clear; ls'
 alias h='history'
 alias l.='ls -d .[^.]*'
-alias l='ls -lhGt'  # -l long listing, most recent first
+alias l='ls -lhGF'  # -l long listing
                     # -G color
 alias lh="ls -lh"
 alias ll='ls -lhG'  # -l long listing, human readable, no group info
 alias lt='ls -lt' # sort with recently modified first
-#alias l='ls -lh'
-#alias lg='ls -lG'
-#alias ll='ls -lh'
-alias la='ls -la'
+alias la="ls -A -l -G"
+
 
 alias md='mkdir -p'
 alias s='cd ..'   # up one dir
@@ -47,6 +42,8 @@ alias k9="killall -9"
 function killnamed () { 
     ps ax | grep $1 | cut -d ' ' -f 2 | xargs kill 
 }
+alias psa='ps auxw' # Wide ps sorted by CPU usage
+
 function zipr() {
   zip -r $1.zip $1
 }

@@ -114,6 +114,9 @@ function new-git() {
   git config push.default current
 }
 
+#Command to add local git to external repo
+#git remote add origin git@github.com:grassdog/binfiles.git
+
 # Text editing
 # Emacs
 alias em="open -a Emacs"

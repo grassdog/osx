@@ -10,6 +10,7 @@ alias cg='cd /Library/Ruby/Gems/1.8/gems/'
 function cr() {
  cd ~/repos/$*
 }
+alias cdp='cd `dirname !$`' # CD to parent dir of previous file
 
 # Common
 alias cdd='cd -'  # goto last dir cd'ed from
@@ -20,7 +21,7 @@ function cdc() {
 alias cls='clear; ls'
 alias h='history'
 alias l.='ls -d .[^.]*'
-alias l='ls -lhGF'  # -l long listing
+alias l='ls -ohGF'  # -l long listing
                     # -G color
 alias lh="ls -lh"
 alias ll='ls -lhG'  # -l long listing, human readable, no group info

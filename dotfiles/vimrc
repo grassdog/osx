@@ -3,8 +3,7 @@
 "set nocompatible
 set history=100
 set undolevels=3000
-set noautoindent
-set nocindent
+"set nocindent
 set hlsearch
 set nostartofline
 
@@ -40,7 +39,11 @@ set tabstop=4 " tab spacing (settings below are just to unify it)
 set softtabstop=4 " unify
 set shiftwidth=4 " unify 
 set expandtab " give me spaces please!
+set smarttab
+set autoindent
 "set nowrap " do not wrap lines  
+
+filetype plugin on
 
 " have <F1> prompt for a help topic, rather than displaying the introduction
 " page, and have it do this from any mode:
@@ -61,7 +64,14 @@ map <F4> :set wrap!<CR>
 "toggle search highlighting
 map <F5> :set hlsearch!<CR>
 
+"toggle tag list window
+map <F6> :TlistToggle
+
 "Fix common mistypes
 abbreviate teh the
 
+"Set up smart indenting for python
+autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 
+" Trim trailing whitespace on save
+autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``

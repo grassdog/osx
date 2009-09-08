@@ -2,8 +2,8 @@
 
 # Utility
 alias reload='source ~/bin/dotfiles/bash/aliases'
-alias ea='mate -w ~/bin/dotfiles/bash/aliases && reload' # Edit aliases
-alias ee="mate ~/bin/dotfiles/bash/env"
+alias ea='vim -f ~/bin/dotfiles/bash/aliases && reload' # Edit aliases
+alias ee="vim ~/bin/dotfiles/bash/env"
 
 # Quicker cd
 alias cg='cd /Library/Ruby/Gems/1.8/gems/'
@@ -28,7 +28,6 @@ alias ll='ls -lhG'  # -l long listing, human readable, no group info
 alias lt='ls -lt' # sort with recently modified first
 alias la="ls -A -l -G"
 
-
 alias md='mkdir -p'
 alias s='cd ..'   # up one dir
 
@@ -38,12 +37,14 @@ function take() {
     cd "$1" 
 }
 
+# Processes
 alias e='exit'
 alias k9="killall -9"
 function killnamed () { 
     ps ax | grep $1 | cut -d ' ' -f 2 | xargs kill 
 }
-alias psa='ps auxw' # Wide ps sorted by CPU usage
+alias psu='ps auxw' # Wide ps sorted by CPU usage
+alias psf='ps ax --forest'
 
 function zipr() {
   zip -r $1.zip $1
@@ -69,6 +70,9 @@ function new-hg() {
     ssh hg@example.com "hg init $1"
     hg clone ssh://hg@example.com/$1
 }
+
+# Mysql
+alias startmysql="cd /usr/local/mysql ; sudo -u mysql /usr/local/mysql/bin/mysqld_safe &"
 
 # Git
 alias ungit="find . -name '.git' -exec rm -rf {} \;"

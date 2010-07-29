@@ -1,30 +1,30 @@
+"
+" Ray Grasso's vim settings built up over a number of years from a variety of sources
+"
 
-
-"set nocompatible
 set history=100
 set undolevels=3000
-"set nocindent
-set hlsearch
-set nostartofline
 
+set hlsearch " Highlight search terms
+set smartcase " Ignore case when search term is all lower case
 
-set ignorecase
+set nostartofline " Keep cursor at indent level on new line
 
-set isk+=_,$,@,%,#,- " none of these should be word dividers, so make them not be
-set ffs=unix,dos,mac " support all three, in this order
+set isk+=_,$,@,%,#,- " None of these should be word dividers, so make them not be
+set ffs=unix,dos,mac " Support all three, in this order
 
 set ruler " Always show current positions along the bottom 
-set cmdheight=1 " the command bar is 2 high
-set backspace=2 " make backspace work normal
+set cmdheight=1 " The command bar is 2 high
+set backspace=2 " Make backspace work normally
 
-set shortmess=atI " shortens messages to avoid 'press a key' prompt
-set noerrorbells " don't make noise
-set novisualbell " don't blink
+set shortmess=atI " Shortens messages to avoid 'press a key' prompt
+set noerrorbells " Don't make noise
+set novisualbell " Don't blink
 
-set showmatch " show matching brackets
-set mat=3 " how many tenths of a second to blink matching brackets for
+set showmatch " Show matching brackets
+set mat=3 " How many tenths of a second to blink matching brackets for
 
-set novisualbell " don't blink
+" Output some interesting info on the status line
 set statusline=%F%m%r%h%w\ [FMT=%{&ff}]\ [TYPE=%Y]\ [POS=%04l,%04v][%p%%]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [LEN=%L]
 set laststatus=2 " always show the status line
 
@@ -32,18 +32,20 @@ if has("syntax")
    syntax on
 endif
 
-"set ai " autoindent
-"set si " smartindent 
-"set cindent " do c-style indenting
-set tabstop=4 " tab spacing (settings below are just to unify it)
-set softtabstop=4 " unify
-set shiftwidth=4 " unify 
+set autoindent " Match our indent on a new line
+set smartindent " Will indent automatically on braces and cinwords
+
+" Unify out tab stops
+set tabstop=4 " Tab spacing (settings below are just to unify it)
+set softtabstop=4
+set shiftwidth=4 
+
 set expandtab " give me spaces please!
 set smarttab
-set autoindent
+
 "set nowrap " do not wrap lines  
 
-filetype plugin on
+filetype plugin on " Ensure file type detection is on
 
 " have <F1> prompt for a help topic, rather than displaying the introduction
 " page, and have it do this from any mode:

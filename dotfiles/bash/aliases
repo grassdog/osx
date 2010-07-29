@@ -134,6 +134,7 @@ function ct() {
 alias le='less -S'
 alias vi='vim'
 alias g='gvim'
+alias gv='gvim'
 alias m='mate'
 
 # TextMate

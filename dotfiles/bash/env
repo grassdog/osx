@@ -1,7 +1,7 @@
 # Set my environment variables
 
-EDITOR='mate'
-#EDITOR='vim'
+#EDITOR='mate'
+EDITOR='vim'
 PAGER='less'
 
 # MacPorts: adding an appropriate PATH variable for use with MacPorts.

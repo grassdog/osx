@@ -6,11 +6,12 @@ set columns=120
 set go-=T
 
 " Colours
-"color railscasts
+color railscasts
 
-set bg=dark
-if &background == "dark"
-    hi normal guibg=black
-    set transp=8
-endif
+" Alternatively go with a dark background
+"set bg=dark
+"if &background == "dark"
+"    hi normal guibg=black
+"    set transp=8
+"endif
 

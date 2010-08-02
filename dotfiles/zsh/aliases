@@ -42,6 +42,7 @@ function take() {
 alias le='less -S'
 alias v='vim'
 alias g='gvim'
+alias gv='gvim'
 alias m='mate'
 
 function markdown() { 
@@ -86,7 +87,7 @@ alias gnp="git-notpushed"
 alias gp='git push'
 alias gst='git status'
 alias gt='git status'
-alias g='git status'
+alias gs='git status'
 alias eg='mate .git/config'
 # Git clone from GitHub
 function gch() {

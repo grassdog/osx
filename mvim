@@ -34,7 +34,15 @@ binary="$VIM_APP_DIR/MacVim.app/Contents/MacOS/Vim"
 # Next, peek at the name used to invoke this script, and set options
 # accordingly.
 
+# Pass -n if you want to open in a new window
 tabs=true
+if [ "$1" = "-n" ]
+then
+    echo "opening in a new window"
+    tabs=false
+    shift
+fi
+
 name="`basename "$0"`"
 gui=
 opts=
@@ -60,7 +68,7 @@ esac
 # not; we work around this when this script is invoked as "gvim" or "rgview"
 # etc., but not when it is invoked as "vim -g".
 if [ "$gui" ]; then
-    if $tabs && [[ `$binary --serverlist` = "VIM" ]]; then
+    if $tabs ; then
         exec "$binary" -g $opts --remote-tab-silent ${1:+"$@"}
     else
         # Note: this isn't perfect, because any error output goes to the

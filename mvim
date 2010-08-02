@@ -34,6 +34,7 @@ binary="$VIM_APP_DIR/MacVim.app/Contents/MacOS/Vim"
 # Next, peek at the name used to invoke this script, and set options
 # accordingly.
 
+tabs=true
 name="`basename "$0"`"
 gui=
 opts=
@@ -59,11 +60,15 @@ esac
 # not; we work around this when this script is invoked as "gvim" or "rgview"
 # etc., but not when it is invoked as "vim -g".
 if [ "$gui" ]; then
-	# Note: this isn't perfect, because any error output goes to the
-	# terminal instead of the console log.
-	# But if you use open instead, you will need to fully qualify the
-	# path names for any filenames you specify, which is hard.
-	exec "$binary" -g $opts ${1:+"$@"}
+    if $tabs && [[ `$binary --serverlist` = "VIM" ]]; then
+        exec "$binary" -g $opts --remote-tab-silent ${1:+"$@"}
+    else
+        # Note: this isn't perfect, because any error output goes to the
+	    # terminal instead of the console log.
+	    # But if you use open instead, you will need to fully qualify the
+	    # path names for any filenames you specify, which is hard.
+	    exec "$binary" -g $opts ${1:+"$@"}
+    fi
 else
 	exec "$binary" $opts ${1:+"$@"}
 fi

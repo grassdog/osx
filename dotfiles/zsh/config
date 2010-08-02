@@ -2,8 +2,8 @@ autoload -U colors
 colors
 setopt prompt_subst
 PROMPT='
-%~ %{$fg_bold[yellow]%}$(vcprompt)
-→ %{$reset_color%}'
+%{$fg[cyan]%}%n@%m:%{$reset_color%}%{$fg[yellow]%}${PWD/#$HOME/~}%{$reset_color%} %{$fg[blue]%}$(vcprompt)
+%{$fg[cyan]%}→ %{$reset_color%}'
 
 # Set RPROMPT to have info show up on the right, too.
 
@@ -13,7 +13,7 @@ PROMPT='
 # setopt PRINT_EXIT_VALUE
 
 setopt CORRECT
-setopt CORRECTALL
+setopt NOCORRECTALL # Only want commands not args
 
 setopt hist_ignore_dups     # ignore duplication command history list
 setopt share_history        # share command history data
@@ -24,6 +24,8 @@ setopt EXTENDED_HISTORY # add more info
 # Other tabbing options
 # setopt NO_AUTO_MENU
 # setopt BASH_AUTO_LIST
+
+setopt autopushd pushdminus pushdtohome autocd pushdignoredups
 
 #############################
 # Variables
@@ -46,5 +48,22 @@ compinit
 # Make CTRL-W delete after other chars, not just spaces
 WORDCHARS=${WORDCHARS//[&=\/;\!#%\{]}
 
+# Emacs key bindings
 bindkey -e
+
+bindkey "\e[1~" beginning-of-line
+bindkey "\e[2~" quoted-insert
+bindkey "\e[3~" delete-char
+bindkey "\e[4~" end-of-line
+bindkey "\e[5~" beginning-of-history
+bindkey "\e[6~" end-of-history
+bindkey "\e[7~" beginning-of-line
+bindkey "\e[8~" end-of-line
+bindkey "\e[H" beginning-of-line
+bindkey "\e[F" end-of-line
+bindkey "\eOH" beginning-of-line
+bindkey "\eOF" end-of-line
+bindkey "\eOd" backward-word
+bindkey "\eOc" forward-word 
+
 

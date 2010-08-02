@@ -1,24 +1,18 @@
 # Command Enhancements
 
 # Utility
-alias reload='source ~/bin/dotfiles/bash/aliases'
+alias reload='source ~/bin/dotfiles/zsh/aliases'
 alias ea='vim -f ~/bin/dotfiles/bash/aliases && reload' # Edit aliases
-alias ee="vim ~/bin/dotfiles/bash/env"
 
 # Quicker cd
-alias cg='cd /Library/Ruby/Gems/1.8/gems/'
-function cr() {
- cd ~/repos/$*
-}
 alias cdp='cd `dirname !$`' # CD to parent dir of previous file
 
 # Common
 alias cdd='cd -'  # goto last dir cd'ed from
-alias cl='clear; l'
+alias cls='clear; l'
 function cdc() { 
     cd $1; ls 
 }
-alias cls='clear; ls'
 alias h='history'
 alias l.='ls -d .[^.]*'
 alias l='ls -ohGF'  # -l long listing
@@ -30,7 +24,6 @@ alias la="ls -A -l -G"
 
 alias md='mkdir -p'
 alias s='cd ..'   # up one dir
-
 
 function take() { 
     mkdir -p "$1"
@@ -45,31 +38,14 @@ function killnamed () {
 }
 alias psu='ps auxw' # Wide ps sorted by CPU usage
 alias psf='ps ax --forest'
-
-function zipr() {
-  zip -r $1.zip $1
-}
-
-# Finder
-alias o='open . &'
-alias ff='open -a Firefox'
-
-# General code
-
-# From Chris Wanstrath
-function pless() { 
-    pygmentize $1 | less -r 
-}
-
-# Processes
 alias tu='top -o cpu' # cpu
 alias tm='top -o vsize' # memory
 
-# Mercurial hg
-function new-hg() {
-    ssh hg@example.com "hg init $1"
-    hg clone ssh://hg@example.com/$1
-}
+# Finder
+alias o='open . &'
+ff()     {  open -a "/Applications/Firefox.app" "$@"  }
+safari() {  open -a Safari "$@"  }
+alias apps='open /Applications'
 
 # Mysql
 alias startmysql="cd /usr/local/mysql ; sudo -u mysql /usr/local/mysql/bin/mysqld_safe &"
@@ -96,7 +72,8 @@ alias g='git status'
 alias eg='mate .git/config'
 # Git clone from GitHub
 function gch() {
-  git clone git://github.com/$USER/$1.git
+  #git clone git://github.com/$USER/$1.git
+  git clone git://github.com/grassdog/$1.git
 }
 
 # Setup a tracking branch from [remote] [branch_name]
@@ -121,50 +98,15 @@ function new-git() {
 #Command to add local git to external repo
 #git remote add origin git@github.com:grassdog/binfiles.git
 
-# Text editing
-# Emacs
-alias em="open -a Emacs"
-alias emm="open -a Emacs ."
-# Regenerate TAGS file from file arguments
-function ct() {
-  rm -f TAGS
-  etags --append --output=TAGS $*
-}
-
 alias le='less -S'
 alias vi='vim'
 alias g='gvim'
 alias gv='gvim'
 alias m='mate'
 
-# TextMate
-alias et="mate"
-alias ett="mate ."
-alias etr="mate app config lib db schema public spec test vendor/gems vendor/plugins Rakefile Capfile Vladfile Todofile README stories merb slices tasks features &"
-
-# Ruby
-alias r="rake"
-
 function markdown() { 
 /Applications/TextMate.app/Contents/SharedSupport/Support/bin/Markdown.pl $1 > $1.html 
 }
-
-# Rails
-alias mr='mongrel_rails start'
-alias ms='mongrel_rails stop'
-alias rp='touch tmp/restart.txt'
-alias sc='./script/console'
-alias sg='./script/generate'
-alias sp='./script/plugin'
-alias ss='./script/server'
-alias tl='tail -f log/*.log'
-alias ts='thin start'
-
-# TDD / BDD
-
-alias aa='autotest'
-alias aaf='autotest -f' # Don't run all at start
-alias aas="./script/autospec"
 
 # Setup a tunnel
 function haproxyssh() { 
@@ -173,28 +115,8 @@ function haproxyssh() {
 
 # Syntax check Javascript
 function jsc() { 
-  jsl -conf /etc/jsl/jsl.conf -process $1 
+  jsl -conf ~/bin/jsl.default.conf -process $1 
 }
-
-function aiff2mp3() { 
-  lame -h -V 0 $1.aif $1.mp3 
-}
-function wav2mp3() { 
-  lame -h -V 0 $1.wav $1.mp3 
-}
-
-
-# XCode
-# Analyze release build
-alias sx="xcodebuild clean && ~/src/checker-0.146/scan-build -k -V xcodebuild"
-# Analyze test build
-alias sxt="xcodebuild -target Test clean && ~/src/checker-0.146/scan-build -k -V xcodebuild -target Test"
-# Call with -target Foo
-function sxx() { 
-  xcodebuild $* clean && ~/src/checker-0.146/scan-build -k -V xcodebuild $* 
-}
-
-alias ox="open *.xcodeproj"
 
 # Nginx
 function nginx_stop() {
@@ -203,13 +125,6 @@ function nginx_stop() {
 function nginx_start() {
     sudo /opt/nginx/sbin/nginx
 }
-
-# TaskPaper
-function new-tp() {
-    touch $1.taskpaper
-    open $1.taskpaper
-}
-
 
 # From http://github.com/suztomo/dotfiles
 function rmf(){

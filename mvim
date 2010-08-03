@@ -69,7 +69,7 @@ esac
 # etc., but not when it is invoked as "vim -g".
 if [ "$gui" ]; then
     if $tabs ; then
-        exec "$binary" -g $opts --remote-tab-silent ${1:+"$@"}
+        exec "$binary" -g $opts --remote-tab-silent ${1:+"$@"} 2>/dev/null
     else
         # Note: this isn't perfect, because any error output goes to the
 	    # terminal instead of the console log.

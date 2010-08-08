@@ -127,14 +127,14 @@ function nginx_start() {
 }
 
 # From http://github.com/suztomo/dotfiles
-function rmf(){
+function rmf() {
     for file in $*
     do
         __rm_single_file $file
     done
 }
 
-function __rm_single_file(){
+function __rm_single_file() {
     if ! [ -d ~/.Trash/ ]
     then
         command /bin/mkdir ~/.Trash

@@ -22,6 +22,7 @@ alias lh="ls -lh"
 alias ll='ls -lhG'  # -l long listing, human readable, no group info
 alias lt='ls -lt' # sort with recently modified first
 alias la="ls -A -l -G"
+alias tl="tree | less -S" # Tree view
 
 alias md='mkdir -p'
 
@@ -39,7 +40,7 @@ function take() {
     cd "$1" 
 }
 
-alias le='less -S'
+alias le='less -SR'
 alias v='vim'
 alias g='gvim'
 alias gv='gvim'

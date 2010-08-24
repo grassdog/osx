@@ -14,6 +14,11 @@ if exists("loaded_ruby_ftplugin") | finish | endif
 
 let b:did_ftplugin = 1
 
+" Set tabs to 2 for ruby files
+set tabstop=2 
+set softtabstop=2
+set shiftwidth=2 
+
 " Make sure the continuation lines below do not cause problems in
 " compatibility mode.
 let s:save_cpo = &cpo

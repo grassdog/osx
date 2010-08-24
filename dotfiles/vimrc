@@ -45,6 +45,8 @@ set smarttab
 
 "set nowrap " do not wrap lines  
 
+filetype on
+filetype indent on " File specific indents
 filetype plugin on " Ensure file type detection is on
 
 " have <F1> prompt for a help topic, rather than displaying the introduction
@@ -77,3 +79,14 @@ autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,
 
 " Trim trailing whitespace on save
 autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
+
+" Add omni funcs for all formats
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+autocmd FileType c set omnifunc=ccomplete#Complete
+autocmd FileType ruby set omnifunc=rubycomplete#Complete
+

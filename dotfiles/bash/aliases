@@ -98,7 +98,7 @@ function new-git() {
 #Command to add local git to external repo
 #git remote add origin git@github.com:grassdog/binfiles.git
 
-alias le='less -S'
+alias le='less -SR'
 alias vi='vim'
 alias g='gvim'
 alias gv='gvim'

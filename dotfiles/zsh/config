@@ -12,7 +12,8 @@ PROMPT='
 
 # setopt PRINT_EXIT_VALUE
 
-setopt CORRECT
+# I don't want corrections
+setopt NOCORRECT
 setopt NOCORRECTALL # Only want commands not args
 
 setopt hist_ignore_dups     # ignore duplication command history list

@@ -8,6 +8,8 @@ set go-=T
 " Colours
 color railscasts
 
+set guifont=Menlo:h12
+
 " Alternatively go with a dark background
 "set bg=dark
 "if &background == "dark"

@@ -72,6 +72,7 @@ alias startmysql="cd /usr/local/mysql ; sudo -u mysql /usr/local/mysql/bin/mysql
 
 # Git
 alias ungit="find . -name '.git' -exec rm -rf {} \;"
+alias ga='git add'
 alias gb='git branch'
 alias gba='git branch -a'
 alias gc='git commit -v'
@@ -84,11 +85,11 @@ alias gco='git checkout'
 alias gd='git diff'
 alias gdm='git diff master'
 alias gl='git pull'
-alias gnp="git-notpushed"
-alias gp='git push'
+#alias gnp="git-notpushed"
+#alias gp='git push'
 alias gst='git status'
 alias gs='git status -s'
-alias eg='mate .git/config'
+alias eg='gvim .git/config'
 # Git clone from GitHub
 function gch() {
   #git clone git://github.com/$USER/$1.git

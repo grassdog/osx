@@ -1,4 +1,4 @@
-#!/bin/env ruby -w
+#!/usr/bin/env ruby -w
 
 # Pull remote changes for several directories at once 
 # if they are git directories.

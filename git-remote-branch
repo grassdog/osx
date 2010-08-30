@@ -1,4 +1,4 @@
-#!/bin/env ruby
+#!/usr/bin/env ruby
 #
 # git-remote-branch 0.1 - 2008-01-25
 # by Carl Mercier (carl@carlmercier.com)

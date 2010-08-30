@@ -1,4 +1,4 @@
-#!/bin/env ruby -w
+#!/usr/bin/env ruby -w
 
 # Take output of grep and open all filenames in TextMate.
 #

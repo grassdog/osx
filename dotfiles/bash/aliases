@@ -31,7 +31,6 @@ function take() {
 }
 
 # Processes
-alias e='exit'
 alias k9="killall -9"
 function killnamed () { 
     ps ax | grep $1 | cut -d ' ' -f 2 | xargs kill 
@@ -51,7 +50,7 @@ alias apps='open /Applications'
 alias startmysql="cd /usr/local/mysql ; sudo -u mysql /usr/local/mysql/bin/mysqld_safe &"
 
 # Git
-alias ungit="find . -name '.git' -exec rm -rf {} \;"
+#alias ungit="find . -name '.git' -exec rm -rf {} \;"
 alias gb='git branch'
 alias gba='git branch -a'
 alias gc='git commit -v'
@@ -69,7 +68,7 @@ alias gp='git push'
 alias gst='git status'
 alias gt='git status'
 alias g='git status'
-alias eg='mate .git/config'
+alias eg='vim .git/config'
 # Git clone from GitHub
 function gch() {
   #git clone git://github.com/$USER/$1.git

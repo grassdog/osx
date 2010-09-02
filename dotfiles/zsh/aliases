@@ -1,8 +1,18 @@
 # Command Enhancements
 
+# Make my MBP fully hibernate
+alias hibernateon="sudo pmset -a hibernatemode 5"
+alias hibernateoff="sudo pmset -a hibernatemode 3"
+
+# Playup code
+alias pup="cd ~/code/playup/puge"
+
+# rvm stuff
+alias rvl="rvm list gemsets"
+
 # Utility
 alias reload='source ~/bin/dotfiles/zsh/aliases'
-alias ea='vim -f ~/bin/dotfiles/bash/aliases && reload' # Edit aliases
+alias ea='vim -f ~/bin/dotfiles/zsh/aliases && reload' # Edit aliases
 
 # Quicker cd
 alias cdp='cd `dirname !$`' # CD to parent dir of previous file
@@ -14,7 +24,7 @@ function cdc() {
     cd $1; ls 
 }
 alias ..='cd ..'   # up one dir
-alias h='history'
+alias h='history -40'
 alias l.='ls -d .[^.]*'
 alias l='ls -ohGF'  # -l long listing
                     # -G color

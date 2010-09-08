@@ -77,9 +77,6 @@ abbreviate teh the
 "Set up smart indenting for python
 autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 
-" Trim trailing whitespace on save
-autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
-
 " Add omni funcs for all formats
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS

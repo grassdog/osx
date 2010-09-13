@@ -20,6 +20,9 @@
 #*.tar
 #*.zip
 
+# RVM control files
+.rvmrc
+
 # Logs and databases #
 ######################
 *.log

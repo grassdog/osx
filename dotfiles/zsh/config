@@ -15,6 +15,7 @@ PROMPT='
 # I don't want corrections
 setopt NOCORRECT
 setopt NOCORRECTALL # Only want commands not args
+setopt CLOBBER      # Allow redirect to clobber files
 
 setopt hist_ignore_dups     # ignore duplication command history list
 setopt share_history        # share command history data

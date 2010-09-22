@@ -1,22 +1,19 @@
-" My vim settings built up over a number of years from a variety of sources
-
 filetype off
 call pathogen#runtime_append_all_bundles()
 filetype plugin indent on
 
-" Remove old vi cruft
 set nocompatible
 
 " Security
 set modelines=0
 
-" Tabs/Spaces
+" Tabs/spaces
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
 
-"Basic stuff
+" Basic options
 set encoding=utf-8
 set scrolloff=3
 set autoindent
@@ -25,15 +22,14 @@ set showcmd
 set hidden
 set wildmenu
 set wildmode=list:longest
-set noerrorbells " Don't make noise
-set novisualbell " Don't blink
+set visualbell
 set cursorline
 set ttyfast
 set ruler
 set backspace=indent,eol,start
 set relativenumber
 set laststatus=2
-"set undofile
+set undofile
 
 " Backups
 set backupdir=~/.vim/tmp/backup// " backups
@@ -72,11 +68,15 @@ syntax on
 set background=dark
 colorscheme delek
 
+" NERD Tree
+map <F2> :NERDTreeToggle<cr>
+let NERDTreeIgnore=['.vim$', '\~$', '.*\.pyc$', 'pip-log\.txt$']
+
 " Use the damn hjkl keys
-"nnoremap <up> <nop>
-"nnoremap <down> <nop>
-"nnoremap <left> <nop>
-"nnoremap <right> <nop>
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
 
 " And make them fucking work, too.
 nnoremap j gj
@@ -192,8 +192,8 @@ map <leader>v V`]
 inoremap <C-_> <Space><BS><Esc>:call InsertCloseTag()<cr>a
 
 " Faster Esc
-"inoremap <Esc> <nop>
-"inoremap jj <ESC>
+inoremap <Esc> <nop>
+inoremap jj <ESC>
 
 " Scratch
 nmap <leader><tab> :Sscratch<cr><C-W>x<C-j>:resize 15<cr>
@@ -252,90 +252,3 @@ if has('gui_running')
 
     highlight SpellBad term=underline gui=undercurl guisp=Orange
 endif
-
-
-
-" My old settings which I need to review
-
-""set history=100
-"set undolevels=3000
-
-"set hlsearch " Highlight search terms
-"set smartcase " Ignore case when search term is all lower case
-
-"set nostartofline " Keep cursor at indent level on new line
-
-"set isk+=_,$,@,%,#,- " None of these should be word dividers, so make them not be
-"set ffs=unix,dos,mac " Support all three, in this order
-
-"set ruler " Always show current positions along the bottom 
-"set cmdheight=1 " The command bar is 2 high
-"set backspace=2 " Make backspace work normally
-
-"set shortmess=atI " Shortens messages to avoid 'press a key' prompt
-
-"set showmatch " Show matching brackets
-"set mat=3 " How many tenths of a second to blink matching brackets for
-
-" Output some interesting info on the status line
-"set statusline=%F%m%r%h%w\ [FMT=%{&ff}]\ [TYPE=%Y]\ [POS=%04l,%04v][%p%%]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [LEN=%L]
-"set laststatus=2 " always show the status line
-
-"if has("syntax")
-"   syntax on
-"endif
-
-"set autoindent " Match our indent on a new line
-"set smartindent " Will indent automatically on braces and cinwords
-
-" Unify out tab stops
-"set tabstop=4 " Tab spacing (settings below are just to unify it)
-"set softtabstop=4
-"set shiftwidth=4 
-
-"set expandtab " give me spaces please!
-"set smarttab
-
-"set nowrap " do not wrap lines  
-
-"filetype on
-"filetype plugin on " Ensure file type detection is on
-
-" have <F1> prompt for a help topic, rather than displaying the introduction
-" page, and have it do this from any mode:
-"nnoremap <F1> :help<Space>
-"vmap <F1> <C-C><F1>
-"omap <F1> <C-C><F1>
-"map! <F1> <C-C><F1>
-
-"set our filetype to unix
-"map <F2> :set fileformat=unix<CR>
-
-"toggle line numbers
-"map <F3> :set number!<CR>
-
-"toggle line wrapping
-"map <F4> :set wrap!<CR>
-
-"toggle search highlighting
-"map <F5> :set hlsearch!<CR>
-
-"toggle tag list window
-"map <F6> :TlistToggle
-
-"Fix common mistypes
-"abbreviate teh the
-
-"Set up smart indenting for python
-"autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-
-" Add omni funcs for all formats
-"autocmd FileType python set omnifunc=pythoncomplete#Complete
-"autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-"autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-"autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-"autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-"autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-"autocmd FileType c set omnifunc=ccomplete#Complete
-"autocmd FileType ruby set omnifunc=rubycomplete#Complete
-

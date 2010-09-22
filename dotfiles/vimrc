@@ -266,7 +266,6 @@ endif
 ""set history=100
 "set undolevels=3000
 
-"set hlsearch " Highlight search terms
 "set smartcase " Ignore case when search term is all lower case
 
 "set nostartofline " Keep cursor at indent level on new line

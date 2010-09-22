@@ -1,4 +1,4 @@
-" My vim settings built up over a number of years from a variety of sources
+"Vim settings baby, aw yeah
 
 filetype off
 call pathogen#runtime_append_all_bundles()
@@ -31,7 +31,9 @@ set cursorline
 set ttyfast
 set ruler
 set backspace=indent,eol,start
-set relativenumber
+if has("gui_macvim")
+    set relativenumber
+end
 set laststatus=2
 "set undofile
 
@@ -61,7 +63,9 @@ vmap <tab> %
 set wrap
 set textwidth=79
 set formatoptions=qrn1
-set colorcolumn=85
+if has("gui_macvim")
+    set colorcolumn=85
+end
 
 " Use the same symbols as TextMate for tabstops and EOLs
 set list
@@ -113,7 +117,9 @@ endfunction
 set foldtext=MyFoldText()
 
 " Fuck you, help key.
-set fuoptions=maxvert,maxhorz
+if has("gui_macvim")
+    set fuoptions=maxvert,maxhorz
+end
 inoremap <F1> <ESC>:set invfullscreen<CR>a
 nnoremap <F1> :set invfullscreen<CR>
 vnoremap <F1> :set invfullscreen<CR>
@@ -237,7 +243,7 @@ if has('gui_running')
     colorscheme molokai
     set background=dark
 
-    set go-=T
+    set go-=T " Remove menubar
     set go-=l
     set go-=L
     set go-=r

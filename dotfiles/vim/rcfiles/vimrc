@@ -18,7 +18,7 @@ set expandtab
 
 "Basic stuff
 set encoding=utf-8
-set scrolloff=3
+set scrolloff=3   " Always show at least three lines
 set autoindent
 set showmode
 set showcmd
@@ -26,7 +26,7 @@ set hidden
 set wildmenu
 set wildmode=list:longest
 set cursorline   " Show my current line
-set ttyfast
+set ttyfast      " Fast redraw
 set ruler
 set backspace=indent,eol,start
 set laststatus=2
@@ -48,7 +48,7 @@ set smartcase
 set incsearch
 set showmatch
 set hlsearch
-set gdefault
+set gdefault    " Replace globally by default
 " remove highlighting
 map <leader><space> :noh<cr>
 " Use tab instead of % for brace matching
@@ -63,35 +63,23 @@ set formatoptions=qrn1
 " Use the same symbols as TextMate for tabstops and EOLs
 set list
 "set listchars=tab:▸\ ,eol:¬
-set listchars=tab:▸\
+set listchars=tab:▸\ 
 
 " Color scheme (terminal)
 syntax on
 set background=dark
 colorscheme delek
 
-" Use the damn hjkl keys
-"nnoremap <up> <nop>
-"nnoremap <down> <nop>
-"nnoremap <left> <nop>
-"nnoremap <right> <nop>
-
 " And make them fucking work, too.
 nnoremap j gj
 nnoremap k gk
 
 " Easy buffer navigation
-"map <C-h> <C-w>h
-"map <C-j> <C-w>j
-"map <C-k> <C-w>k
-"map <C-l> <C-w>l
 map <c-left> <C-w>h
 map <c-down> <C-w>j
 map <c-up> <C-w>k
 map <c-right> <C-w>l
 map <leader>w <C-w>v<C-w>l
-
-"map <C-up> <C-w>h
 
 " Folding
 set foldlevelstart=0
@@ -139,7 +127,7 @@ map <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
 map <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 " Open Nerdtree
-map <leader>n :NERDTree<CR>
+map <leader>n<space> :NERDTree<CR>
 
 let yankring_history_file=".yankring_history"
 
@@ -165,9 +153,11 @@ nmap <leader>m :make<cr>
 au BufNewFile,BufRead *.js set makeprg=gjslint\ %
 au BufNewFile,BufRead *.js set errorformat=%-P-----\ FILE\ \ :\ \ %f\ -----,Line\ %l\\,\ E:%n:\ %m,%-Q,%-GFound\ %s,%-GSome\ %s,%-Gfixjsstyle%s,%-Gscript\ can\ %s,%-G
 
-" TESTING GOAT APPROVES OF THESE LINES
+" Show quick fixes
 nmap <silent> <leader>ff :QFix<cr>
+" Next Error
 nmap <leader>fn :cn<cr>
+" Previous Error
 nmap <leader>fp :cp<cr>
 
 command -bang -nargs=? QFix call QFixToggle(<bang>0)
@@ -238,10 +228,15 @@ au FocusLost * :wa
 " Stop it, hash key
 inoremap # X<BS>#
 
+" Reformat the file
+nmap <leader>r<space> gg=G
+
 if has('gui_running')
     set guifont=Menlo:h12
     colorscheme molokai
     set background=dark
+
+    set mousehide  " Hide mouse after chars typed
 
     set go-=T " Remove menubar
     set go-=l " Left scrollbar
@@ -279,6 +274,11 @@ abbreviate teh the
 
 "Set up smart indenting for python
 autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+
+"let ruby_fold=1
+
+"Set up ruby indents
+autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 
 " Add omni funcs for all formats
 "autocmd FileType python set omnifunc=pythoncomplete#Complete

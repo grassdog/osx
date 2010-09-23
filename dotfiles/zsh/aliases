@@ -54,6 +54,7 @@ alias le='less -SR'
 alias v='vim'
 alias g='gvim'
 alias gv='gvim'
+alias gvn='gvim -n'
 alias m='mate'
 
 function markdown() { 

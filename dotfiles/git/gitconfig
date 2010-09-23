@@ -3,3 +3,9 @@
 	email = ray.grasso@gmail.com
 [color]
 	ui = auto
+[core]
+	excludesfile = ~/.gitignore_global
+[diff]
+	external = /Users/rgrasso/bin/git-diff-wrapper.sh
+[alias]
+	unstage = reset HEAD

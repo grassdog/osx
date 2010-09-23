@@ -25,15 +25,10 @@ set showcmd
 set hidden
 set wildmenu
 set wildmode=list:longest
-set noerrorbells " Don't make noise
-set novisualbell " Don't blink
-set cursorline
+set cursorline   " Show my current line
 set ttyfast
 set ruler
 set backspace=indent,eol,start
-if has("gui_macvim")
-    set relativenumber
-end
 set laststatus=2
 "set undofile
 
@@ -54,7 +49,9 @@ set incsearch
 set showmatch
 set hlsearch
 set gdefault
+" remove highlighting
 map <leader><space> :noh<cr>
+" Use tab instead of % for brace matching
 runtime macros/matchit.vim
 nmap <tab> %
 vmap <tab> %
@@ -63,13 +60,10 @@ vmap <tab> %
 set wrap
 set textwidth=79
 set formatoptions=qrn1
-if has("gui_macvim")
-    set colorcolumn=85
-end
-
 " Use the same symbols as TextMate for tabstops and EOLs
 set list
-set listchars=tab:▸\ ,eol:¬
+"set listchars=tab:▸\ ,eol:¬
+set listchars=tab:▸\
 
 " Color scheme (terminal)
 syntax on
@@ -93,6 +87,8 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 map <leader>w <C-w>v<C-w>l
 
+"map <C-up> <C-w>h
+
 " Folding
 set foldlevelstart=0
 nnoremap <Space> za
@@ -115,11 +111,6 @@ function! MyFoldText()
     return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
 endfunction
 set foldtext=MyFoldText()
-
-" Fuck you, help key.
-if has("gui_macvim")
-    set fuoptions=maxvert,maxhorz
-end
 inoremap <F1> <ESC>:set invfullscreen<CR>a
 nnoremap <F1> :set invfullscreen<CR>
 vnoremap <F1> :set invfullscreen<CR>
@@ -138,6 +129,8 @@ map <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
 
 " Clean whitespace
 map <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+
+let yankring_history_file=".yankring_history"
 
 " Exuberant ctags!
 let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
@@ -162,11 +155,6 @@ au BufNewFile,BufRead *.js set makeprg=gjslint\ %
 au BufNewFile,BufRead *.js set errorformat=%-P-----\ FILE\ \ :\ \ %f\ -----,Line\ %l\\,\ E:%n:\ %m,%-Q,%-GFound\ %s,%-GSome\ %s,%-Gfixjsstyle%s,%-Gscript\ can\ %s,%-G
 
 " TESTING GOAT APPROVES OF THESE LINES
-au BufNewFile,BufRead test_*.py set makeprg=nosetests\ --machine-out\ --nocapture
-au BufNewFile,BufRead test_*.py set shellpipe=2>&1\ >/dev/null\ \|\ tee
-au BufNewFile,BufRead test_*.py set errorformat=%f:%l:\ %m
-au BufNewFile,BufRead test_*.py nmap <silent> <Leader>n <Plug>MakeGreen
-au BufNewFile,BufRead test_*.py nmap <Leader>N :make<cr>
 nmap <silent> <leader>ff :QFix<cr>
 nmap <leader>fn :cn<cr>
 nmap <leader>fp :cp<cr>
@@ -205,7 +193,7 @@ inoremap <C-_> <Space><BS><Esc>:call InsertCloseTag()<cr>a
 nmap <leader><tab> :Sscratch<cr><C-W>x<C-j>:resize 15<cr>
 
 " Diff
-nmap <leader>d :!hg diff %<cr>
+nmap <leader>d :!git diff %<cr>
 
 " Rainbows!
 nmap <leader>R :RainbowParenthesesToggle<CR>
@@ -217,8 +205,8 @@ nmap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 cmap w!! w !sudo tee % >/dev/null
 
 " Easy filetype switching
-nnoremap _dt :set ft=htmldjango<CR>
-nnoremap _jt :set ft=htmljinja<CR>
+"nnoremap _dt :set ft=htmldjango<CR>
+"nnoremap _jt :set ft=htmljinja<CR>
 
 " VCS Stuff
 let VCSCommandMapPrefix = "<leader>h"
@@ -252,6 +240,10 @@ if has('gui_running')
     if has("gui_macvim")
         macmenu &File.New\ Tab key=<nop>
         map <leader>t <Plug>PeepOpen
+
+        set colorcolumn=85
+        set relativenumber
+        set fuoptions=maxvert,maxhorz
     end
 
     let g:sparkupExecuteMapping = '<D-e>'
@@ -259,80 +251,22 @@ if has('gui_running')
     highlight SpellBad term=underline gui=undercurl guisp=Orange
 endif
 
-
+set visualbell t_vb= " No noise or blink
 
 " My old settings which I need to review
 
-""set history=100
-"set undolevels=3000
-
-"set smartcase " Ignore case when search term is all lower case
-
-"set nostartofline " Keep cursor at indent level on new line
+set history=100
+set undolevels=3000
 
 "set isk+=_,$,@,%,#,- " None of these should be word dividers, so make them not be
-"set ffs=unix,dos,mac " Support all three, in this order
 
-"set ruler " Always show current positions along the bottom 
-"set cmdheight=1 " The command bar is 2 high
-"set backspace=2 " Make backspace work normally
-
-"set shortmess=atI " Shortens messages to avoid 'press a key' prompt
-
-"set showmatch " Show matching brackets
-"set mat=3 " How many tenths of a second to blink matching brackets for
-
-" Output some interesting info on the status line
-"set statusline=%F%m%r%h%w\ [FMT=%{&ff}]\ [TYPE=%Y]\ [POS=%04l,%04v][%p%%]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [LEN=%L]
-"set laststatus=2 " always show the status line
-
-"if has("syntax")
-"   syntax on
-"endif
-
-"set autoindent " Match our indent on a new line
-"set smartindent " Will indent automatically on braces and cinwords
-
-" Unify out tab stops
-"set tabstop=4 " Tab spacing (settings below are just to unify it)
-"set softtabstop=4
-"set shiftwidth=4 
-
-"set expandtab " give me spaces please!
-"set smarttab
-
-"set nowrap " do not wrap lines  
-
-"filetype on
-"filetype plugin on " Ensure file type detection is on
-
-" have <F1> prompt for a help topic, rather than displaying the introduction
-" page, and have it do this from any mode:
-"nnoremap <F1> :help<Space>
-"vmap <F1> <C-C><F1>
-"omap <F1> <C-C><F1>
-"map! <F1> <C-C><F1>
-
-"set our filetype to unix
-"map <F2> :set fileformat=unix<CR>
-
-"toggle line numbers
-"map <F3> :set number!<CR>
-
-"toggle line wrapping
-"map <F4> :set wrap!<CR>
-
-"toggle search highlighting
-"map <F5> :set hlsearch!<CR>
-
-"toggle tag list window
-"map <F6> :TlistToggle
+set mat=3 " How many tenths of a second to blink matching brackets for
 
 "Fix common mistypes
-"abbreviate teh the
+abbreviate teh the
 
 "Set up smart indenting for python
-"autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 
 " Add omni funcs for all formats
 "autocmd FileType python set omnifunc=pythoncomplete#Complete

@@ -5,6 +5,7 @@
 	ui = auto
 [core]
 	excludesfile = ~/.gitignore_global
+	editor = /usr/bin/vim
 [diff]
 	external = /Users/rgrasso/bin/git-diff-wrapper.sh
 [alias]

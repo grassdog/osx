@@ -111,6 +111,10 @@ function! MyFoldText()
     return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
 endfunction
 set foldtext=MyFoldText()
+
+" See if this works
+"set foldmethod=syntax
+
 inoremap <F1> <ESC>:set invfullscreen<CR>a
 nnoremap <F1> :set invfullscreen<CR>
 vnoremap <F1> :set invfullscreen<CR>

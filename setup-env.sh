@@ -1,4 +1,5 @@
-
+#!/bin/sh
+#TODO Add git and homebrew install stuff and pull of dotfiles from github
 ln -sf ~/bin/dotfiles/vim/rcfiles/vimrc .vimrc
 ln -sf ~/bin/dotfiles/vim .vim                
 ln -sf ~/bin/dotfiles/zsh/zshenv .zshenv

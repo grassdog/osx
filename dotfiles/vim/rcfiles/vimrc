@@ -232,9 +232,9 @@ if has('gui_running')
     set background=dark
 
     set go-=T " Remove menubar
-    set go-=l
+    set go-=l " Left scrollbar
     set go-=L
-    set go-=r
+    set go-=r " Right scrollbar
     set go-=R
 
     if has("gui_macvim")

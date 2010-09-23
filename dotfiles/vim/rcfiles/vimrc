@@ -81,10 +81,14 @@ nnoremap j gj
 nnoremap k gk
 
 " Easy buffer navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+"map <C-h> <C-w>h
+"map <C-j> <C-w>j
+"map <C-k> <C-w>k
+"map <C-l> <C-w>l
+map <c-left> <C-w>h
+map <c-down> <C-w>j
+map <c-up> <C-w>k
+map <c-right> <C-w>l
 map <leader>w <C-w>v<C-w>l
 
 "map <C-up> <C-w>h
@@ -152,7 +156,7 @@ map <leader>a :Ack
 nnoremap <silent> <F3> :YRShow<cr>
 nnoremap <silent> <leader>y :YRShow<cr>
 
-" Formatting, TextMate-style
+" Formatting paragraph, TextMate-style
 map <leader>q gqip
 
 nmap <leader>m :make<cr>
@@ -207,6 +211,7 @@ nmap <leader>R :RainbowParenthesesToggle<CR>
 
 " Edit .vimrc
 nmap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
+" Reload with :so %
 
 " Sudo to write
 cmap w!! w !sudo tee % >/dev/null

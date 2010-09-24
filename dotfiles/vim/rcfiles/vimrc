@@ -74,6 +74,9 @@ colorscheme delek
 nnoremap j gj
 nnoremap k gk
 
+nnoremap <down> gj
+nnoremap <up> gk
+
 " Easy buffer navigation
 map <c-left> <C-w>h
 map <c-down> <C-w>j

@@ -105,6 +105,7 @@ map <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 " Open Nerdtree
 map <leader>n<space> :NERDTreeToggle<CR>
+let NERDTreeIgnore=['.vim$', '\~$', '.*\.pyc$', 'pip-log\.txt$']
 
 let yankring_history_file=".yankring_history"
 
@@ -208,6 +209,7 @@ inoremap # X<BS>#
 
 " Reformat the file
 nmap <leader>r<space> gg=G
+"ggVG=
 
 if has('gui_running')
     set guifont=Menlo:h12
@@ -299,3 +301,30 @@ inoremap <C-space> <C-x><C-o>
 " Open recently edited files
 nmap <leader>e<space> :MRU<cr>
 
+" Add omni funcs for all formats
+"autocmd FileType python set omnifunc=pythoncomplete#Complete
+"autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+"autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+"autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+"autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+"autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+"autocmd FileType c set omnifunc=ccomplete#Complete
+"autocmd FileType ruby set omnifunc=rubycomplete#Complete
+
+"" Setup a smart tab completion
+"function! SuperCleverTab()
+    "if strpart(getline('.'), 0, col('.') - 1) =~ '^\s*$'
+        "return "\<Tab>"
+    "else
+        "if &omnifunc != ''
+            "return "\<C-X>\<C-O>"
+        "elseif &dictionary != ''
+            "return "\<C-K>"
+        "else
+            "return "\<C-N>"
+        "endif
+    "endif
+"endfunction
+
+"inoremap <Tab> <C-R>=SuperCleverTab()<cr>
+let g:SuperTabDefaultCompletionType = "context"

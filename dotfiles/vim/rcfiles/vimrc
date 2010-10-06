@@ -238,6 +238,42 @@ endif
 
 set visualbell t_vb= " No noise or blink
 
+" Toggle a fold
+nnoremap <Space> za
+vnoremap <Space> za
+
+"set foldmethod=syntax
+
+" Allow for XMl syntax folding. Can be slow for large files
+let g:xml_syntax_folding=1
+
+" Fold tags for html
+au BufNewFile,BufRead *.html map <leader>ft Vatzf
+
+" Set our foldmethod to syntax and have all folds open when we open the file
+" Note, perl automatically sets foldmethod in the syntax file
+autocmd Syntax c,cpp,vim,xml,ruby,python setlocal foldmethod=syntax
+autocmd Syntax c,cpp,vim,xml,perl,ruby,python normal zR
+
+" Override the default fold text
+function! MyFoldText()
+    let line = getline(v:foldstart)
+
+    let nucolwidth = &fdc + &number * &numberwidth
+    let windowwidth = winwidth(0) - nucolwidth - 3
+    let foldedlinecount = v:foldend - v:foldstart
+
+    " expand tabs into spaces
+    let onetab = strpart('          ', 0, &tabstop)
+    let line = substitute(line, '\t', onetab, 'g')
+
+    let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
+    let fillcharcount = windowwidth - len(line) - len(foldedlinecount) 
+    return line . '…' . "  [" . foldedlinecount . '…]' . repeat(" ",fillcharcount)
+endfunction
+set foldtext=MyFoldText()
+
+
 " TODO Can use undo files here instead possibly
 set history=100
 set undolevels=3000

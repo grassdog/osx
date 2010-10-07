@@ -30,7 +30,14 @@ set ttyfast      " Fast redraw
 set ruler
 set backspace=indent,eol,start
 set laststatus=2
+
+" TODO Can use undo files here instead possibly
 "set undofile
+set history=100
+set undolevels=3000
+set mat=3 " How many tenths of a second to blink matching brackets for
+set shortmess=atI " shortens messages to avoid 'press a key' prompt
+"set isk+=_,$,@,%,#,- " None of these should be word dividers, so make them not be
 
 " Backups
 set backupdir=~/.vim/tmp/backup// " backups
@@ -70,10 +77,9 @@ syntax on
 set background=dark
 colorscheme delek
 
-" And make them fucking work, too.
+" Make movement cross long lines
 nnoremap j gj
 nnoremap k gk
-
 nnoremap <down> gj
 nnoremap <up> gk
 
@@ -117,8 +123,6 @@ map <F5> :UpdateTags -R .<cr>
 set tags=./tags;/,~/.vimtags
 
 let g:easytags_cmd = '/usr/local/bin/ctags'
-
-" TODO Get folding to work
 
 " Ack
 map <leader>a :Ack 
@@ -209,7 +213,6 @@ inoremap # X<BS>#
 
 " Reformat the file
 nmap <leader>r<space> gg=G
-"ggVG=
 
 if has('gui_running')
     set guifont=Menlo:h12
@@ -244,8 +247,6 @@ set visualbell t_vb= " No noise or blink
 nnoremap <Space> za
 vnoremap <Space> za
 
-"set foldmethod=syntax
-
 " Allow for XMl syntax folding. Can be slow for large files
 let g:xml_syntax_folding=1
 
@@ -275,17 +276,6 @@ function! MyFoldText()
 endfunction
 set foldtext=MyFoldText()
 
-
-" TODO Can use undo files here instead possibly
-set history=100
-set undolevels=3000
-
-"set isk+=_,$,@,%,#,- " None of these should be word dividers, so make them not be
-
-set mat=3 " How many tenths of a second to blink matching brackets for
-
-set shortmess=atI " shortens messages to avoid 'press a key' prompt
-
 "Fix common mistypes
 abbreviate teh the
 
@@ -301,30 +291,34 @@ inoremap <C-space> <C-x><C-o>
 " Open recently edited files
 nmap <leader>e<space> :MRU<cr>
 
-" Add omni funcs for all formats
-"autocmd FileType python set omnifunc=pythoncomplete#Complete
-"autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-"autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-"autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-"autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-"autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-"autocmd FileType c set omnifunc=ccomplete#Complete
-"autocmd FileType ruby set omnifunc=rubycomplete#Complete
-
-"" Setup a smart tab completion
-"function! SuperCleverTab()
-    "if strpart(getline('.'), 0, col('.') - 1) =~ '^\s*$'
-        "return "\<Tab>"
-    "else
-        "if &omnifunc != ''
-            "return "\<C-X>\<C-O>"
-        "elseif &dictionary != ''
-            "return "\<C-K>"
-        "else
-            "return "\<C-N>"
-        "endif
-    "endif
-"endfunction
+" Setup a smart tab completion
+function! SuperCleverTab()
+    if strpart(getline('.'), 0, col('.') - 1) =~ '^\s*$'
+        return "\<Tab>"
+    else
+        if &omnifunc != ''
+            return "\<C-X>\<C-O>"
+        elseif &dictionary != ''
+            return "\<C-K>"
+        else
+            return "\<C-N>"
+        endif
+    endif
+endfunction
 
 "inoremap <Tab> <C-R>=SuperCleverTab()<cr>
 let g:SuperTabDefaultCompletionType = "context"
+
+au BufNewFile,BufRead *.html ino <tab> <tab>
+
+" Retake tab key for html
+"au BufNewFile,BufRead *.html ino <silent> <C-space> <c-r>=TriggerSnippet()<cr>
+
+"au BufNewFile,BufRead *.html ino <silent> <C-space> <c-r>=TriggerSnippet()<cr>
+
+" au BufNewFile,BufRead *.html  let g:SuperTabMappingForward  <C-space>
+"autocmd Syntax html,xhtml let g:SuperTabMappingForward  <C-space>
+"autocmd Syntax html,xhtml ino <tab> <tab>
+"autocmd Syntax html,xhtml ino <tab> <c-r>=SuperCleverTab()<cr>
+"g:SuperTabMappingBackward (default value: '<s-tab>')
+

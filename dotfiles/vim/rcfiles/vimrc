@@ -291,34 +291,4 @@ inoremap <C-space> <C-x><C-o>
 " Open recently edited files
 nmap <leader>e<space> :MRU<cr>
 
-" Setup a smart tab completion
-function! SuperCleverTab()
-    if strpart(getline('.'), 0, col('.') - 1) =~ '^\s*$'
-        return "\<Tab>"
-    else
-        if &omnifunc != ''
-            return "\<C-X>\<C-O>"
-        elseif &dictionary != ''
-            return "\<C-K>"
-        else
-            return "\<C-N>"
-        endif
-    endif
-endfunction
-
-"inoremap <Tab> <C-R>=SuperCleverTab()<cr>
-let g:SuperTabDefaultCompletionType = "context"
-
-au BufNewFile,BufRead *.html ino <tab> <tab>
-
-" Retake tab key for html
-"au BufNewFile,BufRead *.html ino <silent> <C-space> <c-r>=TriggerSnippet()<cr>
-
-"au BufNewFile,BufRead *.html ino <silent> <C-space> <c-r>=TriggerSnippet()<cr>
-
-" au BufNewFile,BufRead *.html  let g:SuperTabMappingForward  <C-space>
-"autocmd Syntax html,xhtml let g:SuperTabMappingForward  <C-space>
-"autocmd Syntax html,xhtml ino <tab> <tab>
-"autocmd Syntax html,xhtml ino <tab> <c-r>=SuperCleverTab()<cr>
-"g:SuperTabMappingBackward (default value: '<s-tab>')
 

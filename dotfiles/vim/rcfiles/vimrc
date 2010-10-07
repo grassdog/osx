@@ -296,3 +296,6 @@ autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 " Remap omni-completion to CTRL+SPACE
 inoremap <C-space> <C-x><C-o>
 
+" Open recently edited files
+nmap <leader>e<space> :MRU<cr>
+

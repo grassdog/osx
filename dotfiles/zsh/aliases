@@ -147,6 +147,11 @@ function nginx_start() {
     sudo /opt/nginx/sbin/nginx
 }
 
+# Serve up the current directory with webrick
+function rserve() {
+  ruby -rwebrick -e"s = WEBrick::HTTPServer.new(:Port => 3000,  :DocumentRoot => Dir.pwd); trap('INT') { s.shutdown }; s.start"
+}
+
 # From http://github.com/suztomo/dotfiles
 function rmf(){
     for file in $*

@@ -39,3 +39,5 @@ Thumbs.db
 # Vim temp files
 *.swp
 
+# Compiled Python
+*.pyc

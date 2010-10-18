@@ -72,6 +72,9 @@ alias psf='ps ax --forest'
 alias tu='top -o cpu' # cpu
 alias tm='top -o vsize' # memory
 
+# Colourful grep
+alias cgrep='grep --color=auto'
+
 # Finder
 alias o='open . &'
 ff()     {  open -a "/Applications/Firefox.app" "$@"  }

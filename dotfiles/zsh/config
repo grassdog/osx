@@ -38,6 +38,9 @@ setopt autopushd pushdminus pushdtohome autocd pushdignoredups
 autoload url-quote-magic
 zle -N self-insert url-quote-magic
 
+# Allow for file truncation
+NULLCMD=:
+
 HISTFILE=~/.zsh_history
 SAVEHIST=10000
 HISTSIZE=10000

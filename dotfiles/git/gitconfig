@@ -10,3 +10,5 @@
 	external = $HOME/bin/git-diff-wrapper.sh
 [alias]
 	unstage = reset HEAD
+[rerere]
+  enabled = 1

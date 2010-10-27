@@ -207,7 +207,7 @@ let g:atia_attributes_complete = 0
 nnoremap ; :
 
 " Save when losing focus
-au FocusLost * :wa
+"au FocusLost * :wa
 
 " Stop it, hash key
 inoremap # X<BS>#

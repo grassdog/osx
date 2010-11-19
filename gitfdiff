@@ -7,7 +7,7 @@
 # Example:                                                                                             #
 #  gitfdiff                                       # == gitfdiff -rHEAD^:HEAD .                       #
 #  gitfdiff -rHEAD^^:HEAD                         # == gitfdiff -rHEAD^^:HEAD .                      #
-#  gitfdiff -master:origin/master                 # == gitfdiff -rmaster:origin/master .             #
+#  gitfdiff -rmaster:origin/master                # == gitfdiff -rmaster:origin/master .             #
 #  gitfdiff /path/to/git/repository               # == gitfdiff -rHEAD^:HEAD /path/to/git/repository #
 #  gitfdiff -rHEAD^:HEAD /path/to/git/repository  # == gitfdiff -rHEAD^:HEAD /path/to/git/repository #
 #                                                                                                      #

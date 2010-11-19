@@ -132,6 +132,10 @@ function gbt() {
 #Command to add local git to external repo
 #git remote add origin git@github.com:grassdog/binfiles.git
 
+function gitspec() {
+ git diff --name-only git-svn | grep _spec.rb | xargs spec
+}
+
 # Setup a tunnel
 function haproxyssh() { 
   ssh -L7997:127.0.0.1:7997 deploy@$1.com 

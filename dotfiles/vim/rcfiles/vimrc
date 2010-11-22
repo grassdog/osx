@@ -95,6 +95,9 @@ inoremap <F1> <ESC>:set invfullscreen<CR>a
 nnoremap <F1> :set invfullscreen<CR>
 vnoremap <F1> :set invfullscreen<CR>
 
+" Reformat XML files
+map <F2> <Esc>:1,$!xmllint --format -<CR>
+
 " Various syntax stuff
 au BufNewFile,BufRead *.less set filetype=less
 au BufRead,BufNewFile *.scss set filetype=scss
@@ -256,8 +259,9 @@ au BufNewFile,BufRead *.html map <leader>ft Vatzf
 
 " Set our foldmethod to syntax and have all folds open when we open the file
 " Note, perl automatically sets foldmethod in the syntax file
-autocmd Syntax c,cpp,vim,xml,ruby,python setlocal foldmethod=syntax
-autocmd Syntax c,cpp,vim,xml,perl,ruby,python normal zR
+autocmd Syntax c,cpp,vim,ruby,python setlocal foldmethod=syntax
+autocmd Syntax c,cpp,vim,perl,ruby,python normal zR
+
 
 " Override the default fold text
 function! MyFoldText()

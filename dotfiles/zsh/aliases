@@ -50,6 +50,11 @@ function take() {
     cd "$1" 
 }
 
+function jpuge() {
+  rvm use 1.4.1@puge2
+  export JAVA_OPTS='-d32 -client -Xmx1g'
+}
+
 alias le='less -SR'
 alias v='vim'
 alias g='gvim'

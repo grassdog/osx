@@ -6,8 +6,8 @@
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = /usr/bin/vim
-[diff]
-	external = $HOME/bin/git-diff-wrapper.sh
+#[diff]
+#	external = $HOME/bin/git-diff-wrapper.sh
 [alias]
 	unstage = reset HEAD
 [rerere]

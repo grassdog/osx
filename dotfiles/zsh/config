@@ -1,8 +1,9 @@
 autoload -U colors
 colors
 setopt prompt_subst
-PROMPT='%{$fg[red]%}$(date "+%a %H:%M:%S") %{$fg[cyan]%}%n@%m:%{$reset_color%}%{$fg[yellow]%}${PWD/#$HOME/~}%{$reset_color%} %{$fg[blue]%}$(vcprompt)%{$fg[magenta]%}$(__my_rvm_ruby_version)
-%{$fg[cyan]%}→ %{$reset_color%}'
+
+PROMPT='%{$fg[red]%}$(date "+%a %H:%M:%S") %{$fg[cyan]%}%n@%m:%{$reset_color%}%{$fg[yellow]%}${PWD/#$HOME/~}%{$reset_color%} %{$fg[blue]%}$(vcprompt)%{$fg_bold[black]%}$(__my_rvm_ruby_version)
+%{$fg[green]%}→ %{$reset_color%}'
 
 #%{$fg[cyan]%}%n@%m:%{$reset_color%}%{$fg[yellow]%}${PWD/#$HOME/~}%{$reset_color%} %{$fg[blue]%}$(vcprompt) $(__my_rvm_ruby_version)
 # Set RPROMPT to have info show up on the right, too.

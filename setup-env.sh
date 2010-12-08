@@ -11,8 +11,14 @@
 # set title active process name
 # set new pro as default
 
+# Get babushka
+bash -c "`curl babushka.me/up`"
+
 ruby -e "$(curl -fsSLk https://gist.github.com/raw/323731/install_homebrew.rb)"
-brew install git ctags wget
+brew install git
+
+easy_install mercurial #or brew install pip && pip install mercurial
+brew install ctags wget tree vcprompt
 brew install mysql
 
 #install ruby mine, sequel pro, mac vim, git x, skype, pester, adium, 

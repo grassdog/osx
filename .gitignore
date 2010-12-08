@@ -1,5 +1,3 @@
-vcprompt
-tree
 dotfiles/vim/doc/tags
 dotfiles/vim/tmp
 dotfiles/vim/bundle/*/doc/tags

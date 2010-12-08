@@ -1,15 +1,27 @@
 #!/bin/sh
 #TODO Add git and homebrew install stuff and pull of dotfiles from github
 
-ruby -e "$(curl -fsS http://gist.github.com/raw/323731/install_homebrew.rb)"
-brew install git
+# Set up personal pro theme for Terminal
+# set background opacity to 100
+# set render bright as bold
+# set menlo bold, 12pt as font
+# set cursor color to green
+# set highlight color to blue
+# set size 100x43
+# set title active process name
+# set new pro as default
+
+ruby -e "$(curl -fsSLk https://gist.github.com/raw/323731/install_homebrew.rb)"
+brew install git ctags wget
 brew install mysql
-brew install ctags
+
+#install ruby mine, sequel pro, mac vim, git x, skype, pester, adium, chrome, firefox
 
 bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-head )
 #TODO Install desired Rubys
 
-sudo easy_install http://closure-linter.googlecode.com/files/closure_linter-latest.tar.gz
+git clone git@github.com:grassdog/binfiles.git ~/bin
+#sudo easy_install http://closure-linter.googlecode.com/files/closure_linter-latest.tar.gz
 mkdir -p ~/bin/dotfiles/vim/tmp/backup
 mkdir -p ~/bin/dotfiles/vim/tmp/swap
 ln -sf ~/bin/dotfiles/vim/rcfiles/vimrc ~/.vimrc

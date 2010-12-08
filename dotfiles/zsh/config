@@ -43,8 +43,8 @@ zle -N self-insert url-quote-magic
 NULLCMD=:
 
 HISTFILE=~/.zsh_history
-SAVEHIST=10000
-HISTSIZE=10000
+SAVEHIST=1000000
+HISTSIZE=1000000
 
 REPORTTIME=10 # Show elapsed time if command took more than X seconds
 LISTMAX=0 # ask to complete if top of list would scroll off screen
@@ -54,7 +54,8 @@ autoload compinit
 compinit
 
 # Make CTRL-W delete after other chars, not just spaces
-WORDCHARS=${WORDCHARS//[&=\/;\!#%\{]}
+#WORDCHARS=${WORDCHARS//[&=\/;\!#%\{]}
+WORDCHARS='*?[]~=&;!#$%^(){}'
 
 # Emacs key bindings
 bindkey -e
@@ -74,4 +75,7 @@ bindkey "\eOF" end-of-line
 bindkey "\eOd" backward-word
 bindkey "\eOc" forward-word 
 
+# mappings for Ctrl/Option-left-arrow and Ctrl/Option-right-arrow for word moving
+#bindkey "\e\e[C"  forward-word
+#bindkey "\e\e[D"  backward-word
 

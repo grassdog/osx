@@ -22,7 +22,7 @@ ruby -e "$(curl -fsSLk https://gist.github.com/raw/323731/install_homebrew.rb)"
 
 brew install git
 easy_install mercurial #or brew install pip && pip install mercurial
-brew install ctags wget tree vcprompt
+brew install ctags wget tree vcprompt ack
 brew install mysql
 
 #install ruby mine, sequel pro, mac vim, git x, skype, pester, adium, 
@@ -46,5 +46,6 @@ ln -sf ~/bin/dotfiles/zsh/zshenv ~/.zshenv &&
 ln -sf ~/bin/dotfiles/git/gitconfig ~/.gitconfig &&
 ln -sf ~/bin/dotfiles/git/gitignore_global ~/.gitignore_global &&
 ln -sf ~/bin/dotfiles/gem/gemrc ~/.gemrc &&
+ln -sf ~/bin/dotfiles/ack/ackrc ~/.ackrc &&
 ln -sf ~/bin/dotfiles/zsh/dotzsh ~/.zsh
 

@@ -15,13 +15,14 @@ ruby -e "$(curl -fsSLk https://gist.github.com/raw/323731/install_homebrew.rb)"
 brew install git ctags wget
 brew install mysql
 
-#install ruby mine, sequel pro, mac vim, git x, skype, pester, adium, chrome, firefox
+#install ruby mine, sequel pro, mac vim, git x, skype, pester, adium, 
+#  chrome, firefox, httpclient, dropbox, notational velocity, google quick search box, 
+#  textmate, MSOffice, acorn, photoshop, VLC, Yojimbo
 
 bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-head )
 #TODO Install desired Rubys
 
 git clone git@github.com:grassdog/binfiles.git ~/bin
-#sudo easy_install http://closure-linter.googlecode.com/files/closure_linter-latest.tar.gz
 mkdir -p ~/bin/dotfiles/vim/tmp/backup
 mkdir -p ~/bin/dotfiles/vim/tmp/swap
 ln -sf ~/bin/dotfiles/vim/rcfiles/vimrc ~/.vimrc

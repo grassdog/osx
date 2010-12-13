@@ -1,7 +1,6 @@
 #!/bin/sh
-#TODO Add git and homebrew install stuff and pull of dotfiles from github
 
-# TODO set up keyboard defaults
+# TODO set up keyboard defaults, repeat rate etc...
 
 # TODO Set default shell to zsh
 
@@ -18,24 +17,31 @@
 # Get babushka
 #bash -c "`curl babushka.me/up`"
 
+# Remove glass dock
+defaults write com.apple.dock no-glass -boolean YES && killall Dock
+
 ruby -e "$(curl -fsSLk https://gist.github.com/raw/323731/install_homebrew.rb)"
 
 brew install git
-easy_install mercurial #or brew install pip && pip install mercurial
+easy_install mercurial # or brew install pip && pip install mercurial
 brew install ctags wget tree vcprompt ack
 brew install mysql
 
-#install ruby mine, sequel pro, mac vim, git x, skype, pester, adium, 
-#  chrome, firefox, httpclient, dropbox, notational velocity, google quick search box, 
-#  textmate, MSOffice, acorn, photoshop, VLC, Yojimbo, virtual box
+# Apps to install
+# ruby mine, sequel pro, mac vim, git x, skype, pester, adium, 
+# chrome, firefox, httpclient, dropbox, notational velocity alt, google quick search box, 
+# textmate, MSOffice, acorn, photoshop, VLC, Yojimbo, virtual box
 
 bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-head )
 rvm install ruby-1.9.2
+rvm install ruby-1.8.7
 rvm use ruby-1.9.2 --default
 rvm use ruby-1.9.2@global
 gem install ghost
 gem install bundler
+gem install vagrant
 
+# Setup dotfiles
 cd &&
 [ -d 'bin' ] || git clone git@github.com:grassdog/binfiles.git bin &&
 mkdir -p ~/bin/dotfiles/vim/tmp/backup &&

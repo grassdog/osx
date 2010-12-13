@@ -3,6 +3,7 @@
 # TODO set up keyboard defaults, repeat rate etc...
 
 # TODO Set default shell to zsh
+# Bump up keyboard repeat rate
 
 # Set up personal pro theme for Terminal
 # set background opacity to 100

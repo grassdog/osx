@@ -31,7 +31,19 @@ brew install mysql
 # Apps to install
 # ruby mine, sequel pro, mac vim, git x, skype, pester, adium, 
 # chrome, firefox, httpclient, dropbox, notational velocity alt, google quick search box, 
-# textmate, MSOffice, acorn, photoshop, VLC, Yojimbo, virtual box
+# textmate, MSOffice, acorn, photoshop, VLC, Yojimbo, virtual box, peepopen
+
+# Setup textmate
+mkdir -p /Library/Application\ Support/TextMate/Bundles
+cd /Library/Application\ Support/TextMate/Bundles
+#curl https://github.com/downloads/protocool/AckMate/AckMate.1.1.2.zip
+#curl https://github.com/subtleGradient/javascript-tools.tmbundle/zipball/master
+git clone git://github.com/kswedberg/jquery-tmbundle.git "JavaScript jQuery.tmbundle"
+git clone git://github.com/rspec/rspec-tmbundle.git RSpec.tmbundle
+git clone git://github.com/aslakhellesoy/cucumber-tmbundle.git Cucumber.tmbundle
+git clone git://github.com/mocoso/code-beautifier.tmbundle.git Code\ Beautifier.tmbundle
+git clone git://github.com/grimen/compass_blueprint_tmbundle.git 'Compass + Blueprint.tmbundle'
+osascript -e 'tell app "TextMate" to reload bundles'
 
 bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-head )
 rvm install ruby-1.9.2
@@ -41,6 +53,7 @@ rvm use ruby-1.9.2@global
 gem install ghost
 gem install bundler
 gem install vagrant
+gem install request-log-analyzer
 
 # Setup dotfiles
 cd &&

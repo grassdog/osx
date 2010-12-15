@@ -57,9 +57,9 @@ function jpuge() {
 
 alias le='less -SR'
 alias v='vim'
-alias g='gvim'
-alias gv='gvim'
-alias gvn='gvim -n'
+alias g='mvim'
+alias gv='mvim'
+alias gvn='mvim -n'
 alias m='mate'
 
 function markdown() { 

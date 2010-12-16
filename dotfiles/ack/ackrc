@@ -17,4 +17,3 @@
 --notmstuff
 --noxcode
 --ignore-dir=.idea
---ignore-dir=bundle

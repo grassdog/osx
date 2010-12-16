@@ -54,6 +54,7 @@ gem install ghost
 gem install bundler
 gem install vagrant
 gem install request-log-analyzer
+gem install awesome_print
 
 # Setup dotfiles
 cd &&

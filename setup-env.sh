@@ -31,7 +31,7 @@ brew install mysql
 # Apps to install
 # ruby mine, sequel pro, mac vim, git x, skype, pester, adium, 
 # chrome, firefox, httpclient, dropbox, notational velocity alt, google quick search box, 
-# textmate, MSOffice, acorn, photoshop, VLC, Yojimbo, virtual box, peepopen
+# textmate, MSOffice, acorn, photoshop, VLC, Yojimbo, virtual box, peepopen, Sparrow
 
 # Setup textmate
 mkdir -p /Library/Application\ Support/TextMate/Bundles

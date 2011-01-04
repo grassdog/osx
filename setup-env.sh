@@ -51,6 +51,7 @@ rvm install ruby-1.8.7
 rvm use ruby-1.9.2 --default
 rvm use ruby-1.9.2@global
 gem install ghost
+gem install cheat
 gem install bundler
 gem install vagrant
 gem install request-log-analyzer

@@ -57,13 +57,12 @@ gem install vagrant
 gem install request-log-analyzer
 gem install awesome_print
 
+# Setup vim
+curl https://github.com/grassdog/janus/raw/master/bootstrap.sh -o - | sh
+
 # Setup dotfiles
 cd &&
 [ -d 'bin' ] || git clone git@github.com:grassdog/binfiles.git bin &&
-mkdir -p ~/bin/dotfiles/vim/tmp/backup &&
-mkdir -p ~/bin/dotfiles/vim/tmp/swap &&
-ln -sf ~/bin/dotfiles/vim/rcfiles/vimrc ~/.vimrc &&
-ln -sf ~/bin/dotfiles/vim ~/.vim &&
 ln -sf ~/bin/dotfiles/zsh/zshenv ~/.zshenv &&
 ln -sf ~/bin/dotfiles/git/gitconfig ~/.gitconfig &&
 ln -sf ~/bin/dotfiles/git/gitignore_global ~/.gitignore_global &&

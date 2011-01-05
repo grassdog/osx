@@ -2,11 +2,8 @@ autoload -U colors
 colors
 setopt prompt_subst
 
-PROMPT='%{$fg_bold[black]%}$(date "+%a %H:%M:%S") %{$fg[cyan]%}%n@%m:%{$reset_color%}%{$fg[yellow]%}${PWD/#$HOME/~}%{$reset_color%} %{$fg[blue]%}$(vcprompt)%{$fg_bold[black]%}$(rvm-prompt i v g)
+PROMPT='%{$fg[green]%}$(date "+%a %H:%M:%S") %{$fg[cyan]%}%n@%m:%{$reset_color%}%{$fg[yellow]%}${PWD/#$HOME/~}%{$reset_color%} %{$fg[blue]%}$(vcprompt)%{$fg[green]%}$(rvm-prompt i v g)
 %{$fg[green]%}→ %{$reset_color%}'
-
-#%{$fg[cyan]%}%n@%m:%{$reset_color%}%{$fg[yellow]%}${PWD/#$HOME/~}%{$reset_color%} %{$fg[blue]%}$(vcprompt) $(__my_rvm_ruby_version)
-# Set RPROMPT to have info show up on the right, too.
 
 fpath=($HOME/.zsh/Completion $fpath)
 

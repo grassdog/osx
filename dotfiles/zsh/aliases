@@ -77,6 +77,9 @@ alias psf='ps ax --forest'
 alias tu='top -o cpu' # cpu
 alias tm='top -o vsize' # memory
 
+# Create ctags for puge
+alias pt='ctags --extra=+f --extra=+q --tag-relative=no -f tmp/tags -R app config features lib spec'
+
 # Colourful grep
 alias cgrep='grep --color=auto'
 

@@ -42,3 +42,6 @@ dontgitify
 
 # Compiled Python
 *.pyc
+
+# Ctags files
+tags

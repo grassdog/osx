@@ -167,6 +167,21 @@ function rserve() {
   ruby -rwebrick -e"s = WEBrick::HTTPServer.new(:Port => 3000,  :DocumentRoot => Dir.pwd); trap('INT') { s.shutdown }; s.start"
 }
 
+# Find files
+function f() {
+    find . -name $1 -print
+}
+
+# Remove a bunch of files
+function clean() {
+  if [ $# -eq 1 ]
+  then
+    find . -name $1 -exec rm {} \;
+  else
+    echo "No args passed so doing nothing"
+  fi
+}
+
 # From http://github.com/suztomo/dotfiles
 function rmf(){
     for file in $*

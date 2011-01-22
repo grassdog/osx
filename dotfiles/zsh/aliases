@@ -55,6 +55,12 @@ function jpuge() {
   export JAVA_OPTS='-d32 -client -Xmx1g'
 }
 
+# Look up something on wikipedia
+function wiki() {
+  dig +short txt $1.wp.dg.cx
+}
+
+
 alias le='less -SR'
 alias v='vim'
 alias g='mvim'

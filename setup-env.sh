@@ -21,6 +21,13 @@
 # Remove glass dock
 defaults write com.apple.dock no-glass -boolean YES && killall Dock
 
+# Hide ping dropdowns
+# Restore itunes arrows and set their defaul to filter my own library.
+defaults write com.apple.iTunes hide-ping-dropdown 1
+defaults write com.apple.iTunes show-store-link-arrows 1
+defaults write com.apple.iTunes invertStoreLinks 1
+
+
 ruby -e "$(curl -fsSLk https://gist.github.com/raw/323731/install_homebrew.rb)"
 
 brew install git

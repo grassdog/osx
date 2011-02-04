@@ -27,6 +27,17 @@ defaults write com.apple.iTunes hide-ping-dropdown 1
 defaults write com.apple.iTunes show-store-link-arrows 1
 defaults write com.apple.iTunes invertStoreLinks 1
 
+# Go to terminal preferences and select keyboard tab
+# Change home, and end keys so that the following sequences are placed in and allow 
+# for movement to start and end of line
+#
+#Home	\033[1~
+#End	\033[4~
+#Page Up	\033[5~
+#Page Down	\033[6~
+
+# Get home, end etc.. working correctly
+curl http://gist.github.com/raw/810749/d4ff1627f3f1675be82ee29b44f362e56e93853e/DefaultKeyBinding.dict > ~/Library/KeyBindings/DefaultKeyBinding.dict
 
 ruby -e "$(curl -fsSLk https://gist.github.com/raw/323731/install_homebrew.rb)"
 

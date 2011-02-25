@@ -147,7 +147,12 @@ function gbt() {
 #git remote add origin git@github.com:grassdog/binfiles.git
 
 function gitspec() {
- git diff --name-only ${1:-git-svn} | grep _spec.rb | xargs spec
+  git diff --name-only ${1:-git-svn} | grep _spec.rb | xargs spec
+}
+
+# Run rspec with specdoc formatter
+function specdoc() {
+  spec -c -f s $1
 }
 
 # Setup a tunnel

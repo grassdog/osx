@@ -28,7 +28,7 @@ defaults write com.apple.iTunes show-store-link-arrows 1
 defaults write com.apple.iTunes invertStoreLinks 1
 
 # Go to terminal preferences and select keyboard tab
-# Change home, and end keys so that the following sequences are placed in and allow 
+# Change home, and end keys so that the following sequences are placed in and allow
 # for movement to start and end of line
 #
 #Home	\033[1~
@@ -47,9 +47,9 @@ brew install ctags wget tree vcprompt ack
 brew install mysql
 
 # Apps to install
-# ruby mine, sequel pro, mac vim, git x, skype, pester, adium, 
-# chrome, firefox, httpclient, dropbox, notational velocity alt, google quick search box, 
-# textmate, MSOffice, acorn, photoshop, VLC, Yojimbo, virtual box, peepopen, Sparrow
+# ruby mine, sequel pro, mac vim, git x, skype, pester, adium,
+# chrome, firefox, httpclient, dropbox, notational velocity alt, google quick search box,
+# textmate, MSOffice, acorn, photoshop, VLC, Yojimbo, virtual box, peepopen, Sparrow, Skitch
 
 # Setup textmate
 mkdir -p /Library/Application\ Support/TextMate/Bundles

@@ -13,3 +13,7 @@
 	unstage = reset HEAD
 [rerere]
   enabled = 1
+# Always rebase when pulling into tracking branches
+[branch]
+  autosetuprebase = always
+

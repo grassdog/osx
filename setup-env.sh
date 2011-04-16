@@ -88,4 +88,6 @@ ln -sf ~/bin/dotfiles/git/gitignore_global ~/.gitignore_global &&
 ln -sf ~/bin/dotfiles/gem/gemrc ~/.gemrc &&
 ln -sf ~/bin/dotfiles/ack/ackrc ~/.ackrc &&
 ln -sf ~/bin/dotfiles/zsh/dotzsh ~/.zsh
-
+ln -sf ~/bin/dotfiles/vim/vimrc.local ~/.vimrc.local
+ln -sf ~/bin/dotfiles/vim/gvimrc.local ~/.gvimrc.local
+ln -sf ~/bin/dotfiles/vim/janus.rake ~/.janus.rake

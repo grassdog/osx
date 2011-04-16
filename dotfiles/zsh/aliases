@@ -44,7 +44,9 @@ function take() {
 
 function jpuge() {
   rvm use 1.4.1@puge
-  export JAVA_OPTS='-d32 -client -Xmx1g'
+  export JAVA_OPTS='-d32 -client'
+  export JAVA_MEM='-Xmx1g'
+  export JAVA_STACK='-Xss2048k'
 }
 
 # Look up something on wikipedia

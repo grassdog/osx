@@ -43,8 +43,9 @@ ruby -e "$(curl -fsSLk https://gist.github.com/raw/323731/install_homebrew.rb)"
 
 brew install git
 easy_install mercurial # or brew install pip && pip install mercurial
-brew install ctags wget tree vcprompt ack
+brew install ctags wget tree vcprompt ack flip
 brew install mysql
+#brew install ghc mit-scheme node
 
 # Apps to install
 # ruby mine, sequel pro, mac vim, git x, skype, pester, adium,

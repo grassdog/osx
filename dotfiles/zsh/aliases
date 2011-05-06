@@ -108,6 +108,12 @@ alias gm='git merge --no-ff'
 function gg() {
     git commit -v -a -m "$*"
 }
+
+# Commit staged changes and quote all args as message
+function gcm() {
+    git commit -v -m "$*"
+}
+
 alias gco='git checkout'
 alias gdt='git difftool'
 alias gdm='git diff master'

@@ -16,3 +16,4 @@ vim_plugin_task "lesscss" do
   sh "curl http://leafo.net/lessphp/vim/less.vim > syntax/less.vim"
 end
 
+skip_vim_plugin "syntastic"

@@ -47,6 +47,8 @@ brew install ctags wget tree vcprompt ack flip htop
 brew install mysql
 #brew install ghc mit-scheme node
 
+# Install multimarkdown support and services
+
 # Apps to install
 # ruby mine, sequel pro, mac vim, git x, skype, pester, adium,
 # chrome, firefox, httpclient, dropbox, notational velocity alt, google quick search box,

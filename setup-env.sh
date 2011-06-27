@@ -37,15 +37,15 @@ defaults write com.apple.iTunes invertStoreLinks 1
 #Page Down	\033[6~
 
 # Get home, end etc.. working correctly
-curl http://gist.github.com/raw/810749/d4ff1627f3f1675be82ee29b44f362e56e93853e/DefaultKeyBinding.dict > ~/Library/KeyBindings/DefaultKeyBinding.dict
+curl https://raw.github.com/gist/810749/d4ff1627f3f1675be82ee29b44f362e56e93853e/DefaultKeyBinding.dict > ~/Library/KeyBindings/DefaultKeyBinding.dict
 
-ruby -e "$(curl -fsSLk https://gist.github.com/raw/323731/install_homebrew.rb)"
+# Install Homebrew
+ruby -e "$(curl -fsSL https://raw.github.com/gist/323731)"
 
-brew install git
-easy_install mercurial # or brew install pip && pip install mercurial
-brew install ctags wget tree vcprompt ack flip htop
-brew install mysql
+brew install git ctags wget tree vcprompt ack flip htop
+#brew install mysql
 #brew install ghc mit-scheme node
+#easy_install mercurial # or brew install pip && pip install mercurial
 
 # Install multimarkdown support and services
 
@@ -60,25 +60,14 @@ rvm install ruby-1.9.2
 rvm install ruby-1.8.7
 rvm use ruby-1.9.2 --default
 rvm use ruby-1.9.2@global
-gem install ghost
-gem install cheat
-gem install bundler
-gem install vagrant
-gem install request-log-analyzer
-gem install awesome_print
+gem install homesick ghost cheat bundler vagrant awesome_print
+
+# Grab my dotfiles
+homesick clone git@github.com:grassdog/dotfiles.git
+homesick symlink dotfiles
 
 # Setup vim
-curl https://github.com/grassdog/janus/raw/master/bootstrap.sh -o - | sh
+curl https://raw.github.com/grassdog/janus/master/bootstrap.sh -o - | sh
 
-# Setup dotfiles
-cd &&
-[ -d 'bin' ] || git clone git@github.com:grassdog/binfiles.git bin &&
-ln -sf ~/bin/dotfiles/zsh/zshenv ~/.zshenv &&
-ln -sf ~/bin/dotfiles/git/gitconfig ~/.gitconfig &&
-ln -sf ~/bin/dotfiles/git/gitignore_global ~/.gitignore_global &&
-ln -sf ~/bin/dotfiles/gem/gemrc ~/.gemrc &&
-ln -sf ~/bin/dotfiles/ack/ackrc ~/.ackrc &&
-ln -sf ~/bin/dotfiles/zsh/dotzsh ~/.zsh
-ln -sf ~/bin/dotfiles/vim/vimrc.local ~/.vimrc.local
-ln -sf ~/bin/dotfiles/vim/gvimrc.local ~/.gvimrc.local
-ln -sf ~/bin/dotfiles/vim/janus.rake ~/.janus.rake
+# Grab bin files
+cd && [ -d 'bin' ] || git clone git@github.com:grassdog/binfiles.git bin

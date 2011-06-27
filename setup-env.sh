@@ -72,4 +72,4 @@ homesick symlink dotfiles
 curl https://raw.github.com/grassdog/janus/master/bootstrap.sh -o - | sh
 
 # Grab bin files
-cd && [ -d 'bin' ] || git clone git@github.com:grassdog/binfiles.git bin
+cd && [ -d 'bin' ] || git clone git@github.com:grassdog/mac-env.git bin

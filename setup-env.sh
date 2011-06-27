@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# TODO Install XCode
+
 # TODO set up keyboard defaults, repeat rate etc...
 
 # TODO Set default shell to zsh
@@ -20,6 +22,7 @@
 
 # Remove glass dock
 defaults write com.apple.dock no-glass -boolean YES && killall Dock
+osascript -e 'tell app "Finder" to quit'
 
 # Hide ping dropdowns
 # Restore itunes arrows and set their defaul to filter my own library.
@@ -43,15 +46,14 @@ curl https://raw.github.com/gist/810749/d4ff1627f3f1675be82ee29b44f362e56e93853e
 ruby -e "$(curl -fsSL https://raw.github.com/gist/323731)"
 
 brew install git ctags wget tree vcprompt ack flip htop
-#brew install mysql
-#brew install ghc mit-scheme node
+#brew install mysql ghc mit-scheme node
 #easy_install mercurial # or brew install pip && pip install mercurial
 
 # Install multimarkdown support and services
 
 # Apps to install
 # ruby mine, sequel pro, mac vim, git x, skype, pester, adium,
-# chrome, firefox, httpclient, dropbox, notational velocity alt, google quick search box,
+# chrome, firefox, httpclient, dropbox, notational velocity alt, Alfred
 # textmate, MSOffice, acorn, photoshop, VLC, Yojimbo, virtual box, peepopen, Sparrow, Skitch
 # Total finder
 

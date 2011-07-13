@@ -16,6 +16,7 @@
 # set size 100x43
 # set title active process name
 # set new pro as default
+# install fonts, Inconsolata
 
 # Get babushka
 #bash -c "`curl babushka.me/up`"
@@ -46,7 +47,7 @@ curl https://raw.github.com/gist/810749/d4ff1627f3f1675be82ee29b44f362e56e93853e
 ruby -e "$(curl -fsSL https://raw.github.com/gist/323731)"
 
 brew install git ctags wget tree vcprompt ack flip htop
-#brew install mysql ghc mit-scheme node
+#brew install mysql ghc mit-scheme node tmux
 #easy_install mercurial # or brew install pip && pip install mercurial
 
 # Install multimarkdown support and services

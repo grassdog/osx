@@ -70,7 +70,8 @@ homesick clone git@github.com:grassdog/dotfiles.git
 homesick symlink dotfiles
 
 # Setup vim
-curl https://raw.github.com/grassdog/janus/master/bootstrap.sh -o - | sh
+cd && git clone git@github.com:grassdog/janus.git .vim
+cd .vim && rake
 
 # Grab bin files
 cd && [ -d 'bin' ] || git clone git@github.com:grassdog/environment.git bin

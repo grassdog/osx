@@ -46,7 +46,7 @@ curl https://raw.github.com/gist/810749/d4ff1627f3f1675be82ee29b44f362e56e93853e
 # Install Homebrew
 ruby -e "$(curl -fsSL https://raw.github.com/gist/323731)"
 
-brew install git ctags wget tree vcprompt ack flip htop
+brew install git ctags wget tree vcprompt ack flip htop multimarkdown
 #brew install mysql ghc mit-scheme node tmux
 #easy_install mercurial # or brew install pip && pip install mercurial
 
@@ -56,14 +56,15 @@ brew install git ctags wget tree vcprompt ack flip htop
 # ruby mine, sequel pro, mac vim, git x, skype, pester, adium,
 # chrome, firefox, httpclient, dropbox, notational velocity alt, Alfred
 # textmate, MSOffice, acorn, photoshop, VLC, Yojimbo, virtual box, peepopen, Sparrow, Skitch
-# Total finder
+# Total finder, iterm
 
+# TODO Change with rbenv
 bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-head )
 rvm install ruby-1.9.2
 rvm install ruby-1.8.7
 rvm use ruby-1.9.2 --default
 rvm use ruby-1.9.2@global
-gem install homesick ghost cheat bundler vagrant awesome_print
+gem install homesick ghost cheat bundler vagrant awesome_print key-installer
 
 # Grab my dotfiles
 homesick clone git@github.com:grassdog/dotfiles.git

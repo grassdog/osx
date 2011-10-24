@@ -56,7 +56,9 @@ brew install git ctags wget tree vcprompt ack flip htop multimarkdown
 # ruby mine, sequel pro, mac vim, git x, skype, pester, adium,
 # chrome, firefox, httpclient, dropbox, notational velocity alt, Alfred
 # textmate, MSOffice, acorn, photoshop, VLC, Yojimbo, virtual box, peepopen, Sparrow, Skitch
-# Total finder, iterm
+# Total finder, iterm2
+
+# Install solarized theme for iterm2
 
 # TODO Change with rbenv
 bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-head )

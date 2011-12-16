@@ -46,7 +46,7 @@ curl https://raw.github.com/gist/810749/d4ff1627f3f1675be82ee29b44f362e56e93853e
 # Install Homebrew
 ruby -e "$(curl -fsSL https://raw.github.com/gist/323731)"
 
-brew install git ctags wget tree vcprompt ack flip htop multimarkdown
+brew install git ctags wget tree vcprompt ack flip htop multimarkdown growlnotify
 #brew install mysql ghc mit-scheme node tmux
 #easy_install mercurial # or brew install pip && pip install mercurial
 
@@ -68,13 +68,15 @@ rvm use ruby-1.9.2 --default
 rvm use ruby-1.9.2@global
 gem install homesick ghost cheat bundler vagrant awesome_print key-installer
 
+# TODO Set up ssh keys
+
 # Grab my dotfiles
 homesick clone git@github.com:grassdog/dotfiles.git
 homesick symlink dotfiles
 
 # Setup vim
-cd && git clone git@github.com:grassdog/janus.git .vim
-cd .vim && rake
+cd && git clone git@github.com:grassdog/vimfiles.git .vim
+cd .vim && rake setup
 
 # Grab bin files
 cd && [ -d 'bin' ] || git clone git@github.com:grassdog/environment.git bin

@@ -8,6 +8,6 @@ require 'bundler'
 paths = Bundler.load.specs.map(&:full_gem_path)
 
 ruby_alias = '/.*alias(_method)?[[:space:]]+:([[:alnum:]_=!?]+),?[[:space:]]+:([[:alnum:]_=!]+)/\\2/f/'
-command = "ctags -R --tag-relative=yes --totals=yes --extra=+f --fields=+iaS --regex-ruby=\"#{ruby_alias}\" --C-kinds=- --sql-kinds=- --exclude=.git --exclude=log -f .tags * "
+command = "ctags -R --tag-relative=yes --totals=yes --extra=+f --fields=+iaS --regex-ruby=\"#{ruby_alias}\" --C-kinds=- --sql-kinds=- --exclude=.git --exclude=log -f .gems.tags"
 
 system("#{command} #{paths.join(' ')}")

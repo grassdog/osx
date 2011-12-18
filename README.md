@@ -1,9 +1,8 @@
-# My Mac setup
+# My Mac environment setup
 
-Script to bootstrap a new mac environment: [setup-env.sh](https://raw.github.com/grassdog/mac-env/master/setup-env.sh).
+A script with a set of steps to bootstrap a new mac environment how I like it: [setup-env.sh](https://raw.github.com/grassdog/mac-env/master/setup-env.sh).
 
-Includes scripts and utilities picked up over the years.
+More a set of instructions rather than a runnable script.
 
-## TODO
-
-Move to a chef solo/puppet/babushka approach instead.
+Need to move to a chef solo/puppet/babushka approach instead whenever I
+find the time.

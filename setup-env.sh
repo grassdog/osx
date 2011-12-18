@@ -71,12 +71,11 @@ gem install homesick ghost cheat bundler vagrant awesome_print key-installer
 # TODO Set up ssh keys
 
 # Grab my dotfiles
-homesick clone git@github.com:grassdog/dotfiles.git
-homesick symlink dotfiles
+cd && git clone git@github.com:grassdog/dotfiles.git .dotfiles
+cd .dotfiles && rake install
 
 # Setup vim
 cd && git clone git@github.com:grassdog/vimfiles.git .vim
 cd .vim && rake setup
 
-# Grab bin files
-cd && [ -d 'bin' ] || git clone git@github.com:grassdog/environment.git bin
+

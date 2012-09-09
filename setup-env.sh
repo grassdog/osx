@@ -17,6 +17,7 @@
 # Set default shell to zsh
 
 # Install solarized theme for iterm2
+# Install Alfred extensions
 
 # Get babushka
 #bash -c "`curl babushka.me/up`"
@@ -46,8 +47,9 @@ curl https://raw.github.com/gist/810749/d4ff1627f3f1675be82ee29b44f362e56e93853e
 # Install Homebrew
 ruby <(curl -fsSkL raw.github.com/mxcl/homebrew/go)
 
-brew install git ctags wget tree ack rbenv ruby-build
-brew install mysql ghc racket node
+brew install git rbenv ruby-build
+brew install ctags wget tree flip ack rbenv ruby-build
+brew install mysql ghc plt-racket node leiningen qt postgresql rename imagemagick apple-gcc42 mongodb
 #brew install flip htop multimarkdown
 
 #easy_install mercurial # or brew install pip && pip install mercurial

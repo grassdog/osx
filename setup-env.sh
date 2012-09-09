@@ -1,63 +1,121 @@
 #!/bin/sh
 
-# Install Apps
+################
+# Setup my MacOSX Environment how I like it
+################
 
-# Must haves
-# XCode and command line tools
-# Mac vim, Total finder, iTerm2, Chrome, Dropbox, Alfred, Sparrow
-
-# Rest
-# Skype, pester, adium,
-# httpclient, notational velocity alt, 
-# MSOffice, photoshop, VLC, Yojimbo, Virtual box, Sparrow, Skitch
-# Sequel pro 
-
+# Disable trash and extension change warnings in finder preferences
 # Set up keyboard defaults, repeat rate, caps lock as control etc...
+# Set desktop background to point to dropbox backgrounds folder
+# Set default shell to zsh (in user menu)
+# Don't play feedback when volume is changed
 
-# Set default shell to zsh
+# Install fonts
 
-# Install solarized theme for iterm2
-# Install Alfred extensions
+# Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
-# Get babushka
-#bash -c "`curl babushka.me/up`"
+# Make Dock icons of hidden applications translucent
+defaults write com.apple.dock showhidden -bool true
 
-# Remove glass dock
-#defaults write com.apple.dock no-glass -boolean YES && killall Dock
-#osascript -e 'tell app "Finder" to quit'
+# Disable menu bar transparency
+defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
 
-# Hide ping dropdowns
-# Restore itunes arrows and set their defaul to filter my own library.
+# Expand save panel by default
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+
+# Expand print panel by default
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+
+# Disable the “Are you sure you want to open this application?” dialog
+defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+# Disable auto-correct
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+# Automatically open a new Finder window when a volume is mounted
+defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
+defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
+
+# Display full POSIX path as Finder window title
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+
+# Avoid creating .DS_Store files on network volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+# Hide ping dropdowns and restore itunes arrows and set their defaul to filter my own library.
 defaults write com.apple.iTunes hide-ping-dropdown 1
 defaults write com.apple.iTunes show-store-link-arrows 1
 defaults write com.apple.iTunes invertStoreLinks 1
 
-# Go to terminal preferences and select keyboard tab
-# Change home, and end keys so that the following sequences are placed in and allow
-# for movement to start and end of line
-#
-#Home	\033[1~
-#End	\033[4~
-#Page Up	\033[5~
-#Page Down	\033[6~
+# Reset Launchpad
+rm ~/Library/Application\ Support/Dock/*.db
 
-# Get home, end etc.. working correctly
+# Show the ~/Library folder
+chflags nohidden ~/Library
+
+# Disable local Time Machine backups
+sudo tmutil disablelocal
+
+# Kill affected applications
+for app in Safari Finder Dock Mail; do killall "$app"; done
+
+# Fix for the ancient UTF-8 bug in QuickLook (http://mths.be/bbo)
+echo "0x08000100:0" > ~/.CFUserTextEncoding
+
+################
+# Install Apps
+################
+
+# XCode and command line tools
+# Mac vim, Total finder, iTerm2, Chrome, Dropbox, Alfred, Sparrow, Moom
+# Skype, Pester, Adium, Super Duper, Github, Kindle, Perian
+# XQuarts (for an X-server)
+# HttpClient, MSOffice, Photoshop, VLC, Yojimbo, Secureid
+# Sequel pro?
+
+# Set up iTerm
+
+# Import Solarized theme
+# Set font to menlo 12pt bold and menlo 12pt
+# keys left option key acts as +esc
+# Disable confirm closing
+# disable contacts in Alfred
+# Disable spaces keyboard shortcuts etc..
+
+# Install Alfred extensions
+
+# Get babushka
+bash -c "`curl babushka.me/up`"
+
+# Get home, end etc.. keys working correctly
+mkdir -p ~/Library/KeyBindings
 curl https://raw.github.com/gist/810749/d4ff1627f3f1675be82ee29b44f362e56e93853e/DefaultKeyBinding.dict > ~/Library/KeyBindings/DefaultKeyBinding.dict
 
 # Install Homebrew
 ruby <(curl -fsSkL raw.github.com/mxcl/homebrew/go)
 
-brew install git rbenv ruby-build
-brew install ctags wget tree flip ack rbenv ruby-build
-brew install mysql ghc plt-racket node leiningen qt postgresql rename imagemagick apple-gcc42 mongodb
-#brew install flip htop multimarkdown
+brew install git
+brew tap homebrew/homebrew-dupes
+brew install apple-gcc42
+brew install mercurial vcprompt
+brew install ctags wget tree ack
+brew install ghc plt-racket node leiningen qt rename imagemagick
+brew install htop multimarkdown
+#brew install mysql
+#brew install mongodb
+brew install postgresql
 
-#easy_install mercurial # or brew install pip && pip install mercurial
-
+brew install rbenv ruby-build
 rbenv install 1.9.3-p194
-gem install ghost bundler awesome_print pry
+rbenv global 1.9.3-p194
+gem install bundler pry
 
-# TODO Set up ssh keys
+# Copy across ssh keys
+
+# Install pow
+curl get.pow.cx | sh
+gem install powder
 
 # Grab my dotfiles
 cd && git clone git@github.com:grassdog/dotfiles.git .dotfiles

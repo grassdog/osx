@@ -109,7 +109,7 @@ brew install postgresql
 brew install rbenv ruby-build
 rbenv install 1.9.3-p194
 rbenv global 1.9.3-p194
-gem install bundler pry
+gem install bundler pry heroku foreman
 
 # Copy across ssh keys
 

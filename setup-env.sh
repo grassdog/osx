@@ -4,7 +4,7 @@
 # Setup my MacOSX Environment how I like it
 ################
 
-# Disable trash and extension change warnings in finder preferences
+# Disable trash and extension change warnings and view extensions in finder preferences
 # Set up keyboard defaults, repeat rate, caps lock as control etc...
 # Set desktop background to point to dropbox backgrounds folder
 # Set default shell to zsh (in user menu)
@@ -52,7 +52,8 @@ defaults write com.apple.iTunes invertStoreLinks 1
 rm ~/Library/Application\ Support/Dock/*.db
 
 # Show the ~/Library folder
-chflags nohidden ~/Library
+cd
+sudo chflags nohidden Library
 
 # Disable local Time Machine backups
 sudo tmutil disablelocal
@@ -103,13 +104,17 @@ brew install ctags wget tree ack
 brew install ghc plt-racket node leiningen qt rename imagemagick
 brew install htop multimarkdown
 #brew install mysql
-#brew install mongodb
+brew install mongodb
 brew install postgresql
+brew install pstree node ruby-build chruby phantomjs tmux haskell-platform mercurial macvim vim
 
+# TODO Change this to chruby
 brew install rbenv ruby-build
 rbenv install 1.9.3-p194
 rbenv global 1.9.3-p194
 gem install bundler pry heroku foreman
+
+npm -g install js-beautify
 
 # Copy across ssh keys
 

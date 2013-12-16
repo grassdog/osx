@@ -43,7 +43,7 @@ defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 # Avoid creating .DS_Store files on network volumes
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
-# Hide ping dropdowns and restore itunes arrows and set their defaul to filter my own library.
+# Hide ping dropdowns and restore itunes arrows and set their default to filter my own library.
 defaults write com.apple.iTunes hide-ping-dropdown 1
 defaults write com.apple.iTunes show-store-link-arrows 1
 defaults write com.apple.iTunes invertStoreLinks 1
@@ -53,7 +53,7 @@ rm ~/Library/Application\ Support/Dock/*.db
 
 # Show the ~/Library folder
 cd
-sudo chflags nohidden Library
+sudo chflags nohidden ~/Library
 
 # Disable local Time Machine backups
 sudo tmutil disablelocal
@@ -109,10 +109,10 @@ brew install postgresql
 brew install pstree node ruby-build chruby phantomjs tmux haskell-platform mercurial macvim vim
 
 # TODO Change this to chruby
-brew install rbenv ruby-build
-rbenv install 1.9.3-p194
-rbenv global 1.9.3-p194
-gem install bundler pry heroku foreman
+brew install ruby-build chruby
+# rbenv install 1.9.3-p194
+# rbenv global 1.9.3-p194
+# gem install bundler pry heroku foreman
 
 npm -g install js-beautify
 

@@ -105,10 +105,13 @@ brew install ghc plt-racket node leiningen qt rename imagemagick
 brew install htop multimarkdown
 #brew install mysql
 brew install mongodb
-brew install postgresql
-brew install pstree node ruby-build chruby phantomjs tmux haskell-platform mercurial macvim vim
+brew install pstree node ruby-build chruby phantomjs tmux haskell-platform mercurial pow
 
-# TODO Change this to chruby
+brew install emacs --cocoa --srgb
+
+brew install vim --with-ruby --with-mzscheme --with-python
+brew install macvim
+
 brew install ruby-build chruby
 # rbenv install 1.9.3-p194
 # rbenv global 1.9.3-p194
@@ -119,8 +122,10 @@ npm -g install js-beautify
 # Copy across ssh keys
 
 # Install pow
-curl get.pow.cx | sh
+# curl get.pow.cx | sh
 gem install powder
+
+# Install Postgresapp
 
 # Grab my dotfiles
 cd && git clone git@github.com:grassdog/dotfiles.git .dotfiles

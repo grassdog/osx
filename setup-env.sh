@@ -106,6 +106,7 @@ brew install htop multimarkdown
 #brew install mysql
 brew install mongodb
 brew install pstree node ruby-build chruby phantomjs tmux haskell-platform mercurial pow
+brew install z
 
 brew install emacs --cocoa --srgb
 

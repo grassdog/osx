@@ -21,6 +21,8 @@ defaults write com.apple.dock showhidden -bool true
 # Disable menu bar transparency
 defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
 
+# TODO Reduce transparency
+
 # Expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 
@@ -95,6 +97,9 @@ curl https://raw.github.com/gist/810749/d4ff1627f3f1675be82ee29b44f362e56e93853e
 
 # Install Homebrew
 ruby <(curl -fsSkL raw.github.com/mxcl/homebrew/go)
+
+# Install Casks
+brew install caskroom/cask/brew-cask
 
 brew install git
 brew tap homebrew/homebrew-dupes

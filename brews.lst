@@ -1,0 +1,27 @@
+ansible
+chruby
+ctags
+emacs --srgb --cocoa
+figlet
+git
+heroku-toolbelt:heroku
+imagemagick
+leiningen
+macvim
+maven:mvn
+mongodb
+multimarkdown
+node
+openssl
+pow
+pstree
+python
+ruby-build
+sqlite
+the_silver_searcher
+tree
+vcprompt
+vim --with-ruby --with-mzscheme --with-python
+wget
+youtube-dl
+z

@@ -1,8 +1,49 @@
-# My Mac environment setup
+# OS X Setup
 
-A script with a set of steps to bootstrap a new mac environment how I like it: [setup-env.sh](https://raw.github.com/grassdog/mac-env/master/setup-env.sh).
+## Mac App Store Installs
 
-More a set of instructions rather than a runnable script.
+Go to the purchases tab and install the following
 
-Need to move to a chef solo/puppet/babushka approach instead whenever I
-find the time.
+- XCode
+- Airmail
+- Fantastical
+- 1Password
+- Caffeine
+
+- Color Picker
+- Monosnap
+- Xscope
+
+- Dash
+- Day One
+- Folding Text
+- Byword
+- Scrivener
+- Soulver
+
+- Kindle
+
+- Capo 3
+- Slack
+- Transmit
+- White Noise
+- Oyster
+- Melo
+- Valentina Studio
+- Base
+- Microsoft Remote Desktop
+
+## Get Babushka
+
+```sh
+sh -c "`curl https://babushka.me/up`"
+```
+
+## TODO Steps to run babushka
+
+## TODO Steps to configure apps
+
+## Install other apps
+
+- Lightroom
+- Photoshop

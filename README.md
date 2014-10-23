@@ -1,5 +1,7 @@
 # OS X Setup
 
+My base OS X Setup.
+
 ## Mac App Store Installs
 
 Go to the purchases tab and install the following
@@ -39,11 +41,17 @@ Go to the purchases tab and install the following
 sh -c "`curl https://babushka.me/up`"
 ```
 
+TODO Symlink in ~/code
+
 ## TODO Steps to run babushka
 
-## TODO Steps to configure apps
-
-## Install other apps
+## Final manual steps
 
 - Lightroom
 - Photoshop
+- Copy across .secrets from 1Password
+- Install SSH Keys
+
+## TODO Steps to configure apps
+
+## Use github ssh key business for github

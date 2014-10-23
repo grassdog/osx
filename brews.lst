@@ -1,7 +1,6 @@
 ansible
 chruby
 ctags
-emacs --srgb --cocoa
 figlet
 git
 heroku-toolbelt:heroku
@@ -21,7 +20,6 @@ sqlite
 the_silver_searcher
 tree
 vcprompt
-vim --with-ruby --with-mzscheme --with-python
 wget
 youtube-dl
 z

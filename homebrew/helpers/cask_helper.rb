@@ -50,6 +50,9 @@ class CaskHelper < Babushka::BrewHelper
       "/opt/homebrew-cask/Caskroom".p
     end
 
+    def install! pkgs, opts = nil
+      install_pkgs! [*pkgs].map {|pkg| Babushka.VersionOf(pkg) }, ["--appdir=/Applications", opts].join(" ")
+    end
 
     private
       # Don't check versions

@@ -1,5 +1,5 @@
 ansible
-chruby
+chruby:_
 ctags
 figlet
 git
@@ -22,4 +22,4 @@ tree
 vcprompt
 wget
 youtube-dl
-z
+z:_

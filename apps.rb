@@ -12,6 +12,7 @@ end
 
 parse = -> (l) {
   n, p = l.strip.split(':')
+  p = [] if p == '_'
   [n, -> (t) { dep "#{n}.#{t}" do provides p if p end }]
 }
 brews = File.readlines(File.expand_path '../brews.lst', __FILE__).map &parse
@@ -24,6 +25,4 @@ dep "all apps installed" do
 
   brews.each { |n, p| requires "#{n}.managed" }
   casks.each { |n, p| requires "#{n}.cask" }
-
-  requires "alfred cask integration"
 end

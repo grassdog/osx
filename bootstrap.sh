@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# https://github.com/sporkd/babushka-deps/blob/master/bootstrap.sh
+# Ala https://github.com/sporkd/babushka-deps/blob/master/bootstrap.sh
 
 echo
 echo "During this installation, you will be prompted for your password a few times."
@@ -81,12 +81,6 @@ echo
 
 sudo xcodebuild -license
 
-echo
-echo "Installing XCode command line tools."
-echo
-
-xcode-select --install
-
 sleep 2
 
 echo
@@ -104,12 +98,15 @@ echo
 sleep 2
 
 echo
-echo "Adding OS X Source"
+echo "Adding osx babushka source"
 echo
 
 babushka sources --add osx https://github.com/grassdog/osx.git
 
 echo
-echo "Install your host e.g. babushka osx:deus"
+echo "Installing XCode command line tools."
+echo "Wait for this to finish before running your babushka deps e.g. babushka osx:deus"
 echo
+
+xcode-select --install
 

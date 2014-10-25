@@ -1,8 +1,19 @@
 dep "all fonts installed" do
+  requires "forza.otf",
+           "gothamc.otf",
+           "idlewild.otf",
+           "vitesse.otf",
+           "opensans.ttf",
+           "source sans.otf",
+           "sullivan.otf",
+           "crimson.otf",
+           "mensch.ttf",
+           "metropolis.otf",
+           "deconeue.ttf"
 
 end
 
-dep 'user font dir exists' do
+dep "user font dir exists" do
   met? {
     "~/Library/Fonts".p.dir?
   }
@@ -11,67 +22,105 @@ dep 'user font dir exists' do
   }
 end
 
-meta 'ttf' do
+meta "ttf" do
   accepts_list_for :source
-  accepts_list_for :extra_source
   accepts_list_for :ttf_filename
 
   template {
-    requires 'user font dir exists'
-    prepare {
-      setup_source_uris
-    }
+    requires "user font dir exists"
     met? {
       "~/Library/Fonts/#{ttf_filename.first}".p.exists?
     }
     meet {
-      process_sources do
-        Dir.glob("*.ttf") do |font|
-          log_shell "Installing #{font}", "cp #{font} ~/Library/Fonts"
+      source.each do |uri|
+        Babushka::Resource.extract(uri) do
+          Dir.glob("*.ttf") do |font|
+            log_shell "Installing #{font}", "cp #{font} ~/Library/Fonts"
+          end
         end
       end
     }
   }
 end
 
-meta 'otf' do
+meta "otf" do
   accepts_list_for :source
-  accepts_list_for :extra_source
   accepts_list_for :otf_filename
 
   template {
-    requires 'user font dir exists'
-    prepare {
-      setup_source_uris
-    }
+    requires "user font dir exists"
     met? {
       "~/Library/Fonts/#{otf_filename.first}".p.exists?
     }
     meet {
-      process_sources do
-        Dir.glob("*.otf") do |font|
-          log_shell "Installing #{font}", "cp #{font} ~/Library/Fonts"
+      source.each do |uri|
+        Babushka::Resource.extract(uri) do
+          Dir.glob("**/*.otf") do |font|
+            log_shell "Installing #{font}", "cp #{font} ~/Library/Fonts"
+          end
         end
       end
     }
   }
 end
 
-# TODO Setup font install here
-
-dep 'meslo.ttf' do
-  source 'http://github.com/downloads/andreberg/Meslo-Font/Meslo%20LG%20DZ%20v1.0.zip'
-  ttf_filename "MesloLGM-DZ-Regular.ttf"
+dep "forza.otf" do
+  source "https://dl.dropboxusercontent.com/u/103175/Fonts/HFJ_Forza.zip"
+  otf_filename "Forza-Black.otf"
 end
 
-dep 'crimson.otf' do
-  source 'http://internode.dl.sourceforge.net/project/crimsontext/crimson_101217.zip'
+dep "gothamc.otf" do
+  source "https://dl.dropboxusercontent.com/u/103175/Fonts/GothamCond.zip"
+  otf_filename "GothamCond-Black.otf"
+end
+
+dep "idlewild.otf" do
+  source "https://dl.dropboxusercontent.com/u/103175/Fonts/Idlewild.zip"
+  otf_filename "Idlewild-Bold.otf"
+end
+
+dep "vitesse.otf" do
+  source "https://dl.dropboxusercontent.com/u/103175/Fonts/Vitesse.zip"
+  otf_filename "Vitesse-Black.otf"
+end
+
+dep "sullivan.otf" do
+  source "https://dl.dropboxusercontent.com/u/103175/Fonts/Sullivan.zip"
+  otf_filename "Sullivan-Regular.otf"
+end
+
+dep "opensans.ttf" do
+  source "https://dl.dropboxusercontent.com/u/103175/Fonts/OpenSans.zip"
+  ttf_filename "OpenSans-Bold.ttf"
+end
+
+dep "source sans.otf" do
+  source "https://github.com/adobe-fonts/source-sans-pro/archive/2.010R-ro/1.065R-it.zip"
+  otf_filename "SourceSansPro-Black.otf"
+end
+
+dep "crimson.otf" do
+  source "http://internode.dl.sourceforge.net/project/crimsontext/crimson_101217.zip"
   otf_filename "Crimson-Roman.otf"
 end
 
-dep 'ROKE1984.otf' do
-  otf_filename "ROKE1984.otf"
+dep "mensch.ttf" do
+  ttf_filename "Mensch.ttf"
   meet {
-    `curl http://dl.dropbox.com/u/2971204/ROKE1984.otf > ~/Library/Fonts/ROKE1984.otf`
+    `curl https://dl.dropboxusercontent.com/u/103175/Fonts/Mensch.ttf > ~/Library/Fonts/Mensch.ttf`
+  }
+end
+
+dep "metropolis.otf" do
+  otf_filename "Metropolis.otf"
+  meet {
+    `curl https://dl.dropboxusercontent.com/u/103175/Fonts/Metropolis.otf > ~/Library/Fonts/Metropolis.otf`
+  }
+end
+
+dep "deconeue.ttf" do
+  ttf_filename "DecoNeue-Light.ttf"
+  meet {
+    `curl https://dl.dropboxusercontent.com/u/103175/Fonts/DecoNeue-Light.ttf > ~/Library/Fonts/DecoNeue-Light.ttf`
   }
 end

@@ -13,6 +13,7 @@ mongodb:mongod
 multimarkdown
 node
 openssl
+phantomjs
 pow
 pstree
 python

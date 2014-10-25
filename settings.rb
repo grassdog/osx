@@ -21,15 +21,9 @@ dep "all settings in place" do
 end
 
 dep "auto hide dock" do
-  met? {
-    shell("defaults read com.apple.dock autohide") == "1"
-  }
-
-  meet {
-    shell "defaults write com.apple.dock autohide -bool true"
-  }
+  met? { shell("defaults read com.apple.dock autohide") == "1" }
+  meet { shell "defaults write com.apple.dock autohide -bool true" }
 end
-
 
 dep "full keyboard access to controls" do
   met? { `defaults read NSGlobalDomain AppleKeyboardUIMode`.strip == "3" }
@@ -113,3 +107,23 @@ dep 'osx computer name set', :computer_name, :local_hostname, :for => :osx do
     sudo "defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string '#{local_hostname}'"
   }
 end
+
+### NEW SETTINGS ###
+
+# TODO More from https://github.com/sporkd/babushka-deps/blob/master/osx_prefs.rb
+# TODO More from https://github.com/ptb/Mac-OS-X-Lion-Setup/blob/master/setup.sh
+# TODO https://github.com/mathiasbynens/dotfiles/blob/master/.osx
+
+# defaults -currentHost read com.apple.screensaver
+# {
+#     CleanExit = YES;
+#     PrefsVersion = 100;
+#     mainScreenOnly = 0;
+#     moduleDict =     {
+#         moduleName = Arabesque;
+#         path = "/System/Library/Screen Savers/Arabesque.qtz";
+#         type = 1;
+#     };
+#     moduleName = Fliqlo;
+#     modulePath = "/Users/rgrasso/Library/Screen Savers/Fliqlo.saver";
+# }

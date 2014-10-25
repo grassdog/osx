@@ -81,6 +81,12 @@ echo
 
 sudo xcodebuild -license
 
+echo
+echo "Installing XCode command line tools."
+echo
+
+xcode-select --install
+
 sleep 2
 
 echo
@@ -103,10 +109,7 @@ echo
 
 babushka sources --add osx https://github.com/grassdog/osx.git
 
-# TODO May be better to just run a specific dep here
-
 echo
-echo "Bootstrapping"
+echo "Install your host e.g. babushka osx:deus"
 echo
 
-babushka osx:bootstrap

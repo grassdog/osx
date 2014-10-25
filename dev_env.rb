@@ -75,8 +75,13 @@ dep "npm libs installed" do
            "coffee-script.npm"
 end
 
-dep "js-beautify.npm"
-dep "coffee-script.npm"
+dep "js-beautify.npm" do
+  requires "node.managed"
+end
+
+dep "coffee-script.npm" do
+  requires "node.managed"
+end
 
 
 #

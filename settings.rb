@@ -1,87 +1,283 @@
 dep "all settings in place" do
-  requires "auto hide dock",
-           "full keyboard access to controls",
-           "short key repeat delay",
-           "fast key repeat rate",
+  requires "auto hide dock.defaults",
+           "full keyboard access to controls.defaults",
+           "fast key repeat rate.defaults",
+           "short key repeat delay.defaults",
+           "expanded save panel.defaults",
+           "expanded print panel.defaults",
+           "no launch warnings.defaults",
+           "no press and hold.defaults",
+           "no auto-correct.defaults",
+           "copy from Quicklook windows.defaults",
+           "full path in window titles.defaults",
+           "debug menu in safari enabled.defaults",
+           "increase window resize speed.defaults",
+           "require password immediately after sleep.defaults",
+           "require password after screen saver begins.defaults",
+           "save screenshots in PNG format.defaults",
+           "avoid creating DS_Store files on network volumes.defaults",
+           "disable the warning when changing a file extension.defaults",
+           "disable the warning before emptying the Trash.defaults",
+           "empty Trash securely.defaults",
+           "make Dock icons of hidden applications translucent.defaults",
+           "add a context menu item for showing the Web Inspector in web views.defaults",
+           "dock icon size is 38 pixels.defaults",
+           "menu bar clock.defaults",
+           "time machine off.defaults",
+           "disable smart quotes.defaults",
+           "disable smart dashes.defaults",
+           "finder show all filename extensions.defaults",
+           "finder show status bar.defaults",
+           "finder show path bar.defaults",
+           "use column view in all Finder windows by default.defaults",
+           "no feedback sound when changing volume.defaults",
            "show users Library folder",
-           "expanded save panel",
-           "expanded print panel",
-           "no launch warnings",
-           "no press and hold",
-           "no auto-correct",
-           "Copy from Quicklook windows",
-           "full path in window titles",
-           "debug menu in safari enabled",
-           "timezone is perth"
+           "timezone is perth",
+           "power settings"
 
   after {
-    shell "killall -u `whoami` Dock"
-    shell "killall -u `whoami` Finder"
+    shell "killall -HUP Dock"
+    shell "killall -HUP Finder"
   }
 end
 
-dep "auto hide dock" do
-  met? { shell("defaults read com.apple.dock autohide") == "1" }
-  meet { shell "defaults write com.apple.dock autohide -bool true" }
+
+
+meta "defaults" do
+  accepts_value_for :domain
+  accepts_value_for :key
+  accepts_value_for :value
+
+  template {
+    def read_value
+      case value
+      when true
+        "1"
+      when false
+        "0"
+      else
+        value.to_s
+      end
+    end
+
+    def type
+      return "bool"  if [true, false].include? value
+      return "int"   if value.is_a? Integer
+      return "float" if value.is_a? Float
+      return "string"
+    end
+
+    def write_value
+      value.to_s.include?(" ") ? "'#{value.to_s}'" : value.to_s
+    end
+
+    met? { `defaults read #{domain} #{key}`.strip == read_value }
+    meet { log_shell "Setting #{domain} #{key} to #{write_value}", "defaults write #{domain} #{key} -#{type} #{write_value}" }
+  }
 end
 
-dep "full keyboard access to controls" do
-  met? { `defaults read NSGlobalDomain AppleKeyboardUIMode`.strip == "3" }
-  meet { shell "defaults write NSGlobalDomain AppleKeyboardUIMode -int 3" }
+dep "auto hide dock.defaults" do
+  domain "com.apple.dock"
+  key "autohide"
+  value true
 end
 
-dep "fast key repeat rate" do
-  met? { `defaults read NSGlobalDomain KeyRepeat`.strip == "2" }
-  meet { shell "defaults write NSGlobalDomain KeyRepeat -int 2" }
+dep "full keyboard access to controls.defaults" do
+  domain "NSGlobalDomain"
+  key "AppleKeyboardUIMode"
+  value 3
 end
 
-dep "short key repeat delay" do
-  met? { `defaults read NSGlobalDomain InitialKeyRepeat`.strip == "12" }
-  meet { shell "defaults write NSGlobalDomain InitialKeyRepeat -int 12" }
+dep "fast key repeat rate.defaults" do
+  domain "NSGlobalDomain"
+  key "KeyRepeat"
+  value 2
 end
+
+dep "short key repeat delay.defaults" do
+  domain "NSGlobalDomain"
+  key "InitialKeyRepeat"
+  value 12
+end
+
+dep "expanded save panel.defaults" do
+  domain "NSGlobalDomain"
+  key "NSNavPanelExpandedStateForSaveMode"
+  value true
+end
+
+dep "expanded print panel.defaults" do
+  domain "NSGlobalDomain"
+  key "PMPrintingExpandedStateForPrint"
+  value true
+end
+
+dep "no launch warnings.defaults" do
+  domain "com.apple.LaunchServices"
+  key "LSQuarantine"
+  value false
+end
+
+dep "no press and hold.defaults" do
+  domain "NSGlobalDomain"
+  key "ApplePressAndHoldEnabled"
+  value false
+end
+
+dep "no auto-correct.defaults" do
+  domain "NSGlobalDomain"
+  key "NSAutomaticSpellingCorrectionEnabled"
+  value false
+end
+
+dep "copy from Quicklook windows.defaults" do
+  domain "com.apple.finder"
+  key "QLEnableTextSelection"
+  value true
+end
+
+dep "full path in window titles.defaults" do
+  domain "com.apple.finder"
+  key "_FXShowPosixPathInTitle"
+  value true
+end
+
+dep "debug menu in safari enabled.defaults" do
+  domain "com.apple.Safari"
+  key "IncludeDebugMenu"
+  value true
+end
+
+dep "increase window resize speed.defaults" do
+  domain "NSGlobalDomain"
+  key "NSWindowResizeTime"
+  value 0.001
+end
+
+dep "require password immediately after sleep.defaults" do
+  domain "com.apple.screensaver"
+  key "askForPasswordDelay"
+  value 0
+end
+
+dep "require password after screen saver begins.defaults" do
+  domain "com.apple.screensaver"
+  key "askForPassword"
+  value 1
+end
+
+dep "save screenshots in PNG format.defaults" do
+  domain "com.apple.screencapture"
+  key "type"
+  value "png"
+end
+
+dep "avoid creating DS_Store files on network volumes.defaults" do
+  domain "com.apple.desktopservices"
+  key "DSDontWriteNetworkStores"
+  value true
+end
+
+
+dep "disable the warning when changing a file extension.defaults" do
+  domain "com.apple.finder"
+  key "FXEnableExtensionChangeWarning"
+  value false
+end
+
+dep "disable the warning before emptying the Trash.defaults" do
+  domain "com.apple.finder"
+  key "WarnOnEmptyTrash"
+  value false
+end
+
+dep "empty Trash securely.defaults" do
+  domain "com.apple.finder"
+  key "EmptyTrashSecurely"
+  value true
+end
+
+dep "make Dock icons of hidden applications translucent.defaults" do
+  domain "com.apple.dock"
+  key "showhidden"
+  value true
+end
+
+dep "add a context menu item for showing the Web Inspector in web views.defaults" do
+  domain "NSGlobalDomain"
+  key "WebKitDeveloperExtras"
+  value true
+end
+
+dep "dock icon size is 38 pixels.defaults" do
+  domain "com.apple.dock"
+  key "tilesize"
+  value 38
+end
+
+dep "menu bar clock.defaults" do
+  domain "com.apple.menuextra.clock"
+  key "DateFormat"
+  value "h:mm a"
+end
+
+dep "time machine off.defaults" do
+  domain "com.apple.TimeMachine"
+  key "AutoBackup"
+  value false
+end
+
+dep "disable smart quotes.defaults" do
+  domain "NSGlobalDomain"
+  key "NSAutomaticQuoteSubstitutionEnabled"
+  value false
+end
+
+dep "disable smart dashes.defaults" do
+  domain "NSGlobalDomain"
+  key "NSAutomaticDashSubstitutionEnabled"
+  value false
+end
+
+dep "finder show all filename extensions.defaults" do
+  domain "NSGlobalDomain"
+  key "AppleShowAllExtensions"
+  value true
+end
+
+dep "finder show status bar.defaults" do
+  domain "com.apple.finder"
+  key "ShowStatusBar"
+  value true
+end
+
+dep "finder show path bar.defaults" do
+  domain "com.apple.finder"
+  key "ShowPathbar"
+  value true
+end
+
+# Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`, `Nlsv`
+dep "use column view in all Finder windows by default.defaults" do
+  domain "com.apple.finder"
+  key "FXPreferredViewStyle"
+  value "clmv"
+end
+
+
+dep "no feedback sound when changing volume.defaults" do
+  domain "NSGlobalDomain"
+  key "com.apple.sound.beep.feedback"
+  value false
+end
+
+
+#
+# Other settings
+#
 
 dep "show users Library folder" do
   meet { shell "chflags nohidden ~/Library" }
-end
-
-dep "expanded save panel" do
-  met? { `defaults read NSGlobalDomain NSNavPanelExpandedStateForSaveMode`.strip == "1" }
-  meet { shell "defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true" }
-end
-
-dep "expanded print panel" do
-  met? { `defaults read NSGlobalDomain PMPrintingExpandedStateForPrint`.strip == "1" }
-  meet { shell "defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true" }
-end
-
-dep "no launch warnings" do
-  met? { `defaults read com.apple.LaunchServices LSQuarantine`.strip == "0" }
-  meet { shell "defaults write com.apple.LaunchServices LSQuarantine -bool false" }
-end
-
-dep "no press and hold" do
-  met? { `defaults read NSGlobalDomain ApplePressAndHoldEnabled`.strip == "0" }
-  meet { shell "defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false" }
-end
-
-dep "no auto-correct" do
-  met? { `defaults read NSGlobalDomain NSAutomaticSpellingCorrectionEnabled`.strip == "0" }
-  meet { shell "defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false" }
-end
-
-dep "Copy from Quicklook windows" do
-  met? { `defaults read com.apple.finder QLEnableTextSelection`.strip == "1" }
-  meet { shell "defaults write com.apple.finder QLEnableTextSelection -bool true" }
-end
-
-dep "full path in window titles" do
-  met? { `defaults read com.apple.finder _FXShowPosixPathInTitle`.strip == "1" }
-  meet { shell "defaults write com.apple.finder _FXShowPosixPathInTitle -bool true" }
-end
-
-dep "debug menu in safari enabled" do
-  met? { `defaults read com.apple.Safari IncludeDebugMenu`.strip == "1" }
-  meet { shell "defaults write com.apple.Safari IncludeDebugMenu -bool true" }
 end
 
 dep "timezone is perth" do
@@ -89,7 +285,7 @@ dep "timezone is perth" do
   meet { shell "sudo systemsetup -settimezone Australia/Perth" }
 end
 
-dep 'osx computer name set', :computer_name, :local_hostname, :for => :osx do
+dep "osx computer name set", :computer_name, :local_hostname, :for => :osx do
   # Set computer name (as done via System Preferences -> Sharing)
   computer_name.ask("OS X Computer Name").default(shell('scutil --get ComputerName'))
   local_hostname.ask("OS X Local Hostname").default(computer_name.to_s.downcase.gsub(' ', '-'))
@@ -108,22 +304,15 @@ dep 'osx computer name set', :computer_name, :local_hostname, :for => :osx do
   }
 end
 
-### NEW SETTINGS ###
 
-# TODO More from https://github.com/sporkd/babushka-deps/blob/master/osx_prefs.rb
-# TODO More from https://github.com/ptb/Mac-OS-X-Lion-Setup/blob/master/setup.sh
-# TODO https://github.com/mathiasbynens/dotfiles/blob/master/.osx
+dep "power settings" do
+  meet {
+    shell "sudo /usr/bin/pmset -c sleep 0"
+    shell "sudo /usr/bin/pmset -c displaysleep 10"
+    shell "sudo /usr/bin/pmset -c disksleep 10"
+    # wake on network access
+    shell "sudo /usr/bin/pmset -c womp 1"
+    shell "sudo /usr/bin/pmset -c lidwake 1"
+  }
+end
 
-# defaults -currentHost read com.apple.screensaver
-# {
-#     CleanExit = YES;
-#     PrefsVersion = 100;
-#     mainScreenOnly = 0;
-#     moduleDict =     {
-#         moduleName = Arabesque;
-#         path = "/System/Library/Screen Savers/Arabesque.qtz";
-#         type = 1;
-#     };
-#     moduleName = Fliqlo;
-#     modulePath = "/Users/rgrasso/Library/Screen Savers/Fliqlo.saver";
-# }

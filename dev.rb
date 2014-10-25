@@ -166,11 +166,9 @@ dep "gem", :gem_name, :version, :ruby_version do
   }
 end
 
-# TODO REST
+# TODO Do we need to automate this SSH key business?
 
 # TODO Go through other ~/. files
-
-# TODO dotfile https://github.com/sporkd/babushka-deps/blob/master/dotfiles.rb
 
 dep 'ssh keys generated', :ssh_dir, :ssh_password do
   ssh_dir.ask("Where do you keep your ssh keys").default!('~/.ssh')

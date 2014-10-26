@@ -116,6 +116,7 @@ end
 
 dep "ruby", :version do
   requires "ruby-build.managed",
+           "chruby.managed",
            "rubies directory exists"
 
   def base_path
@@ -140,6 +141,8 @@ end
 
 dep "gem", :gem_name, :version, :ruby_version do
   version.default!(:unset)
+
+  requires "chruby.managed"
 
   def version?
     version != :unset

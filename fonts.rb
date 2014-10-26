@@ -65,7 +65,7 @@ meta "otf" do
 end
 
 dep "forza.otf" do
-  source "https://dl.dropboxusercontent.com/u/103175/Fonts/HFJ_Forza.zip"
+  source "https://dl.dropboxusercontent.com/u/103175/Fonts/Forza.zip"
   otf_filename "Forza-Black.otf"
 end
 

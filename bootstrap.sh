@@ -63,14 +63,12 @@ sleep 2
 if [ -w /usr/local/share/man ]
 then
   echo "/usr/local/share/man is writable."
-elif [ -e /usr/local/share/man ]
-then
-  echo "/usr/local/share/man exists, but is not writable by you. Fixing that."
+else
+  echo "/usr/local/share/man is not writable by you. Fixing that."
   sleep 1
+  sudo mkdir -p /usr/local/share/man
   sudo chgrp staff /usr/local/share/man
   sudo chmod g+w /usr/local/share/man
-else
-  echo "/usr/local/babushka does not exist. That's OK. We'll create it later."
 fi
 
 sleep 2

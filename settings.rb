@@ -18,7 +18,7 @@ dep "all settings in place" do
            "avoid creating DS_Store files on network volumes.defaults",
            "disable the warning when changing a file extension.defaults",
            "disable the warning before emptying the Trash.defaults",
-           "empty Trash securely.defaults",
+           # "empty Trash securely.defaults",
            "make Dock icons of hidden applications translucent.defaults",
            "add a context menu item for showing the Web Inspector in web views.defaults",
            "dock icon size is 38 pixels.defaults",

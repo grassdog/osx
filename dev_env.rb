@@ -175,3 +175,45 @@ dep "gem", :gem_name, :version, :ruby_version do
   }
 end
 
+dep 'ssh keys generated', :ssh_dir, :ssh_password do
+  ssh_dir.ask("Where do you keep your ssh keys").default!('~/.ssh')
+  ssh_password.ask("Passphase to encrypt your SSH key")
+
+  met? {
+    (ssh_dir / 'id_rsa.pub').exists? && (ssh_dir / 'id_rsa').exists?
+  }
+  meet {
+    shell "ssh-keygen -t rsa -N #{ ssh_password } -f #{ ssh_dir }/id_rsa"
+  }
+  after {
+    shell "/usr/bin/ssh-add -K"
+  }
+end
+
+dep "github has my public key", :github_username, :github_password do
+  requires "ssh keys generated"
+
+  def github_api
+    "https://api.github.com"
+  end
+
+  def public_key
+    shell("cat ~/.ssh/id_rsa.pub")
+  end
+
+  def hostname
+    shell("hostname")
+  end
+
+  met? {
+    raw_shell("ssh -T git@github.com 2>&1").stdout["successfully authenticated"]
+  }
+  meet {
+    github_username.ask("What is your github username")
+    github_password.ask("What is your github password")
+    auth = "#{github_username}:#{github_password}"
+    args = "{\"title\": \"#{hostname}\", \"key\": \"#{public_key}\"}"
+    shell "curl -u '#{auth}' -d '#{args}' #{github_api}/user/keys"
+  }
+end
+

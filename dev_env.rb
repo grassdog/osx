@@ -1,9 +1,9 @@
 dep "dev env in place" do
   requires "zsh as shell",
            "code folder is setup",
-           "dotfiles installed",
            "npm libs installed",
-           "2.1.2.rubyenv"
+           "2.1.2.rubyenv",
+           "dotfiles installed"
 end
 
 #
@@ -55,6 +55,7 @@ dep "dotfiles.repo" do
   path "~/.dotfiles"
 end
 
+# TODO Migrate these rake tasks into deps
 dep "dotfiles installed" do
   requires "dotfiles.repo"
 

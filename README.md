@@ -16,7 +16,6 @@ Get a fresh OS X install, set up your user, and enable full disk encryption.
 ## 1. Go to the purchases tab of the Mac App Store and install the following:
 
 - XCode
-- 1Password
 
 ## 2. Bootstrap Babushka environment
 
@@ -30,33 +29,11 @@ bash <(curl -s https://raw.githubusercontent.com/grassdog/osx/master/bootstrap.s
 babushka osx:deus
 ```
 
-## 4. Manual Steps
+Restart host to ensure all settings are in effect.
 
-- Open and set up Dropbox and 1Password
+## 4. Install more apps from the Mac App Store
 
-- Enable apps in accessibility
-- Set reduce transparency
-- Set caps lock as control
-- Add Notes and code into Finder sidebar
-- Set desktop background to point to Dropbox wallpaper folder
-- Don't play feedback when volume is changed
-- Set up iTerm
-    - Import Solarized theme
-    - Set font to menlo 12pt bold and menlo 12pt
-    - Keys left option key acts as +esc
-    - Disable confirm closing
-- Disable contacts in Alfred
-- Disable spaces keyboard shortcuts
-- Install Alfred extensions
-- Install .secrets from 1Password
-- Install SSH Keys
-- Setup dock and login items
-- Copy across Music files and change owner
-
-TODO Write down steps to configure apps where non-trivial.
-
-## 5. Install more apps from the Mac App Store
-
+- 1Password
 - Airmail
 - Fantastical
 - Caffeine
@@ -83,6 +60,64 @@ TODO Write down steps to configure apps where non-trivial.
 - Valentina Studio
 - Base
 - Microsoft Remote Desktop
+
+## 5. Manual Steps
+
+- Copy across Dropbox and Music files from backup and `chown -R` them to new user
+- Open and set up Dropbox and 1Password
+- Log into Chrome and set as default browser
+- TotalFinder
+    - Add ~/Dropbox/Notes and ~/code into Finder sidebar
+    - New window opens in ~/Downloads
+    - Hide icon in menu bar
+    - Folders on top
+    - Search the current folder
+- Command drag time machine icon off menu bar
+- Settings
+    - Users and groups > Change profile picture
+    - Internet Accounts > Add them all
+    - Accessibility > Reduce transparency
+    - Keyboard > Set caps lock as control
+    - Keyboard > Shortcuts > Change spotlight to `ctrl-option-cmd-space`
+    - Keyboard > Shortcuts > Switch off show finder search window
+    - Keyboard > Shortcuts > Disable all Mission Control key shortcuts
+    - Desktop and ScreenSaver > Add Dropbox/Pictures/Wallpapers folder and
+      change every day
+    - Desktop and ScreenSaver > Arabesque screensaver
+    - Security > Accessibility add apps
+        - Dash
+        - Fantastical
+        - Moom
+        - TextExpander
+- Place Airmail, Chrome, Omnifocus, Slack, Soulver, MacVim, Hollywood.inetloc, and iTerm into the Dock
+- iTerm
+    - Preferences > Set as default terminal
+    - Sync preferences ~/Dropbox/Backups/iterm
+- Alfred
+    - Install Powerpack from 1Password
+    - Set sync folder to ~/Dropbox/Backups/Alfred
+    - General > Set shortcut to `cmd-space`
+    - Enable 1Password
+    - Enable Clipboard history
+    - Disable contacts in Alfred
+    - Appearance > Yosemite Light
+    - Appearance > Hide Menu Bar Icon
+- Moom
+    - Install Licence file from 1Password
+    - Enable Move & Zoom grid with 8 x 6
+    - Run as faceless app
+    - Set up ![shortcuts](https://raw.githubusercontent.com/grassdog/osx/master/images/moom-settings.png)
+- TextExpander
+    - Setup Dropbox sync
+    - Hide icon in Dock
+    - Launch at login
+    - Don't show main window at launch
+- Install .secrets from 1Password
+- Install SSH Keys and config
+
+TODO Load Hazel Rules
+
+TODO Write down steps to configure apps where non-trivial.
 
 ## 6. Other manual installs
 

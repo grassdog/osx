@@ -65,7 +65,9 @@ Restart host to ensure all settings are in effect.
 
 - Copy across Dropbox and Music files from backup and `chown -R` them to new user
 - Open and set up Dropbox and 1Password
+    - Don't show desktop notifications
 - Log into Chrome and set as default browser
+    - Copy across from Homebrew cask so sandboxing works
 - TotalFinder
     - Add ~/Dropbox/Notes and ~/code into Finder sidebar
     - New window opens in ~/Downloads
@@ -75,7 +77,10 @@ Restart host to ensure all settings are in effect.
 - Command drag time machine icon off menu bar
 - Settings
     - Users and groups > Change profile picture
-    - Internet Accounts > Add them all
+    - Internet Accounts
+        - Add Google for mail and messages only
+        - Add TW for calendar
+        - Add Twitter account
     - Accessibility > Reduce transparency
     - Keyboard > Set caps lock as control
     - Keyboard > Shortcuts > Change spotlight to `ctrl-option-cmd-space`
@@ -103,7 +108,7 @@ Restart host to ensure all settings are in effect.
     - Appearance > Yosemite Light
     - Appearance > Hide Menu Bar Icon
 - Moom
-    - Install Licence file from 1Password
+    - Install licence file from 1Password
     - Enable Move & Zoom grid with 8 x 6
     - Run as faceless app
     - Set up ![shortcuts](https://raw.githubusercontent.com/grassdog/osx/master/images/moom-settings.png)
@@ -112,15 +117,37 @@ Restart host to ensure all settings are in effect.
     - Hide icon in Dock
     - Launch at login
     - Don't show main window at launch
+- Fantastical
+    - Disable alerts for boring events and calendars
+    - Defaults to last selected calendar and list
+    - Change key shortcut to `shift-f12`
+- Airmail
+    - Add accounts
+    - Disable interaction sounds
+- Airfoil
+    - Only show in menu bar
+    - Install extras for instant on
+- DayOne
+    - Setup dropbox sync
+    - Baskerville 18pt, no auto bold, no twitter names
+    - Disable reminders
+    - Disable popover previews
+- Calibre
+    - TODO Setup DRM strip
+- Yojimbo
+    - Link files `ln -s ~/Dropbox/Backups/Yojimbo  Library/Application\ Support/Yojimbo`
+    - When handling links create web archives
 - Install .secrets from 1Password
+    - Chmod to 600
 - Install SSH Keys and config
+    - Run Babushka tasks and install in Github and Forge
 
-TODO Load Hazel Rules
+TODO Go through rest of dotfiles
 
-TODO Write down steps to configure apps where non-trivial.
 
 ## 6. Other manual installs
 
 - Lightroom
 - Photoshop
+- MS Office
 

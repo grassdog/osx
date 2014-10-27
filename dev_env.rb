@@ -175,6 +175,9 @@ dep "gem", :gem_name, :version, :ruby_version do
   }
 end
 
+# TODO Add dep to create ssh dir and chmod 700
+# TODO Add dep to create ssh config
+
 dep 'ssh keys generated', :ssh_dir, :ssh_password do
   ssh_dir.ask("Where do you keep your ssh keys").default!('~/.ssh')
   ssh_password.ask("Passphase to encrypt your SSH key")

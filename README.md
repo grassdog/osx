@@ -124,6 +124,10 @@ Restart host to ensure all settings are in effect.
 - Airmail
     - Add accounts
     - Disable interaction sounds
+    - General > Dock only
+    - Disable Notifications
+    - For each account > Mapping > Remove custom folders
+    - For each account > Clear out signature
 - Airfoil
     - Only show in menu bar
     - Install extras for instant on
@@ -133,11 +137,13 @@ Restart host to ensure all settings are in effect.
     - Disable reminders
     - Disable popover previews
 - Calibre
-    - TODO Setup DRM strip
+    - Preferences > Install plugin from file > ~/Dropbox/Backups/Calibre DRM plugins
 - Yojimbo
     - Link files `ln -s ~/Dropbox/Backups/Yojimbo  Library/Application\ Support/Yojimbo`
     - When handling links create web archives
 - Install .secrets from 1Password
+    - Chmod to 600
+- Install .klipbookrc from 1Password
     - Chmod to 600
 - Install SSH Keys and config
     - Run Babushka tasks and install in Github and Forge

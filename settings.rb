@@ -33,7 +33,8 @@ dep "all settings in place" do
            "no feedback sound when changing volume.defaults",
            "show users Library folder",
            "timezone is perth",
-           "power settings"
+           "power settings",
+           "quicklook plugins installed"
 
   after {
     shell "killall -HUP Dock"
@@ -315,4 +316,34 @@ dep "power settings" do
     shell "sudo /usr/bin/pmset -c lidwake 1"
   }
 end
+
+dep "quicklook plugins installed" do
+  requires "Provisioning.quicklook",
+           "QLMarkdown.quicklook",
+           "QuickLookJSON.quicklook"
+
+  after {
+    log_shell "Resetting Quicklook server", "qlmanage -r"
+  }
+end
+
+dep "user quicklook folder exists" do
+  met? { "~/Library/Quicklook".p.dir? }
+  meet { log_shell "Creating ~/Library/Quicklook", "mkdir ~/Library/Quicklook" }
+end
+
+meta "quicklook" do
+  template {
+    requires "user quicklook folder exists"
+
+    met? { "~/Library/Quicklook/#{basename}.qlgenerator".p.dir? }
+    meet { log_shell "Installing #{basename} Quicklook plugin",
+                    "cp -R #{__FILE__.p.parent}/files/#{basename}.qlgenerator ~/Library/Quicklook"
+    }
+  }
+end
+
+dep "Provisioning.quicklook"
+dep "QLMarkdown.quicklook"
+dep "QuickLookJSON.quicklook"
 

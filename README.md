@@ -148,12 +148,10 @@ Restart host to ensure all settings are in effect.
 - Install SSH Keys and config
     - Run Babushka tasks and install in Github and Forge
 
-TODO Go through rest of dotfiles
-
-
 ## 6. Other manual installs
 
 - Lightroom
 - Photoshop
 - MS Office
 
+Copy across Lightroom catalog

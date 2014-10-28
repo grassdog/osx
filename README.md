@@ -141,17 +141,14 @@ Restart host to ensure all settings are in effect.
 - Yojimbo
     - Link files `ln -s ~/Dropbox/Backups/Yojimbo  Library/Application\ Support/Yojimbo`
     - When handling links create web archives
-- Install .secrets from 1Password
-    - Chmod to 600
-- Install .klipbookrc from 1Password
-    - Chmod to 600
 - Install SSH Keys and config
     - Run Babushka tasks and install in Github and Forge
+- Copy across other code folders from USB backup
 
 ## 6. Other manual installs
 
 - Lightroom
+    - Copy across Lightroom catalog and masters from USB backup
 - Photoshop
 - MS Office
 
-Copy across Lightroom catalog

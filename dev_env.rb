@@ -3,7 +3,9 @@ dep "dev env in place" do
            "code folder is setup",
            "npm libs installed",
            "2.1.4.rubyenv",
-           "dotfiles installed"
+           "dotfiles installed",
+           "secrets file",
+           "klipbookrc"
 end
 
 #
@@ -220,3 +222,22 @@ dep "github has my public key", :github_username, :github_password do
   }
 end
 
+dep "read_only file", :file, :contents do
+  met? {
+    file.p.exist? && shell("stat #{file}")["-rw-------"]
+  }
+  meet {
+    shell "echo #{contents} > #{file}"
+    shell "chmod 600 #{file}"
+  }
+end
+
+# Insert \\n at prompt to inject newlines
+
+dep "secrets file" do
+  requires "read_only file".with(file: "~/.secrets")
+end
+
+dep "klipbookrc" do
+  requires "read_only file".with(file: "~/.klipbookrc")
+end

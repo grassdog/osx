@@ -2,7 +2,7 @@ dep "dev env in place" do
   requires "zsh as shell",
            "code folder is setup",
            "npm libs installed",
-           "2.1.2.rubyenv",
+           "2.1.4.rubyenv",
            "dotfiles installed"
 end
 
@@ -103,7 +103,7 @@ meta "rubyenv" do
   }
 end
 
-dep "2.1.2.rubyenv"
+dep "2.1.4.rubyenv"
 
 dep "ruby version file", :version do
   met? { "~/.ruby-version".p.read == version }

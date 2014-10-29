@@ -2,7 +2,7 @@ dep "dev env in place" do
   requires "zsh as shell",
            "code folder is setup",
            "npm libs installed",
-           "2.1.4.rubyenv",
+           "ruby 2.1.4 as default",
            "dotfiles installed",
            "secrets file",
            "klipbookrc"
@@ -91,21 +91,23 @@ end
 # Ruby
 #
 
-meta "rubyenv" do
-  accepts_value_for :version, :basename
+dep "rubyenv", :version, :is_default do
+  version.ask("Which version of Ruby would you like to install?")
+  is_default.choose("yes", "no")
 
-  template {
-    requires "ruby".with(version: version),
-             "gem".with(gem_name: "bundler",     ruby_version: version),
-             "gem".with(gem_name: "pry",         ruby_version: version),
-             "gem".with(gem_name: "powder",      ruby_version: version),
-             "gem".with(gem_name: "klipbook",    ruby_version: version),
-             "gem".with(gem_name: "taskmeister", ruby_version: version),
-             "ruby version file".with(version: version)
-  }
+  requires "ruby".with(version: version),
+            "gem".with(gem_name: "bundler",     ruby_version: version),
+            "gem".with(gem_name: "pry",         ruby_version: version),
+            "gem".with(gem_name: "powder",      ruby_version: version),
+            "gem".with(gem_name: "klipbook",    ruby_version: version),
+            "gem".with(gem_name: "taskmeister", ruby_version: version)
+
+  requires "ruby version file".with(version: version) if is_default == "yes"
 end
 
-dep "2.1.4.rubyenv"
+dep "ruby 2.1.4 as default" do
+  requires "rubyenv".with(version: "2.1.4", is_default: "yes")
+end
 
 dep "ruby version file", :version do
   met? { "~/.ruby-version".p.read == version }
@@ -118,7 +120,7 @@ dep "rubies directory exists" do
 end
 
 dep "ruby", :version do
-  requires "ruby-build.managed",
+  requires "ruby-build up to date",
            "chruby.managed",
            "rubies directory exists"
 
@@ -137,6 +139,20 @@ dep "ruby", :version do
   meet {
     shell "mkdir -p #{base_path}", :sudo => true
     log_shell "Building via ruby-build", "/usr/local/bin/ruby-build #{version} #{build_path}"
+  }
+end
+
+dep "ruby-build.managed"
+
+dep "ruby-build up to date" do
+  requires "ruby-build.managed"
+
+  before {
+    Babushka.host.pkg_helper.update_pkg_lists
+  }
+
+  meet {
+    shell("brew upgrade ruby-build")
   }
 end
 

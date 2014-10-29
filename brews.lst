@@ -16,7 +16,6 @@ openssl
 pow
 pstree
 python
-ruby-build
 sqlite:sqlite3
 the_silver_searcher:ag
 tree

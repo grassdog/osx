@@ -93,7 +93,7 @@ Restart host to ensure all settings are in effect.
         - Dash
         - Fantastical
         - Moom
-        - TextExpander
+        - TextExpander and TextExpanderHelper
 - Place Airmail, Chrome, Omnifocus, Slack, Soulver, MacVim, Hollywood.inetloc, and iTerm into the Dock
 - iTerm
     - Preferences > Set as default terminal
@@ -128,6 +128,8 @@ Restart host to ensure all settings are in effect.
     - Disable Notifications
     - For each account > Mapping > Remove custom folders
     - For each account > Clear out signature
+- Flux
+    - Set wake up time
 - Airfoil
     - Only show in menu bar
     - Install extras for instant on
@@ -143,12 +145,27 @@ Restart host to ensure all settings are in effect.
     - When handling links create web archives
 - Install SSH Keys and config
     - Run Babushka tasks and install in Github and Forge
-- Copy across other code folders from USB backup
 
-## 6. Other manual installs
+- Move any applications from /opt/Homebrew... to /Applications that bork when
+symlinked.
+    - Chrome
+    - TextExpander
+    - Sourcetree
 
+## 6. Other manual installs and file copies
+
+- Aircard Watcher from SierraWireless Drivers
+- Copy across from USB backup
+    - ~/Pictures/Lightroom
+    - ~/code/tools
+    - ~/code/old
+    - ~/code/scratch
+    - ~/code/interesting
+    - ~/Movies/Learning
+    - ~/Movies/To Watch
 - Lightroom
     - Copy across Lightroom catalog and masters from USB backup
 - Photoshop
 - MS Office
+    - Customize install to not install cruft
 

@@ -219,7 +219,7 @@ end
 dep "menu bar clock.defaults" do
   domain "com.apple.menuextra.clock"
   key "DateFormat"
-  value "h:mm a"
+  value "d MMM h:mm a"
 end
 
 dep "time machine off.defaults" do

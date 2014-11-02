@@ -344,6 +344,4 @@ meta "quicklook" do
 end
 
 dep "Provisioning.quicklook"
-dep "QLMarkdown.quicklook"
-dep "QuickLookJSON.quicklook"
 

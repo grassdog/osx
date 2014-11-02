@@ -1,5 +1,6 @@
 airfoil
 alfred
+betterzipql
 calibre
 dropbox
 firefox
@@ -20,6 +21,12 @@ moom
 omnifocus
 omnigraffle
 postgres
+qlcolorcode
+qlmarkdown
+qlprettypatch
+qlstephen
+quicklook-csv
+quicklook-json
 rdio
 skype
 sourcetree

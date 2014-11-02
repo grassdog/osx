@@ -82,6 +82,8 @@ Restart host to ensure all settings are in effect.
     - Keyboard > Shortcuts > Change spotlight to `ctrl-option-cmd-space`
     - Keyboard > Shortcuts > Switch off show finder search window
     - Keyboard > Shortcuts > Disable all Mission Control key shortcuts
+    - Trackpad > Disable Smart zoom and Rotate
+    - Trackpad > Disable swipe between pages
     - Desktop and ScreenSaver > Add Dropbox/Pictures/Wallpapers folder and
       change every day
     - Desktop and ScreenSaver > Arabesque screensaver

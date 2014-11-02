@@ -3,6 +3,7 @@ dep "dev env in place" do
            "code folder is setup",
            "npm libs installed",
            "ruby 2.1.4 as default",
+           "pow installed",
            "dotfiles installed",
            "secrets file",
            "klipbookrc"
@@ -193,6 +194,17 @@ dep "gem", :gem_name, :version, :ruby_version do
   }
 end
 
+dep "pow installed" do
+  met? {
+    "~/Library/Application Support/Pow/Current".p.exists?
+  }
+
+  meet {
+    shell "curl get.pow.cx | sh"
+  }
+end
+
+
 # TODO Add dep to create ssh dir and chmod 700
 # TODO Add dep to create ssh config
 
@@ -257,3 +269,4 @@ end
 dep "klipbookrc" do
   requires "read_only file".with(file: "~/.klipbookrc")
 end
+

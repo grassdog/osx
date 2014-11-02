@@ -13,7 +13,6 @@ mongodb:mongod
 multimarkdown
 node
 openssl
-pow
 pstree
 python
 sqlite:sqlite3

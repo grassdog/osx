@@ -152,7 +152,7 @@ symlinked.
 
 ## 6. Other manual installs and file copies
 
-- Aircard Watcher from SierraWireless Drivers
+- Aircard Watcher and SierraWireless Drivers
 - Copy across from USB backup
     - ~/Pictures/Lightroom
     - ~/code/tools

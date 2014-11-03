@@ -318,9 +318,7 @@ dep "power settings" do
 end
 
 dep "quicklook plugins installed" do
-  requires "Provisioning.quicklook",
-           "QLMarkdown.quicklook",
-           "QuickLookJSON.quicklook"
+  requires "Provisioning.quicklook"
 
   after {
     log_shell "Resetting Quicklook server", "qlmanage -r"

@@ -10,6 +10,14 @@ dep "emacs.managed" do
   }
 end
 
+dep "htop-osx.managed" do
+  provides "htop"
+  after {
+    "sudo chown root:wheel /usr/local/Cellar/htop-osx/*/bin/htop"
+    "sudo chmod u+s /usr/local/Cellar/htop-osx/*/bin/htop"
+  }
+end
+
 # All brews and casks ala https://github.com/quad/osx
 
 parse = -> (l) {

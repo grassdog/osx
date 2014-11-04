@@ -5,6 +5,7 @@ figlet
 git
 heroku-toolbelt:heroku
 imagemagick:_
+jrnl
 leiningen:lein
 macvim:mvim
 maven:mvn

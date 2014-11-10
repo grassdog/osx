@@ -16,7 +16,6 @@ node
 openssl
 pstree
 python
-rust:rustc
 sqlite:sqlite3
 the_silver_searcher:ag
 tree

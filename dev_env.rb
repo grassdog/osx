@@ -4,6 +4,7 @@ dep "dev-env" do
            "npm-libs",
            "ruby-2.1.4-default",
            "pow",
+           "rust",
            "dotfiles",
            "secrets",
            "klipbookrc"
@@ -204,6 +205,12 @@ dep "pow" do
   }
 end
 
+dep "rust" do
+  met? { shell? "rustc" }
+  meet {
+    log_shell "Installing Rust. This takes a while.", "curl -s https://static.rust-lang.org/rustup.sh | sudo sh"
+  }
+end
 
 # TODO Add dep to create ssh dir and chmod 700
 # TODO Add dep to create ssh config

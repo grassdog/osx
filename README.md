@@ -106,6 +106,8 @@ Restart host to ensure all settings are in effect.
     - Disable contacts in Alfred
     - Appearance > Yosemite Light
     - Appearance > Hide Menu Bar Icon
+- 1Password
+    - Security > Don't lock when screensaver activated
 - Moom
     - Install licence file from 1Password
     - Enable Move & Zoom grid with 8 x 6

@@ -1,4 +1,4 @@
-dep "all settings in place" do
+dep "all-settings" do
   requires "auto hide dock.defaults",
            "full keyboard access to controls.defaults",
            "fast key repeat rate.defaults",

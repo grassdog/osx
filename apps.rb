@@ -32,7 +32,7 @@ casks = File.readlines(File.expand_path '../casks.lst', __FILE__).map &parse
 brews.each { |n, p| p['managed'] }
 casks.each { |n, p| p['cask'] }
 
-dep "all apps installed" do
+dep "all-apps" do
   requires "vim.managed", "emacs.managed"
 
   # Require our deps

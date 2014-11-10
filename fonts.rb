@@ -1,4 +1,4 @@
-dep "all fonts installed" do
+dep "all-fonts" do
   requires "forza.otf",
            "gothamc.otf",
            "idlewild.otf",

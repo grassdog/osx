@@ -1,11 +1,11 @@
-dep "dev env in place" do
+dep "dev-env" do
   requires "zsh as shell",
-           "code folder is setup",
-           "npm libs installed",
-           "ruby 2.1.4 as default",
-           "pow installed",
-           "dotfiles installed",
-           "secrets file",
+           "code-folder",
+           "npm-libs",
+           "ruby-2.1.4-default",
+           "pow",
+           "dotfiles",
+           "secrets",
            "klipbookrc"
 end
 
@@ -20,7 +20,7 @@ dep "zsh as shell", :username do
   meet { sudo("chsh -s '#{which('zsh')}' #{username}") }
 end
 
-dep "code folder is setup" do
+dep "code-folder" do
   requires "project directory is linked",
            "scripts directory is linked",
            "explorations directory is linked"
@@ -59,7 +59,7 @@ dep "dotfiles.repo" do
 end
 
 # TODO Migrate these rake tasks into deps
-dep "dotfiles installed" do
+dep "dotfiles" do
   requires "dotfiles.repo"
 
   met? { "~/.zshrc".p.readlink == "/Users/#{shell("whoami")}/.dotfiles/zshrc" }
@@ -74,7 +74,7 @@ end
 # Npm
 #
 
-dep "npm libs installed" do
+dep "npm-libs" do
   requires "js-beautify.npm",
            "coffee-script.npm"
 end
@@ -106,7 +106,7 @@ dep "rubyenv", :version, :is_default do
   requires "ruby version file".with(version: version) if is_default == "yes"
 end
 
-dep "ruby 2.1.4 as default" do
+dep "ruby-2.1.4-default" do
   requires "rubyenv".with(version: "2.1.4", is_default: "yes")
 end
 
@@ -194,7 +194,7 @@ dep "gem", :gem_name, :version, :ruby_version do
   }
 end
 
-dep "pow installed" do
+dep "pow" do
   met? {
     "~/Library/Application Support/Pow/Current".p.exists?
   }
@@ -262,7 +262,7 @@ end
 
 # Insert \\n at prompt to inject newlines
 
-dep "secrets file" do
+dep "secrets" do
   requires "read_only file".with(file: "~/.secrets")
 end
 

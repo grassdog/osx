@@ -88,6 +88,7 @@ Restart host to ensure all settings are in effect.
     - Desktop and ScreenSaver > Add Dropbox/Pictures/Wallpapers folder and
       change every day
     - Desktop and ScreenSaver > Arabesque screensaver
+    - Language and region > First day of the week Monday
     - Security > Accessibility add apps
         - Dash
         - Fantastical
@@ -120,6 +121,7 @@ Restart host to ensure all settings are in effect.
     - Don't show main window at launch
 - Fantastical
     - Disable alerts for boring events and calendars
+    - Menu bar icon date and weekday
     - Defaults to last selected calendar and list
     - Change key shortcut to `shift-f12`
 - Airmail

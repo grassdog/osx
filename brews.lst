@@ -1,6 +1,7 @@
 ansible
 chruby:_
 ctags
+fasd
 figlet
 git
 heroku-toolbelt:heroku
@@ -22,5 +23,4 @@ tree
 vcprompt
 wget
 youtube-dl
-z:_
 zsh

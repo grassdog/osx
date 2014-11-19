@@ -66,7 +66,7 @@ Restart host to ensure all settings are in effect.
     - Copy across from Homebrew cask so sandboxing works
 - TotalFinder
     - Add ~/Dropbox/Notes and ~/code into Finder sidebar
-    - New window opens in ~/Downloads
+    - New window opens in ~/Dropbox
     - Hide icon in menu bar
     - Folders on top
     - Search the current folder

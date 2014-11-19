@@ -4,6 +4,7 @@ dep "dev-env" do
            "npm-libs",
            "ruby-2.1.4-default",
            "pow",
+           "mongodb-service-installed",
            "rust",
            "dotfiles",
            "secrets",
@@ -209,6 +210,30 @@ dep "rust" do
   met? { shell? "rustc" }
   meet {
     log_shell "Installing Rust. This takes a while.", "curl -s https://static.rust-lang.org/rustup.sh | sudo sh"
+  }
+end
+
+dep "mongodb-service-installed" do
+  requires "mongodb-launchagents-linked",
+           "mongodb-launchctl-loaded"
+end
+
+dep "mongodb-launchagents-linked" do
+  requires "mongodb.managed"
+
+  met? { "~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist".p.exist? }
+  meet {
+    shell "ln -sfv /usr/local/opt/mongodb/*.plist ~/Library/LaunchAgents"
+  }
+end
+
+dep "mongodb-launchctl-loaded" do
+
+  met? {
+    !shell("launchctl list").split("\n").grep(/homebrew\.mxcl\.mongodb/).empty?
+  }
+  meet {
+    shell "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist"
   }
 end
 

@@ -141,6 +141,7 @@ Restart host to ensure all settings are in effect.
     - Baskerville 18pt, no auto bold, no twitter names
     - Disable reminders
     - Disable popover previews
+    - Disable spelling corrections
 - Calibre
     - Preferences > Install plugin from file > ~/Dropbox/Backups/Calibre DRM plugins
 - Yojimbo

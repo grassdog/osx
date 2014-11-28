@@ -17,9 +17,18 @@ end
 
 dep "zsh as shell", :username do
   username.default!(shell("whoami"))
-  requires "zsh.managed"
+  requires "zsh.managed", "zshenv fixed"
   met? { shell("sudo su - '#{username}' -c 'echo $SHELL'") == which("zsh") }
   meet { sudo("chsh -s '#{which('zsh')}' #{username}") }
+end
+
+dep "zshenv fixed" do
+  on :osx do
+    met? { !"/etc/zshenv".p.exists? && "/etc/zprofile".p.exists? }
+    meet {
+      shell "sudo mv /etc/zshenv /etc/zprofile"
+    }
+  end
 end
 
 dep "code-folder" do

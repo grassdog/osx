@@ -48,6 +48,7 @@ Restart host to ensure all settings are in effect.
 - Soulver
 - Kindle
 - Capo 3
+- Lingo
 - Slack
 - Transmit
 - White Noise

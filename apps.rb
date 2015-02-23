@@ -18,7 +18,7 @@ dep "htop-osx.managed" do
   }
 end
 
-# All brews and casks ala https://github.com/quad/osx
+# All brews ala https://github.com/quad/osx
 
 parse = -> (l) {
   n, p = l.strip.split(':')
@@ -26,57 +26,49 @@ parse = -> (l) {
   [n, -> (t) { dep "#{n}.#{t}" do provides p if p end }]
 }
 brews = File.readlines(File.expand_path '../brews.lst', __FILE__).map &parse
-casks = File.readlines(File.expand_path '../casks.lst', __FILE__).map &parse
 
 # Define our deps
 brews.each { |n, p| p['managed'] }
-casks.each { |n, p| p['cask'] }
 
 dep "all-apps" do
   requires "vim.managed", "emacs.managed", "all-osx-apps"
 
   # Require our deps
   brews.each { |n, p| requires "#{n}.managed" }
-  casks.each { |n, p| requires "#{n}.cask" }
 end
 
-
-# TODO Separate out development apps
 dep "all-osx-apps" do
   requires "Airfoil.app",
            "Alfred.app",
            "Dropbox.app",
+           "Firefox.app",
            "Flux.app",
            "Google Chrome.app",
            "GrandPerspective.app",
-           "LICEcap.app",
            "ImageOptim.app",
+           "Java",
            "Kaleidoscope.app",
+           "LICEcap.app",
+           "Marked.app",
+           "Moom.app",
            "OmniFocus.app",
            "OmniGraffle.app",
            "Postgres.app",
            "Skype.app",
-
-           "Firefox.app",
-           "Moom.app",
-           "Marked.app",
-           "SuperDuper!.app",
-           "Vagrant.installer",
-           "Java",
-
            "SourceTree.app",
            "Spotify.app",
            "Steam.app",
+           "SuperDuper!.app",
            "TextExpander.app",
            "Transmission.app",
+           "VLC.app",
            "VMware Fusion.app",
+           "Vagrant.installer",
            "VirtualBox.installer",
            "Yojimbo.app",
            "calibre.app",
            "ghc-7.8.3.app",
-           "iTerm.app",
-           "VLC.app"
-
+           "iTerm.app"
 end
 
 dep "Java" do

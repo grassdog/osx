@@ -26,52 +26,101 @@ parse = -> (l) {
   [n, -> (t) { dep "#{n}.#{t}" do provides p if p end }]
 }
 brews = File.readlines(File.expand_path '../brews.lst', __FILE__).map &parse
+casks = File.readlines(File.expand_path '../casks.lst', __FILE__).map &parse
 
 # Define our deps
 brews.each { |n, p| p['managed'] }
+casks.each { |n, p| p['cask'] }
 
 dep "all-apps" do
   requires "vim.managed", "emacs.managed", "all-osx-apps"
 
   # Require our deps
   brews.each { |n, p| requires "#{n}.managed" }
+  casks.each { |n, p| requires "#{n}.cask" }
 end
 
+
+# TODO Separate out development apps
 dep "all-osx-apps" do
-  requires "VLC.app",
-           "VirtualBox.installer",
-           # "Vagrant.app",
-           "Dropbox.app",
+  requires "Airfoil.app",
            "Alfred.app",
-           "iTerm.app",
-           # "Moom.app",
-           "Transmission.app",
-           "Airfoil.app",
-           "calibre.app",
-           # "Firefox.app",
+           "Dropbox.app",
            "Flux.app",
-           "ghc-7.8.3",
-           "GitHub.app",
            "Google Chrome.app",
            "GrandPerspective.app",
+           "LICEcap.app",
            "ImageOptim.app",
-           "Skype.app"
+           "Kaleidoscope.app",
+           "OmniFocus.app",
+           "OmniGraffle.app",
+           "Postgres.app",
+           "Skype.app",
+
+           "Firefox.app",
+           "Moom.app",
+           "Marked.app",
+           "SuperDuper!.app",
+           "Vagrant.installer",
+           "Java",
+
+           "SourceTree.app",
+           "Spotify.app",
+           "Steam.app",
+           "TextExpander.app",
+           "Transmission.app",
+           "VMware Fusion.app",
+           "VirtualBox.installer",
+           "Yojimbo.app",
+           "calibre.app",
+           "ghc-7.8.3.app",
+           "iTerm.app",
+           "VLC.app"
+
 end
 
+dep "Java" do
+  def filename
+    "jdk-8u31-macosx-x64.dmg"
+  end
 
+  def download_path
+    "~/.babushka/downloads/#{filename}"
+  end
 
-dep "Moom.app" do
-  source "http://manytricks.com/download/_do_not_hotlink_/moom321.dmg"
-end
-
-dep "Vagrant.app" do
-  requires 'VirtualBox.installer'
+  def uri
+    "http://download.oracle.com/otn-pub/java/jdk/8u31-b13/#{filename}"
+  end
 
   met? {
-    "/usr/bin/vagrant".p.exists?
+    "/Library/Java/JavaVirtualMachines/jdk1.8.0_31.jdk".p.exist?
   }
 
-  source "https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.2.dmg"
+  meet {
+    log_shell "Downloading file", "curl -L -J -X GET --cookie oraclelicense=accept-securebackup-cookie #{uri} > #{download_path}" unless download_path.p.exist?
+
+    Babushka::Asset.for(download_path).extract {|archive|
+      Dir.glob("**/*pkg").select {|entry|
+        entry[/\.m?pkg$/] # Everything ending in .pkg or .mpkg
+      }.reject {|entry|
+        entry[/\.m?pkg\//] # and isn't inside another package
+      }.map {|entry|
+        log_shell "Installing #{entry}", "installer -target / -pkg '#{entry}'", :sudo => true
+      }
+    }
+  }
+
+  after {
+    download_path.p.remove
+  }
+end
+
+dep "LICEcap.app" do
+  source "http://www.cockos.com/licecap/licecap125.dmg"
+end
+
+dep "Moom.app" do
+  source "https://dl.dropboxusercontent.com/u/103175/Installs/moom321.dmg"
 end
 
 dep "VLC.app" do
@@ -114,8 +163,8 @@ dep "Flux.app" do
   source "https://justgetflux.com/mac/Flux.zip"
 end
 
-dep "ghc-7.8.3" do
-  source "https://github.com/ghcformacosx/ghc-dot-app/releases/download/v7.8.3/ghc-7.8.3.zip"
+dep "ghc-7.8.3.app" do
+  source "https://github.com/ghcformacosx/ghc-dot-app/releases/download/v7.8.3-r1/ghc-7.8.3-r1.zip"
 end
 
 dep "GitHub.app" do
@@ -138,26 +187,61 @@ dep "Skype.app" do
   source "http://www.skype.com/go/getskype-macosx.dmg"
 end
 
-# TODO
+dep "TextExpander.app" do
+  source "http://dl.smilesoftware.com/com.smileonmymac.textexpander/TextExpander.zip"
+end
 
-# betterzipql
-# java
-# kaleidoscope
-# licecap
-# marked
-# moom
-# omnifocus
-# omnigraffle
-# postgres
-# qlcolorcode
-# qlmarkdown
-# qlprettypatch
-# quicklook-csv
-# quicklook-json
-# sourcetree
-# spotify
-# steam
-# superduper
-# textexpander
-# vmware-fusion
-# yojimbo
+dep "SuperDuper!.app" do
+  source "http://www.shirt-pocket.com/downloads/SuperDuper!.dmg"
+end
+
+dep "Spotify.app" do
+  source "http://download.spotify.com/Spotify.dmg"
+end
+
+dep "Kaleidoscope.app" do
+  source "http://cdn.kaleidoscopeapp.com/releases/Kaleidoscope-2.1.0-134.zip"
+end
+
+dep "Marked.app" do
+  source "http://marked2app.com/download/Marked.zip"
+end
+
+dep "OmniFocus.app" do
+  source "http://www.omnigroup.com/ftp1/pub/software/MacOSX/10.10/OmniFocus-2.1.dmg"
+end
+
+dep "OmniGraffle.app" do
+  source "https://www.omnigroup.com/download/latest/omnigraffle"
+end
+
+dep "Postgres.app" do
+  source "https://github.com/PostgresApp/PostgresApp/releases/download/9.4.0.1/Postgres-9.4.0.1.zip"
+end
+
+dep "SourceTree.app" do
+  source "https://downloads.atlassian.com/software/sourcetree/SourceTree_2.0.4.dmg"
+end
+
+dep "Steam.app" do
+  source "http://media.steampowered.com/client/installer/steam.dmg"
+end
+
+dep "VMware Fusion.app" do
+  source "https://download3.vmware.com/software/fusion/file/VMware-Fusion-7.1.0-2314774.dmg"
+end
+
+dep "Yojimbo.app" do
+  source "https://s3.amazonaws.com/BBSW-download/Yojimbo_4.0.3.dmg"
+end
+
+dep "Vagrant.installer" do
+  requires 'VirtualBox.installer'
+
+  met? {
+    "/usr/bin/vagrant".p.exists?
+  }
+
+  source "https://dl.dropboxusercontent.com/u/103175/Installs/vagrant_1.7.2.dmg"
+end
+

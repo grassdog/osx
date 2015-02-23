@@ -318,7 +318,11 @@ dep "power settings" do
 end
 
 dep "quicklook plugins installed" do
-  requires "Provisioning.quicklook"
+  requires "Provisioning.qlgenerator",
+           "BetterZipQL.qlgenerator",
+           "QLMarkdown.qlgenerator",
+           "QuickLookCSV.qlgenerator",
+           "QuickLookJSON.qlgenerator"
 
   after {
     log_shell "Resetting Quicklook server", "qlmanage -r"
@@ -330,16 +334,68 @@ dep "user quicklook folder exists" do
   meet { log_shell "Creating ~/Library/Quicklook", "mkdir ~/Library/Quicklook" }
 end
 
-meta "quicklook" do
+meta "qlgenerator" do
+  accepts_value_for :source
+  accepts_value_for :name, :basename
+
   template {
+
     requires "user quicklook folder exists"
 
     met? { "~/Library/Quicklook/#{basename}.qlgenerator".p.dir? }
-    meet { log_shell "Installing #{basename} Quicklook plugin",
-                    "cp -R #{__FILE__.p.parent}/files/#{basename}.qlgenerator ~/Library/Quicklook"
+
+    meet {
+      filename = basename
+      Babushka::Resource.extract(source) { |archive|
+        puts Dir.glob("**/#{filename}.qlgenerator")
+        log_shell "Installing #{filename} Quicklook plugin", "cp -R *.qlgenerator ~/Library/Quicklook"
+      }
     }
   }
 end
 
-dep "Provisioning.quicklook"
+dep "Provisioning.qlgenerator" do
+  requires "user quicklook folder exists"
+
+  meet {
+    log_shell "Installing #{basename} Quicklook plugin",
+              "cp -R #{__FILE__.p.parent}/files/#{basename}.qlgenerator ~/Library/Quicklook"
+  }
+end
+
+dep "BetterZipQL.qlgenerator" do
+  source "http://macitbetter.com/BetterZipQL.zip"
+end
+
+dep "QLMarkdown.qlgenerator" do
+  source "https://dl.dropboxusercontent.com/u/103175/Installs/QLMarkdown.qlgenerator.zip"
+
+  meet {
+    log_shell "Downloading", "curl #{source} > QLMarkdown.qlgenerator.zip"
+    log_shell "Unarchiving", "yes | unzip QLMarkdown.qlgenerator.zip"
+    log_shell "Installing", "mv QLMarkdown ~/Library/Quicklook/QLMarkdown.qlgenerator"
+  }
+
+  met? {
+    "~/Library/Quicklook/QLMarkdown.qlgenerator".p.exist?
+  }
+end
+
+dep "QuickLookCSV.qlgenerator" do
+  source "https://quicklook-csv.googlecode.com/files/QuickLookCSV.dmg"
+end
+
+dep "QuickLookJSON.qlgenerator" do
+  source "http://www.sagtau.com/media/QuickLookJSON.qlgenerator.zip"
+
+  meet {
+    log_shell "Downloading", "curl #{source} > QuickLookJSON.qlgenerator.zip"
+    log_shell "Unarchiving", "yes | unzip QuickLookJSON.qlgenerator.zip"
+    log_shell "Installing", "mv QuickLookJSON.qlgenerator ~/Library/Quicklook/QuickLookJSON.qlgenerator"
+  }
+
+  met? {
+    "~/Library/Quicklook/QuickLookJSON.qlgenerator".p.exist?
+  }
+end
 

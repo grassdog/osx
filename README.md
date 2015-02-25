@@ -64,7 +64,6 @@ Restart host to ensure all settings are in effect.
 - Open and set up Dropbox and 1Password
     - Don't show desktop notifications
 - Log into Chrome and set as default browser
-    - Copy across from Homebrew cask so sandboxing works
 - TotalFinder
     - Add ~/Dropbox/Notes and ~/code into Finder sidebar
     - New window opens in ~/Dropbox

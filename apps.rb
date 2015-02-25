@@ -40,7 +40,7 @@ end
 dep "all-osx-apps" do
   requires "Airfoil.app",
            "Alfred.app",
-           "Dropbox.app",
+           "Dropbox.installer",
            "Firefox.app",
            "Flux.app",
            "Google Chrome.app",
@@ -123,8 +123,8 @@ dep "VirtualBox.installer" do
   source "http://download.virtualbox.org/virtualbox/4.3.4/VirtualBox-4.3.4-91027-OSX.dmg"
 end
 
-dep "Dropbox.app" do
-  source 'http://cdn.dropbox.com/Dropbox%201.1.35.dmg'
+dep "Dropbox.installer" do
+  source "https://www.dropbox.com/download?plat=mac&full=1"
 end
 
 dep "Alfred.app" do

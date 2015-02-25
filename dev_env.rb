@@ -1,12 +1,12 @@
 dep "dev-env" do
   requires "zsh as shell",
            "code-folder",
+           "dotfiles",
            "npm-libs",
            "ruby-2.1.4-default",
            "pow",
            "mongodb-service-installed",
            "rust",
-           "dotfiles",
            "secrets",
            "klipbookrc"
 end
@@ -118,7 +118,8 @@ dep "rubyenv", :version, :is_default do
 end
 
 dep "ruby-2.1.4-default" do
-  requires "rubyenv".with(version: "2.1.4", is_default: "yes")
+  requires "dotfiles",
+           "rubyenv".with(version: "2.1.4", is_default: "yes")
 end
 
 dep "ruby version file", :version do

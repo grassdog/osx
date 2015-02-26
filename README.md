@@ -60,16 +60,15 @@ Restart host to ensure all settings are in effect.
 
 ## 5. Manual Steps
 
-- Copy across Dropbox and Music files from backup and `chown -R` them to new user
-- Open and set up Dropbox and 1Password
+- Open and set up Dropbox then pause syncing
     - Don't show desktop notifications
+- Copy across Dropbox and Music files from backup and `chown -R` them to new user
+- Resume Dropbox syncing
+- Open and set up 1Password
 - Log into Chrome and set as default browser
-- TotalFinder
+- Finder
     - Add ~/Dropbox/Notes and ~/code into Finder sidebar
     - New window opens in ~/Dropbox
-    - Hide icon in menu bar
-    - Folders on top
-    - Search the current folder
 - Command drag time machine icon off menu bar
 - Settings
     - Users and groups > Change profile picture
@@ -111,6 +110,7 @@ Restart host to ensure all settings are in effect.
     - Security > Don't lock when screensaver activated
 - Moom
     - Install licence file from 1Password
+    - Separate windows by 6px
     - Enable Move & Zoom grid with 8 x 6
     - Run as faceless app
     - Set up ![shortcuts](https://raw.githubusercontent.com/grassdog/osx/master/images/moom-settings.png)
@@ -143,18 +143,12 @@ Restart host to ensure all settings are in effect.
     - Disable popover previews
     - Disable spelling corrections
 - Calibre
-    - Preferences > Install plugin from file > ~/Dropbox/Backups/Calibre DRM plugins
+    - Preferences > Install plugin from file > `~/Dropbox/Backups/Calibre DRM plugins/tools_v6.0.9/DeDRM_calibre_plugin/DeDRM_plugin.zip`
 - Yojimbo
-    - Link files `ln -s ~/Dropbox/Backups/Yojimbo  Library/Application\ Support/Yojimbo`
+    - Link files `ln -s ~/Dropbox/Backups/Yojimbo ~/Library/Application\ Support/Yojimbo`
     - When handling links create web archives
 - Install SSH Keys and config
     - Run Babushka tasks and install in Github and Forge
-
-- Move any applications from /opt/Homebrew... to /Applications that bork when
-symlinked.
-    - Chrome
-    - TextExpander
-    - Sourcetree
 
 ## 6. Other manual installs and file copies
 

@@ -67,7 +67,7 @@ dep "all-osx-apps" do
            "VirtualBox.installer",
            "Yojimbo.app",
            "calibre.app",
-           "ghc-7.8.3.app",
+           "ghc-7.8.4.app",
            "iTerm.app"
 end
 
@@ -155,8 +155,8 @@ dep "Flux.app" do
   source "https://justgetflux.com/mac/Flux.zip"
 end
 
-dep "ghc-7.8.3.app" do
-  source "https://github.com/ghcformacosx/ghc-dot-app/releases/download/v7.8.3-r1/ghc-7.8.3-r1.zip"
+dep "ghc-7.8.4.app" do
+  source "https://github.com/ghcformacosx/ghc-dot-app/releases/download/v7.8.4-r0/ghc-7.8.4-r0.zip"
 end
 
 dep "GitHub.app" do

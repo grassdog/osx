@@ -163,7 +163,7 @@ Restart host to ensure all settings are in effect.
     - ~/Movies/To Watch
 - Lightroom
     - Copy across Lightroom catalog and masters from USB backup
-    - Copy across Lightroom presets from backup into new location `~/Library/Application Support/Adobe/Lightroom/Develop Preset`
+    - Copy across Lightroom presets from backup into new location `~/Library/Application Support/Adobe/Lightroom/{Develop Preset,Export Presets,Filename Templates}`
 - Photoshop
 - MS Office
     - Customize install to not install cruft

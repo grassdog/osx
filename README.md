@@ -69,6 +69,7 @@ Restart host to ensure all settings are in effect.
 - Finder
     - Add ~/Dropbox/Notes and ~/code into Finder sidebar
     - New window opens in ~/Dropbox
+    - View options on home folder and "show Library folder"
 - Command drag time machine icon off menu bar
 - Settings
     - Users and groups > Change profile picture
@@ -81,7 +82,7 @@ Restart host to ensure all settings are in effect.
     - Keyboard > Shortcuts > Change spotlight to `ctrl-option-cmd-space`
     - Keyboard > Shortcuts > Switch off show finder search window
     - Keyboard > Shortcuts > Disable all Mission Control key shortcuts
-    - Trackpad > Disable Two finder click
+    - Trackpad > Disable Two finger click
     - Trackpad > Disable Smart zoom and Rotate
     - Trackpad > Disable swipe between pages
     - Desktop and ScreenSaver > Add Dropbox/Pictures/Wallpapers folder and

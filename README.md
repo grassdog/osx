@@ -88,7 +88,6 @@ Restart host to ensure all settings are in effect.
     - Desktop and ScreenSaver > Add Dropbox/Pictures/Wallpapers folder and
       change every day
     - Desktop and ScreenSaver > Arabesque screensaver
-    - Language and region > First day of the week Monday
     - Security > Accessibility add apps
         - Dash
         - Fantastical

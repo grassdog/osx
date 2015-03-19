@@ -40,6 +40,7 @@ end
 dep "all-osx-apps" do
   requires "Airfoil.app",
            "Alfred.app",
+           "Adium.app",
            "Dropbox.installer",
            "Firefox.app",
            "Flux.app",
@@ -141,6 +142,10 @@ end
 
 dep "Airfoil.app" do
   source "http://neutral.rogueamoeba.com/mirror/files/Airfoil.zip"
+end
+
+dep "Adium.app" do
+  source "https://sourceforge.net/projects/adium/files/Adium_1.5.10.dmg/download"
 end
 
 dep "calibre.app" do

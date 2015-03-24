@@ -63,7 +63,9 @@ meta "file" do
 
     meet {
       Babushka::Resource.extract(source) { |archive|
-        log_shell "Copying #{name} to #{target}", "cp -R **/#{name} #{target}"
+        Dir.glob("**/*#{name}").select {|file|
+          log_shell "Copying #{file} to #{target}", "cp -R #{file} #{target}"
+        }
       }
     }
   }

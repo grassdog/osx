@@ -13,7 +13,6 @@ maven:mvn
 mercurial:hg
 mongodb:mongod
 multimarkdown
-node
 openssl
 pstree
 python

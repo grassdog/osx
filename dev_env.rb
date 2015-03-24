@@ -4,6 +4,7 @@ dep "dev-env" do
            "dotfiles",
            "npm-libs",
            "ruby-2.1.4-default",
+           "default-node-env-0.12",
            "pow",
            "mongodb-service-installed",
            "rust",
@@ -82,24 +83,6 @@ dep "dotfiles" do
     end
   }
 end
-
-#
-# Npm
-#
-
-dep "npm-libs" do
-  requires "js-beautify.npm",
-           "coffee-script.npm"
-end
-
-dep "js-beautify.npm" do
-  requires "node.managed"
-end
-
-dep "coffee-script.npm" do
-  requires "node.managed"
-end
-
 
 #
 # Ruby

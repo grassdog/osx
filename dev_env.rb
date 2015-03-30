@@ -35,36 +35,31 @@ dep "zshenv fixed" do
 end
 
 dep "code-folder" do
-  requires "project directory is linked",
+  requires "project.dir",
            "scripts directory is linked",
-           "explorations directory is linked"
+           "explorations.dir"
 
 end
 
-dep "code directory exists" do
-  met? { "~/code".p.dir? }
-  meet { log_shell "Creating ~/code", "mkdir ~/code" }
+dep "code.dir" do
+  path "~/code"
 end
 
-dep "project directory is linked" do
-  requires "code directory exists"
-
-  met? { "~/code/projects".p.readlink == "/Users/#{shell("whoami")}/Dropbox/Code/projects" }
-  meet { shell "ln -s ~/Dropbox/Code/projects ~/code/projects" }
+dep "project.dir" do
+  requires "code.dir"
+  path "~/code/projects"
 end
 
 dep "scripts directory is linked" do
-  requires "code directory exists"
+  requires "code.dir"
 
   met? { "~/code/scripts".p.readlink == "/Users/#{shell("whoami")}/Dropbox/Code/scripts" }
   meet { shell "ln -s ~/Dropbox/Code/scripts ~/code/scripts" }
 end
 
-dep "explorations directory is linked" do
-  requires "code directory exists"
-
-  met? { "~/code/explorations".p.readlink == "/Users/#{shell("whoami")}/Dropbox/Code/explorations" }
-  meet { shell "ln -s ~/Dropbox/Code/explorations ~/code/explorations" }
+dep "explorations.dir" do
+  requires "code.dir"
+  path "~/code/explorations"
 end
 
 dep "dotfiles.repo" do

@@ -153,6 +153,7 @@ Restart host to ensure all settings are in effect.
 ## 6. Other manual installs and file copies
 
 - Aircard Watcher and SierraWireless Drivers
+- Copy across or clone projects into `~/code/projects`
 - Copy across from USB backup
     - ~/Pictures/Lightroom
     - ~/code/tools

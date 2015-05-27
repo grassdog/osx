@@ -42,6 +42,7 @@ dep "all-osx-apps" do
            "Alfred.app",
            "Adium.app",
            "Dropbox.installer",
+           "Fantastical 2.app",
            "Firefox.app",
            "Flux.app",
            "Google Chrome.app",
@@ -130,6 +131,10 @@ end
 
 dep "Alfred.app" do
   source "https://cachefly.alfredapp.com/Alfred_2.5.1_308.zip"
+end
+
+dep "Fantastical 2.app" do
+  source "https://flexibits.com/fantastical/download"
 end
 
 dep "iTerm.app" do

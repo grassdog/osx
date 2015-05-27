@@ -35,7 +35,6 @@ Restart host to ensure all settings are in effect.
 
 - 1Password
 - Airmail
-- Fantastical
 - Caffeine
 - Color Picker
 - Monosnap

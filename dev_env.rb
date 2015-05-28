@@ -93,7 +93,7 @@ end
 dep "rust" do
   met? { shell? "rustc" }
   meet {
-    log_shell "Installing Rust. This takes a while.", "curl -s https://static.rust-lang.org/rustup.sh | sudo sh"
+    log_shell "Installing Rust. This takes a while.", "curl -sSf https://static.rust-lang.org/rustup.sh | sh"
   }
 end
 

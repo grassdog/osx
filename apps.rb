@@ -134,7 +134,7 @@ dep "Alfred.app" do
 end
 
 dep "Fantastical 2.app" do
-  source "https://flexibits.com/fantastical/download"
+  source "http://cdn.flexibits.com/Fantastical_2.0.4.zip"
 end
 
 dep "iTerm.app" do

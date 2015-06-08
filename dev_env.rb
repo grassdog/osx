@@ -9,7 +9,6 @@ dep "dev-env" do
            "mongodb-service-installed",
            "rust",
            "dev colour picker",
-           "hex colour picker",
            "secrets",
            "klipbookrc"
 end
@@ -188,14 +187,6 @@ dep "dev colour picker", template: "file" do
   source "http://download.panic.com/picker/developercolorpicker.zip"
   name "DeveloperColorPicker.colorPicker"
   target "~/Library/ColorPickers/DeveloperColorPicker.colorPicker"
-end
-
-dep "hex colour picker", template: "file" do
-  requires "colorpickers.dir"
-
-  source "https://dl.dropboxusercontent.com/u/103175/Installs/HexColorPicker-1.6.1.zip"
-  name "HexColorPicker.colorPicker"
-  target "~/Library/ColorPickers/HexColorPicker.colorPicker"
 end
 
 # Insert \\n at prompt to inject newlines

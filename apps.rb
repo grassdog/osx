@@ -30,19 +30,20 @@ brews = File.readlines(File.expand_path '../brews.lst', __FILE__).map &parse
 # Define our deps
 brews.each { |n, p| p['managed'] }
 
-dep "all-apps" do
-  requires "vim.managed", "emacs.managed", "all-osx-apps"
-
+dep "brews" do
   # Require our deps
   brews.each { |n, p| requires "#{n}.managed" }
+end
+
+dep "all-apps" do
+  requires "vim.managed", "emacs.managed", "brews", "all-osx-apps"
 end
 
 dep "all-osx-apps" do
   requires "Airfoil.app",
            "Alfred.app",
-           "Adium.app",
-           "Dropbox.installer",
-           "Fantastical 2.app",
+           # "Dropbox.installer",
+           # "Fantastical 2.app",
            "Firefox.app",
            "Flux.app",
            "Google Chrome.app",
@@ -147,10 +148,6 @@ end
 
 dep "Airfoil.app" do
   source "http://neutral.rogueamoeba.com/mirror/files/Airfoil.zip"
-end
-
-dep "Adium.app" do
-  source "https://sourceforge.net/projects/adium/files/Adium_1.5.10.dmg/download"
 end
 
 dep "calibre.app" do

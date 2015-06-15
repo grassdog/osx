@@ -10,7 +10,7 @@ dep "emacs.managed" do
   }
 
   after {
-    "brew linkapps emacs"
+    "cp -R /usr/local/opt/emacs/Emacs.app /Applications"
   }
 end
 

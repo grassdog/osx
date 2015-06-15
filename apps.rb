@@ -6,7 +6,11 @@ end
 
 dep "emacs.managed" do
   meet {
-    pkg_manager.install! packages, "--srgb --cocoa"
+    pkg_manager.install! packages, "---with-cocoa"
+  }
+
+  after {
+    "brew linkapps emacs"
   }
 end
 

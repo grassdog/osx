@@ -15,6 +15,7 @@ mercurial:hg
 mongodb:mongod
 multimarkdown
 openssl
+pandoc
 pstree
 python
 reattach-to-user-namespace

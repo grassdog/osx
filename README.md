@@ -151,6 +151,8 @@ Restart host to ensure all settings are in effect.
 
 ## 6. Other manual installs and file copies
 
+- Copy across Emacs Daemon.app from Dropbox to /Applications
+    - Add Daemon to startup items
 - Aircard Watcher and SierraWireless Drivers
 - Copy across or clone projects into `~/code/projects`
 - Copy across from USB backup

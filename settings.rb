@@ -363,6 +363,15 @@ dep "Provisioning.qlgenerator" do
   }
 end
 
+dep "QLColorCode.qlgenerator" do
+  requires "user quicklook folder exists"
+
+  meet {
+    log_shell "Installing #{basename} Quicklook plugin",
+              "cp -R #{__FILE__.p.parent}/files/#{basename}.qlgenerator ~/Library/Quicklook"
+  }
+end
+
 dep "BetterZipQL.qlgenerator" do
   source "http://macitbetter.com/BetterZipQL.zip"
 end

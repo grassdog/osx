@@ -321,6 +321,7 @@ dep "quicklook plugins installed" do
   requires "Provisioning.qlgenerator",
            "BetterZipQL.qlgenerator",
            "QLMarkdown.qlgenerator",
+           "QLColorCode.qlgenerator",
            "QuickLookCSV.qlgenerator",
            "QuickLookJSON.qlgenerator"
 

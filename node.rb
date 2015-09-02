@@ -55,7 +55,7 @@ dep "node-default", :version do
 end
 
 
-LIBS = %w[bower gulp webpack webpack-dev-server js-beautify coffee-script]
+LIBS = %w[bower gulp webpack webpack-dev-server js-beautify coffee-script tern elm-oracle]
 
 LIBS.each do |lib|
   dep "#{lib}.npm"

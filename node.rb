@@ -13,7 +13,7 @@ module NVMHelpers
 end
 
 dep "default-node-env-0.12" do
-  requires "default-node-env".with(version: "0.12")
+  requires "default-node-env".with(version: "0.12.7")
 end
 
 dep "default-node-env", :version do
@@ -55,7 +55,7 @@ dep "node-default", :version do
 end
 
 
-LIBS = %w[bower gulp webpack webpack-dev-server js-beautify coffee-script tern elm-oracle]
+LIBS = %w[bower gulp webpack webpack-dev-server js-beautify coffee-script tern elm-oracle grunt-cli]
 
 LIBS.each do |lib|
   dep "#{lib}.npm"

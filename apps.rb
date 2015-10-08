@@ -158,6 +158,14 @@ dep "calibre.app" do
   source "http://status.calibre-ebook.com/dist/osx32"
 end
 
+dep "basictex.app" do
+  source "http://tug.org/cgi-bin/mactex-download/BasicTeX.pkg"
+
+  met? {
+    "/usr/local/texlive/".p.exists?
+  }
+end
+
 dep "Firefox.app" do
   source "https://download.mozilla.org/?product=firefox-latest&os=osx&lang=en-US"
 end

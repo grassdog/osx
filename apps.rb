@@ -119,7 +119,26 @@ dep "LICEcap.app" do
 end
 
 dep "Moom.app" do
+  requires "Moom Settings"
   source "https://dl.dropboxusercontent.com/u/103175/Installs/moom321.dmg"
+end
+
+dep "Moom Settings" do
+  def dest_file
+    "~/Library/Preferences/com.manytricks.Moom.plist"
+  end
+
+  def source_file
+    "#{__FILE__.p.parent}/files/com.manytricks.Moom.plist"
+  end
+
+  met? {
+    dest_file.p.exists? && dest_file.p.read == source_file.p.read
+  }
+
+  meet {
+    shell "cp #{source_file} #{dest_file}"
+  }
 end
 
 dep "VLC.app" do

@@ -1,5 +1,6 @@
 dep "all-fonts" do
   requires "forza.otf",
+           "hack.ttf",
            "gothamc.otf",
            "idlewild.otf",
            "vitesse.otf",
@@ -67,6 +68,11 @@ end
 dep "forza.otf" do
   source "https://dl.dropboxusercontent.com/u/103175/Fonts/Forza.zip"
   otf_filename "Forza-Black.otf"
+end
+
+dep "hack.ttf" do
+  source "https://dl.dropboxusercontent.com/u/103175/Fonts/Hack-ttf.zip"
+  ttf_filename "Hack-Bold.ttf"
 end
 
 dep "gothamc.otf" do

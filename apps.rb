@@ -6,7 +6,7 @@ end
 
 dep "emacs.managed" do
   meet {
-    pkg_manager.install! packages, "---with-cocoa"
+    pkg_manager.install! packages, "--with-cocoa --with-gnutls --with-rsvg --with-imagemagick"
   }
 
   after {

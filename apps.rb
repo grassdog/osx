@@ -52,6 +52,7 @@ dep "all-osx-apps" do
            "Flux.app",
            "Google Chrome.app",
            "GrandPerspective.app",
+           "GitUp.app",
            "ImageOptim.app",
            "Java",
            "Kaleidoscope.app",
@@ -151,6 +152,10 @@ end
 
 dep "Dropbox.installer" do
   source "https://www.dropbox.com/download?plat=mac&full=1"
+end
+
+dep "GitUp.app" do
+  source "https://s3-us-west-2.amazonaws.com/gitup-builds/stable/GitUp.zip"
 end
 
 dep "Alfred.app" do

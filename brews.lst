@@ -23,6 +23,7 @@ selecta
 sqlite:sqlite3
 the_silver_searcher:ag
 tmux
+trash
 tree
 vcprompt
 wget

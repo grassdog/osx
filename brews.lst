@@ -3,6 +3,7 @@ aspell
 chisel:_
 chruby:_
 ctags
+elixir
 figlet
 git
 heroku-toolbelt:heroku

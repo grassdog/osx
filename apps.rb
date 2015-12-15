@@ -4,13 +4,36 @@ dep "vim.managed" do
   }
 end
 
-dep "emacs.managed" do
+dep 'emacs-port-tap' do
+  meet { shell 'brew tap railwaycat/emacsmacport' }
+  met? { `brew tap`.include? 'railwaycat/emacsmacport' }
+end
+
+
+dep "emacs-mac.managed" do
+  requires 'emacs-port-tap'
   meet {
-    pkg_manager.install! packages, "--with-cocoa --with-gnutls --with-rsvg --with-imagemagick"
+    pkg_manager.install! packages, "--with-spacemacs-icon"
+  }
+
+  met? {
+    '/Applications/Emacs.app'.p.exists?
   }
 
   after {
-    "cp -R /usr/local/opt/emacs/Emacs.app /Applications"
+    "mv /usr/local/Cellar/emacs-mac/emacs-*/Emacs.app /Applications"
+  }
+end
+
+
+dep "spacemacs" do
+  requires "emacs-mac.managed"
+  met? {
+    "~/.emacs.d".p.exists?
+  }
+
+  meet {
+    sh "git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d"
   }
 end
 
@@ -40,7 +63,7 @@ dep "brews" do
 end
 
 dep "all-apps" do
-  requires "vim.managed", "emacs.managed", "brews", "all-osx-apps"
+  requires "vim.managed", "spacemacs", "brews", "all-osx-apps"
 end
 
 dep "all-osx-apps" do

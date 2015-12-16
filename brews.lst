@@ -7,6 +7,7 @@ elixir
 figlet
 git
 heroku-toolbelt:heroku
+httpie:http
 imagemagick:_
 jrnl
 leiningen:lein

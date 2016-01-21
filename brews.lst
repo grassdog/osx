@@ -9,6 +9,7 @@ git
 heroku-toolbelt:heroku
 httpie:http
 imagemagick:_
+jq
 jrnl
 leiningen:lein
 macvim:mvim

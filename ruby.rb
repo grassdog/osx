@@ -20,7 +20,7 @@ dep "ruby-env", :version do
            "gems".with(version: version)
 end
 
-GEMS = %w[bundler pry klipbook tmuxinator ruby-lint]
+GEMS = %w[bundler pry klipbook rubocop seeing_is_believing]
 
 GEMS.each do |gem|
   dep "#{gem}-gem", :version do

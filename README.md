@@ -113,7 +113,8 @@ Restart host to ensure all settings are in effect.
     - Launch at login
     - Don't show main window at launch
 - Fantastical
-    - Disable alerts for boring events and calendars
+    - Disable alerts
+    - Disable reminders
     - Menu bar icon date and weekday
     - Defaults to last selected calendar and list
     - Change key shortcut to `shift-f12`
@@ -164,4 +165,5 @@ Restart host to ensure all settings are in effect.
 - MS Office
     - Customize install to not install cruft
 - Copy across development VMs
-
+- Calendar
+    - Disable alerts for shared calendars and meeting requests 

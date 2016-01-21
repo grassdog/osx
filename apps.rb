@@ -40,8 +40,8 @@ end
 dep "htop-osx.managed" do
   provides "htop"
   after {
-    "sudo chown root:wheel /usr/local/Cellar/htop-osx/*/bin/htop"
-    "sudo chmod u+s /usr/local/Cellar/htop-osx/*/bin/htop"
+    sudo "chown root:wheel /usr/local/Cellar/htop-osx/*/bin/htop"
+    sudo "chmod u+s /usr/local/Cellar/htop-osx/*/bin/htop"
   }
 end
 
@@ -52,7 +52,7 @@ parse = -> (l) {
   p = [] if p == '_' # provides nothing
   [n, -> (t) { dep "#{n}.#{t}" do provides p if p end }]
 }
-brews = File.readlines(File.expand_path '../brews.lst', __FILE__).map &parse
+brews = File.readlines(File.expand_path '../brews.lst', __FILE__).map(&parse)
 
 # Define our deps
 brews.each { |n, p| p['managed'] }

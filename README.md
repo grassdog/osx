@@ -149,6 +149,7 @@ Restart host to ensure all settings are in effect.
 - Copy across Emacs Daemon.app from Dropbox to /Applications
     - Add Daemon to startup items
 - Aircard Watcher and SierraWireless Drivers
+- [GPGTools](https://gpgtools.org/)
 - Copy across or clone projects into `~/code/projects`
 - Copy across from USB backup
     - ~/Pictures/Lightroom

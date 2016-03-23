@@ -10,7 +10,8 @@ dep "dev-env" do
            "rust",
            "dev colour picker",
            "secrets",
-           "klipbookrc"
+           "klipbookrc",
+           "proselint.pip"
 end
 
 #
@@ -199,3 +200,4 @@ dep "klipbookrc" do
   requires "read_only file".with(file: "~/.klipbookrc")
 end
 
+dep 'proselint.pip'

@@ -5,7 +5,6 @@ dep "dev-env" do
            "npm-libs",
            "default-node-env-0.12",
            "default-ruby-env-2.2.0",
-           "pow",
            "mongodb-service-installed",
            "rust",
            "dev colour picker",

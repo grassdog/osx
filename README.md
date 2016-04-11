@@ -26,7 +26,7 @@ bash <(curl -s https://raw.githubusercontent.com/grassdog/osx/master/bootstrap.s
 ## 3. Install deps for host
 
 ```sh
-babushka osx:deus
+babushka osx:host hostname=fred
 ```
 
 Restart host to ensure all settings are in effect.

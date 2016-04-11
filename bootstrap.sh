@@ -23,6 +23,7 @@ else
   sudo mkdir -p /usr/local
   sudo chmod g+w /usr/local
   sudo chgrp staff /usr/local
+  sudo chown -R `whoami`:admin /usr/local/bin
 fi
 
 echo "Checking permissions in /usr/local/..."

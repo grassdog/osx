@@ -33,7 +33,7 @@ dep "spacemacs" do
   }
 
   meet {
-    sh "git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d"
+    shell "git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d"
   }
 end
 
@@ -63,7 +63,7 @@ dep "brews" do
 end
 
 dep "all-apps" do
-  requires "vim.managed", "spacemacs", "brews", "all-osx-apps"
+  requires "vim.managed", "spacemacs", "all-osx-apps", "brews"
 end
 
 dep "all-osx-apps" do
@@ -266,7 +266,7 @@ dep "Marked.app" do
 end
 
 dep "OmniFocus.app" do
-  source "http://www.omnigroup.com/ftp1/pub/software/MacOSX/10.10/OmniFocus-2.1.dmg"
+  source "http://www.omnigroup.com/ftp1/pub/software/MacOSX/10.10/OmniFocus-2.5.dmg"
 end
 
 dep "OmniGraffle.app" do

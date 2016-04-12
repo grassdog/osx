@@ -12,8 +12,8 @@ module NVMHelpers
   end
 end
 
-dep "default-node-env-0.12" do
-  requires "default-node-env".with(version: "0.12.7")
+dep "default-node-env-4" do
+  requires "default-node-env".with(version: "4")
 end
 
 dep "default-node-env", :version do
@@ -35,7 +35,7 @@ dep "node", :version do
   requires "nvm.managed"
 
   met? {
-    nvm_shell("nvm ls").split.grep /v#{version}/
+    nvm_shell("nvm ls").split.grep(/v#{version}/)
   }
 
   meet {
@@ -48,7 +48,7 @@ dep "node-default", :version do
 
   requires "node".with(version)
 
-  met? { nvm_shell("nvm ls").split.grep /default -> #{version}/ }
+  met? { nvm_shell("nvm ls").split.grep(/default -> #{version}/) }
   meet {
     nvm_shell "nvm link default #{version}"
   }

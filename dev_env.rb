@@ -3,7 +3,7 @@ dep "dev-env" do
            "code-folder",
            "dotfiles",
            "npm-libs",
-           "default-node-env-0.12",
+           "default-node-env-4",
            "default-ruby-env-2.2.0",
            "mongodb-service-installed",
            "rust",

@@ -34,28 +34,12 @@ Restart host to ensure all settings are in effect.
 ## 4. Install more apps from the Mac App Store
 
 - 1Password
-- Airmail
-- Caffeine
-- Color Picker
-- Monosnap
-- Xscope
-- Dash
+- Zen Timer
+- Ulysses
+- Dash 3
+    - Set up synching to `~/Dropbox/Backups/Dash`
 - Day One
-- Folding Text
-- Byword
-- Scrivener
-- Soulver
-- Kindle
-- Capo 3
-- Lingo
-- Slack
-- Transmit
 - White Noise
-- Oyster
-- Melo
-- Valentina Studio
-- Base
-- Microsoft Remote Desktop
 
 ## 5. Manual Steps
 
@@ -78,24 +62,25 @@ Restart host to ensure all settings are in effect.
         - Add Twitter account
     - Accessibility > Reduce transparency
     - Keyboard > Set caps lock as control
-    - Keyboard > Shortcuts > Change spotlight to `ctrl-option-cmd-space`
-    - Keyboard > Shortcuts > Switch off show finder search window
-    - Keyboard > Shortcuts > Disable all Mission Control key shortcuts
+    - Keyboard > Shortcuts > Spotlight > Change spotlight to `ctrl-option-cmd-space`
+    - Keyboard > Shortcuts > Spotlight > Switch off show finder search window
+    - Keyboard > Shortcuts > Mission Control > Disable all Mission Control key shortcuts
     - Trackpad > Disable Two finger click
     - Trackpad > Disable Smart zoom and Rotate
     - Trackpad > Disable swipe between pages
-    - Desktop and ScreenSaver > Add Dropbox/Pictures/Wallpapers folder and
-      change every day
+    - Desktop and ScreenSaver > Add Dropbox/Pictures/Wallpapers folder and change every hour
     - Desktop and ScreenSaver > Arabesque screensaver
     - Security > Accessibility add apps
         - Dash
-        - Fantastical
+        - Fantastical 2
         - Moom
-        - TextExpander and TextExpanderHelper
-- Place Airmail, Chrome, Omnifocus, Slack, Soulver, MacVim, Hollywood.inetloc, and iTerm into the Dock
+- Place Chrome, Omnifocus, Slack, Soulver, MacVim, Hollywood.inetloc, and iTerm into the Dock
 - iTerm
     - Preferences > Set as default terminal
     - Sync preferences ~/Dropbox/Backups/iterm
+- 1Password
+    - Security > Don't lock when screensaver activated
+    - Switch on third party integration under advanced settings
 - Alfred
     - Install Powerpack from 1Password
     - Set sync folder to ~/Dropbox/Backups/Alfred
@@ -105,60 +90,66 @@ Restart host to ensure all settings are in effect.
     - Disable contacts in Alfred
     - Appearance > Yosemite Light
     - Appearance > Hide Menu Bar Icon
-- 1Password
-    - Security > Don't lock when screensaver activated
-- TextExpander
-    - Setup Dropbox sync
-    - Hide icon in Dock
-    - Launch at login
-    - Don't show main window at launch
-- Fantastical
-    - Disable alerts
-    - Disable reminders
+- Calendar.app
+    - Disable notifications
+- Fantastical 2
     - Menu bar icon date and weekday
     - Defaults to last selected calendar and list
     - Change key shortcut to `shift-f12`
-- Airmail
-    - Add accounts
-    - Disable interaction sounds
-    - General > Dock only
-    - Disable Notifications
-    - For each account > Mapping > Remove custom folders
-    - For each account > Clear out signature
+    - General > Start week on Today or selected day
+    - General > Start Month on current or selected week
 - Flux
     - Set wake up time
 - Airfoil
     - Only show in menu bar
     - Install extras for instant on
 - DayOne
-    - Setup dropbox sync
+    - Setup sync
     - Baskerville 18pt, no auto bold, no twitter names
     - Disable reminders
     - Disable popover previews
     - Disable spelling corrections
+- Install SSH Keys and config
+    - Run Babushka tasks and install in Github and Forge
+    - Alternatively install Deus keys
+
+## 6. Personal Apps
+
+Extra apps for more personal hosts.
+
+```sh
+$ babushka osx:personal-apps
+```
+
+- Caffeine
+- Color Picker
+- Monosnap
+- Xscope
+- Byword
+- Kindle
+- Capo 3
+- Lingo
+- Transmit
+- Oyster
+- Melo
+- TextExpander
+    - Setup Dropbox sync
+    - Hide icon in Dock
+    - Launch at login
+    - Don't show main window at launch
 - Calibre
     - Preferences > Install plugin from file > `~/Dropbox/Backups/Calibre DRM plugins/tools_v6.0.9/DeDRM_calibre_plugin/DeDRM_plugin.zip`
 - Yojimbo
     - Link files `ln -s ~/Dropbox/Backups/Yojimbo ~/Library/Application\ Support/Yojimbo`
     - When handling links create web archives
-- Install SSH Keys and config
-    - Run Babushka tasks and install in Github and Forge
 
-## 6. Other manual installs and file copies
+## 7. Other manual installs and file copies
 
-- Copy across Emacs Daemon.app from Dropbox to /Applications
-    - Add Daemon to startup items
-- Aircard Watcher and SierraWireless Drivers
 - [GPGTools](https://gpgtools.org/)
 - Copy across or clone projects into `~/code/projects`
 - Copy across from USB backup
-    - ~/Pictures/Lightroom
-    - ~/code/tools
     - ~/code/old
     - ~/code/scratch
-    - ~/code/interesting
-    - ~/Movies/Learning
-    - ~/Movies/To Watch
 - Lightroom
     - Copy across Lightroom catalog and masters from USB backup
     - Copy across Lightroom presets from backup into new location `~/Library/Application Support/Adobe/Lightroom/{Develop Preset,Export Presets,Filename Templates}`
@@ -166,5 +157,3 @@ Restart host to ensure all settings are in effect.
 - MS Office
     - Customize install to not install cruft
 - Copy across development VMs
-- Calendar
-    - Disable alerts for shared calendars and meeting requests 

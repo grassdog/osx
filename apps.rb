@@ -79,6 +79,8 @@ dep "all-osx-apps" do
            "Fantastical 2.app",
            "Firefox.app",
            "Flux.app",
+           "Sequel Pro.app",
+           "Postico.app",
            "basictex.app",
            "Google Chrome.app",
            "GrandPerspective.app",
@@ -279,6 +281,14 @@ end
 
 dep "SourceTree.app" do
   source "https://downloads.atlassian.com/software/sourcetree/SourceTree_2.0.4.dmg"
+end
+
+dep "Positco.app" do
+  source "https://eggerapps.at/postico/download/"
+end
+
+dep "Sequel Pro.app" do
+  source "http://www.sequelpro.com/download/"
 end
 
 dep "Steam.app" do

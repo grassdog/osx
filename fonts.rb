@@ -10,6 +10,7 @@ dep "all-fonts" do
            "crimson.otf",
            "mensch.ttf",
            "metropolis.otf",
+           "league-gothic.otf",
            "deconeue.ttf"
 
 end
@@ -68,6 +69,11 @@ end
 dep "forza.otf" do
   source "https://dl.dropboxusercontent.com/u/103175/Fonts/Forza.zip"
   otf_filename "Forza-Black.otf"
+end
+
+dep "league-gothic.otf" do
+  source "https://github.com/theleagueof/league-gothic/archive/master.zip"
+  otf_filename "LeagueGothic-Regular.otf"
 end
 
 dep "hack.ttf" do

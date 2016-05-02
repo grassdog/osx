@@ -9,6 +9,7 @@ dep "all-fonts" do
            "sullivan.otf",
            "crimson.otf",
            "mensch.ttf",
+           "roboto.ttf",
            "metropolis.otf",
            "league-gothic.otf",
            "deconeue.ttf"
@@ -79,6 +80,12 @@ end
 dep "hack.ttf" do
   source "https://dl.dropboxusercontent.com/u/103175/Fonts/Hack-ttf.zip"
   ttf_filename "Hack-Bold.ttf"
+end
+
+
+dep "roboto.ttf" do
+  source "https://dl.dropboxusercontent.com/u/103175/Fonts/roboto.zip"
+  ttf_filename "Roboto-Medium.ttf"
 end
 
 dep "gothamc.otf" do

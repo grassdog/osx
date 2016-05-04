@@ -12,6 +12,7 @@ heroku-toolbelt:heroku
 httpie:http
 imagemagick:_
 jq
+keybase
 leiningen:lein
 macvim:mvim
 mercurial:hg

@@ -7,8 +7,9 @@ diff-so-fancy
 elixir
 figlet
 git
-gpg2
+gnupg2
 heroku-toolbelt:heroku
+htop-osx
 httpie:http
 imagemagick:_
 jq
@@ -26,6 +27,7 @@ reattach-to-user-namespace
 selecta
 sqlite:sqlite3
 the_silver_searcher:ag
+tmate
 tmux
 trash
 tree

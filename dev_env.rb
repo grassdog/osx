@@ -10,7 +10,8 @@ dep "dev-env" do
            "dev colour picker",
            "secrets",
            "klipbookrc",
-           "proselint.pip"
+           "proselint.pip",
+           "aws-vault"
 end
 
 #
@@ -93,6 +94,16 @@ dep "rust" do
   met? { shell? "rustc" }
   meet {
     log_shell "Installing Rust. This takes a while.", "curl -sSf https://static.rust-lang.org/rustup.sh | sh"
+  }
+end
+
+dep "aws-vault", :version do
+  version.default!("3.2.0")
+
+  met? { in_path? "aws-vault" }
+  meet {
+    path = "/usr/local/bin/aws-vault"
+    shell "wget -q -O #{path} https://github.com/99designs/aws-vault/releases/download/#{version}/aws-vault-Darwin-x86_64 && chmod 755 #{path}"
   }
 end
 

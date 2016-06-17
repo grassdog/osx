@@ -9,8 +9,8 @@ elixir
 figlet
 git
 gnupg2:gpg2
-heroku-toolbelt:heroku
 htop-osx
+heroku
 httpie:http
 imagemagick:_
 jq
@@ -21,7 +21,7 @@ mercurial:hg
 mongodb:mongod
 openssl
 pandoc
-postgresql
+postgresql:psql
 pstree
 python
 reattach-to-user-namespace

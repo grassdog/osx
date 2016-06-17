@@ -1,5 +1,6 @@
 ansible
 aspell
+awscli:aws
 chisel:_
 chruby:_
 ctags

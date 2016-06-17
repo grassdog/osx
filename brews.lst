@@ -8,7 +8,7 @@ diff-so-fancy
 elixir
 figlet
 git
-gnupg2
+gnupg2:gpg2
 heroku-toolbelt:heroku
 htop-osx
 httpie:http

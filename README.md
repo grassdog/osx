@@ -1,5 +1,7 @@
 # OS X Setup
 
+**I use [bash scripts](https://github.com/grassdog/dotfiles/blob/master/bootstrap.sh) these days instead of this repo.**
+
 A recipe for setting up a new OS X host how I like it. With liberal pilfering
 from:
 
